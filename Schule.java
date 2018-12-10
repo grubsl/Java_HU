@@ -1,10 +1,11 @@
 
-public class Schule {
-
+public class Schule
+{
 	public static void main(String[] args) 
 	{
-		int x=0;
+		String name="";
+		long int schulkennzahl=0;
+		String schultyp="";
 
 	}
-
 }

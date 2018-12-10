@@ -3,15 +3,32 @@ public class Schule
 {
 	public static void main(String[] args) 
 	{
+		private:
+			
 		String name="";
 		long int schulkennzahl=0;
 		String schultyp="";
 		
 		public:
 			
-		void addPersonal(NichtLehrpersonal personal)
+		void setName(String name)
 		{
+			this.name=name;
+		}
+		
+		void setSchulkennzahl(long int schulkennzahl)
+		{
+			this.schulkennzahl=schulkennzahl;
+		}
+		
+		void setSchultyp(String schultyp)
+		{
+			this.schultyp=schultyp;
+		}
 			
+		boolean addPersonal(NichtLehrpersonal personal)
+		{
+			return;
 		}
 		
 		void addAbteilung(String name, String kuerzel)
@@ -29,16 +46,14 @@ public class Schule
 			this.zahl=schulkennzahl;
 		}
 		
-		void getName(String nameh)
+		String getName()
 		{
-			this.nameh=name;
+			return name;
 		}
 		
 		void getSchultyp(String schultyph)
 		{
 			
 		}
-		
-		void getPersonal()
 	}
 }

@@ -1,4 +1,6 @@
-
+//Schule
+//17.12.18
+//V1
 public class Schule
 {
 	public static void main(String[] args) 

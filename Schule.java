@@ -1,61 +1,53 @@
-//Schule
-//17.12.18
-//V1
+/****************************************************************************
+* Gruber Lukas ; Alexander Wippel ; 4 AHELS
+* Schule
+* 17.12.2018 - Version 1
+****************************************************************************/
+
 public class Schule
-{
-	public static void main(String[] args) 
+{	
+	private String name="";
+	private int schulkennzahl=0;
+	private String schultyp="";
+			
+
+	public boolean addPersonal(NichtLehrpersonal personal)
 	{
-		private:
+		return true;
+	}
+		
+	public void addAbteilung(String name, String kuerzel)
+	{
 			
-		String name="";
-		long int schulkennzahl=0;
-		String schultyp="";
+	}
 		
-		public:
-			
-		void setName(String name)
-		{
-			this.name=name;
-		}
+	public void getSchulkennzahl(int zahl)
+	{
+		zahl = schulkennzahl;
+	}
+	
+	public void getSchultyp(String schultyph)
+	{
 		
-		void setSchulkennzahl(long int schulkennzahl)
-		{
-			this.schulkennzahl=schulkennzahl;
-		}
-		
-		void setSchultyp(String schultyp)
-		{
-			this.schultyp=schultyp;
-		}
-			
-		boolean addPersonal(NichtLehrpersonal personal)
-		{
-			return;
-		}
-		
-		void addAbteilung(String name, String kuerzel)
-		{
-			
-		}
-		
-		void setDirektor(Lehrer lehrer)
-		{
-			
-		}
-		
-		void getSchulkennzahl(long int zahl)
-		{
-			this.zahl=schulkennzahl;
-		}
-		
-		String getName()
-		{
-			return name;
-		}
-		
-		void getSchultyp(String schultyph)
-		{
-			
-		}
+	}
+
+	public String getSchultyp() 
+	{
+		return schultyp;
+	}
+
+	public void setSchultyp(String schultyp) 
+	{
+		this.schultyp = schultyp;
+	}
+
+	public String getName() 
+	{
+		return name;
+	}
+
+	public void setName(String name) 
+	{
+		this.name = name;
 	}
 }

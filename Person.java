@@ -1,8 +1,9 @@
 /****************************************************************************
-* Gruber Lukas ; 4 AHELS
+* Gruber Lukas ; Alexander Wippel ; 4 AHELS
 * Person - Basisklasse
 * 17.12.2018 - Version 1
 ****************************************************************************/
+
 import java.util.*;
 
 public class Person 

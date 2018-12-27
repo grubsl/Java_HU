@@ -6,10 +6,14 @@
 
 public class Klassendiagramm_HTL 
 {
-
 	public static void main(String[] args) 
 	{
-		System.out.print("Ihr Passwort: ");
+		Schule HTL = new Schule("HTL St.Pölten", "technische", 1120234446248L);	//add L for type Long
+		
+		HTL.addAbteilung("Elektrotechnik", "ET");
+		
+		System.out.print(HTL.getName()+"\n");
+		Abteilung ET = HTL.addAbteilung("Elektrotechnik", "ET");
+		System.out.print(ET.getName());	//ist Abteilung geschachtelte Klasse?
 	}
-
 }

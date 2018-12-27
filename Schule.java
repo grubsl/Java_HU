@@ -24,9 +24,22 @@ public class Schule
 	}	
 	public Abteilung addAbteilung(String name, String kuerzel)
 	{
-		Abteilung Elektronik = null;
+		/*BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
+    	
+		try 
+    	{
+    		name = rd.readLine();
+    		kuerzel = rd.readLine();
+    	}
+    	catch(IOException e)
+    	{
+    		System.out.println("Bad luck ...");
+    		e.printStackTrace();
+    	}
 		
-		return Elektronik; 
+		Abteilung X = new Abteilung(name, kuerzel);*/
+		
+		return new Abteilung(name,kuerzel); 
 	}
 	
 	public boolean setDirektor(Lehrer lehrer)

@@ -8,7 +8,7 @@ import java.util.*;
 
 public class Person 
 {
-	protected long svnr;
+	protected Long svnr;
 	protected String vorname, nachname;
 	protected Date geburtsdatum; 
 	protected String email;
@@ -29,7 +29,7 @@ public class Person
 	{
 		return email;
 	}
-	public long getSvnr() 
+	public Long getSvnr() 
 	{
 		return svnr;
 	}

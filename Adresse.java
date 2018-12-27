@@ -11,7 +11,9 @@ public class Adresse
 	private Integer hausnummer;
 	private Integer plz;
 	
-	Adresse(String ort,String strasse,Integer hausnummer,Integer plz)
+	public Adresse(){}
+	public Adresse(	String ort,String strasse,
+					Integer hausnummer,Integer plz)
 	{
 		this.ort = ort;
 		this.strasse = strasse;
@@ -23,17 +25,14 @@ public class Adresse
 	{
 		return ort;
 	}
-
 	public String getStrasse() 
 	{
 		return strasse;
 	}
-
 	public Integer getHausnummer() 
 	{
 		return hausnummer;
 	}
-
 	public Integer getPlz() 
 	{
 		return plz;

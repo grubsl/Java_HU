@@ -6,48 +6,44 @@
 
 public class Schule
 {	
-	private String name="";
-	private int schulkennzahl=0;
-	private String schultyp="";
-			
+	private String name;
+	private Long schulkennzahl;
+	private String schultyp;
 
+	Schule(){}
+	Schule(String name,String schultyp,Long schulkennzahl)
+	{
+		this.schultyp = schultyp;
+		this.name = name;
+		this.schulkennzahl = schulkennzahl;
+	}
+	
 	public boolean addPersonal(NichtLehrpersonal personal)
 	{
 		return true;
-	}
-		
-	public void addAbteilung(String name, String kuerzel)
+	}	
+	public Abteilung addAbteilung(String name, String kuerzel)
 	{
-			
-	}
+		Abteilung Elektronik = null;
 		
-	public void getSchulkennzahl(int zahl)
-	{
-		zahl = schulkennzahl;
+		return Elektronik; 
 	}
 	
-	public void getSchultyp(String schultyph)
+	public boolean setDirektor(Lehrer lehrer)
 	{
-		
+		return false;
 	}
-
+		
+	public Long getSchulkennzahl() 
+	{
+		return schulkennzahl;
+	}
 	public String getSchultyp() 
 	{
 		return schultyp;
 	}
-
-	public void setSchultyp(String schultyp) 
-	{
-		this.schultyp = schultyp;
-	}
-
 	public String getName() 
 	{
 		return name;
-	}
-
-	public void setName(String name) 
-	{
-		this.name = name;
 	}
 }

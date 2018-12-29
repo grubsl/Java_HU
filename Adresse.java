@@ -21,6 +21,13 @@ public class Adresse
 		this.plz = plz;
 	}
 	
+	public void printAdresse()
+	{
+		System.out.print(
+				"\n" + getOrt() + "\n" +
+				getStrasse() + "\t"+
+				getHausnummer());	
+	}
 	public String getOrt() 
 	{
 		return ort;

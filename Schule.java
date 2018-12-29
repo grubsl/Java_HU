@@ -9,13 +9,16 @@ public class Schule
 	private String name;
 	private Long schulkennzahl;
 	private String schultyp;
+	private Adresse Ort = new Adresse();
 
 	Schule(){}
-	Schule(String name,String schultyp,Long schulkennzahl)
+	Schule(String name,String schultyp,Long schulkennzahl,
+			String ort,String strasse,Integer nr,Integer plz)
 	{
 		this.schultyp = schultyp;
 		this.name = name;
 		this.schulkennzahl = schulkennzahl;
+		Ort = new Adresse(ort,strasse,nr,plz);
 	}
 	
 	public boolean addPersonal(NichtLehrpersonal personal)
@@ -58,5 +61,9 @@ public class Schule
 	public String getName() 
 	{
 		return name;
+	}
+	public void printOrt() 
+	{
+		Ort.printAdresse();
 	}
 }

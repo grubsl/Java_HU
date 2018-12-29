@@ -18,9 +18,13 @@ public class Klassendiagramm_HTL
 	
 	public static void main(String[] args) 
 	{		
-		Schule HTL = new Schule("HTL St.Pölten", "technische", 1120234446248L);	//add L for type Long
+		Schule HTL= new Schule(	"HTL St.Pölten ", "Höhere Technische Lehranstalt" , 1120234446248L, 
+								"St.Pölten","Waldstraße",3,3100);	//add L for type Long 
+		Abteilung Sammel [] = new Abteilung [5]; 
 		
-		Abteilung ET = HTL.addAbteilung("Elektrotechnik", "ET");
+		Sammel[0] = HTL.addAbteilung("Elektrotechnik", "ET");
+		Sammel[1] = HTL.addAbteilung("Elektronik    ", "EL");
+		Sammel[2] = HTL.addAbteilung("Maschinenbau  ", "MB");
 		
 		System.out.print("\n Informationsseite:" +
 						 "\n  Schule \t [1]" +
@@ -40,12 +44,18 @@ public class Klassendiagramm_HTL
 				System.out.print(
 						"\n" + HTL.getName() + "\t" +
 						HTL.getSchulkennzahl() + "\n" +
-						HTL.getSchultyp());				
+						HTL.getSchultyp());		
+					HTL.printOrt();
 				break;
 			case ABTEILUNG:
-				System.out.print(
-						"\n" + ET.getName() + "\t" +
-						ET.getKuerzel());		
+				int i = 0;
+				while(Sammel[i] != null)
+				{
+					System.out.print(
+						"\n Abteilung:" + Sammel[i].getName() + "\t" +
+						"Kuerzel" + Sammel[i].getKuerzel());
+					i++;
+				}
 				break;
 
 			case ABBRECHEN:
@@ -62,9 +72,9 @@ public class Klassendiagramm_HTL
 			System.out.println("Eingabe Abgebrochen");
 			
 		}
-		catch(NumberFormatException e) // falls String eingegeben wird
+		catch(NumberFormatException e)
 		{
-			System.out.println("1.Auswahl nicht verfügbar!");
+			System.out.println("Fehlerhafte Eingabe");
 		}
 		catch(Exception e) 
 		{

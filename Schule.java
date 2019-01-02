@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /****************************************************************************
 * Gruber Lukas ; Alexander Wippel ; 4 AHELS
 * Schule - Klasse
@@ -5,13 +8,17 @@
 ****************************************************************************/
 
 public class Schule
-{	
+{
 	private String name;
 	private Long schulkennzahl;
 	private String schultyp;
 	private Adresse Ort = new Adresse();
+
 	private long schulsprecher_ID;
 	private Lehrer Direktor;
+
+	private long Schulsprecher_ID;
+	private List<NichtLehrpersonal> nichtlehrpersonal =new ArrayList<NichtLehrpersonal>();
 
 	public Schule(){}
 	public Schule(String name,String schultyp,Long schulkennzahl,
@@ -22,16 +29,13 @@ public class Schule
 		this.schulkennzahl = schulkennzahl;
 		Ort = new Adresse(ort,strasse,nr,plz);
 	}
-	
-	public boolean addPersonal(NichtLehrpersonal personal)
-	{
-		return true;
-	}	
+
+
 	public Abteilung addAbteilung(String name, String kuerzel)
 	{
 		/*BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
-    	
-		try 
+
+		try
     	{
     		name = rd.readLine();
     		kuerzel = rd.readLine();
@@ -41,12 +45,12 @@ public class Schule
     		System.out.println("Bad luck ...");
     		e.printStackTrace();
     	}
-		
+
 		Abteilung X = new Abteilung(name, kuerzel);*/
-		
-		return new Abteilung(name,kuerzel); 
+
+		return new Abteilung(name,kuerzel);
 	}
-	
+
 	public boolean setDirektor(Lehrer Lehrer)
 	{
 		if(Lehrer.Aufgabe == false)
@@ -59,30 +63,34 @@ public class Schule
 		}
 		return false;
 	}
-	
-	public Long getSchulkennzahl() 
+
+	public Long getSchulkennzahl()
 	{
 		return schulkennzahl;
 	}
-	public String getSchultyp() 
+	public String getSchultyp()
 	{
 		return schultyp;
 	}
-	public String getName() 
+	public String getName()
 	{
 		return name;
 	}
-	public void printOrt() 
+	public void printOrt()
 	{
 		Ort.printAdresse();
 	}
-	
-	public long getSchulsprecher_ID() 
+
+	public long getSchulsprecher_ID()
 	{
 		return schulsprecher_ID;
 	}
-	public void setSchulsprecher_ID(long Schulsprecher_ID) 
+	public void setSchulsprecher_ID(long Schulsprecher_ID)
 	{
 		this.schulsprecher_ID = Schulsprecher_ID;
+	}
+	public void addnichtlehrpersopnal(NichtLehrpersonal x)
+	{
+		nichtlehrpersonal.add(x);
 	}
 }

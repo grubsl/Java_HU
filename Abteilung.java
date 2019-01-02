@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /****************************************************************************
 * Gruber Lukas ; Alexander Wippel ; 4 AHELS
 * Abteilung - Klasse
@@ -5,23 +8,24 @@
 ****************************************************************************/
 
 public class Abteilung
-{	
+{
 	private String kuerzel;
 	private String name;
 	private Lehrer Av;
-	
+	private List<Lehrer> LehrerInnen =new ArrayList<Lehrer>();
+
 	public Abteilung(){}
 	public Abteilung(String name,String kuerzel)
 	{
 		this.kuerzel = kuerzel;
 		this.name = name;
 	}
-	
-	public boolean addLehrer(Lehrer Eule)
+
+	public void addLehrer(Lehrer L)
 	{
-		return false;
+		LehrerInnen.add(L);
 	}
-	
+
 	public boolean setAbteilungsvorstand(Lehrer Eule)
 	{
 		if(Eule.Aufgabe == false)
@@ -34,22 +38,22 @@ public class Abteilung
 		}
 		return false;
 	}
-	
-	public String getSchueler() 
+
+	public String getSchueler()
 	{
 		return "Not done yet!";
 	}
-	
-	public String getKuerzel() 
+
+	public String getKuerzel()
 	{
 		return kuerzel;
 	}
-	public String getName() 
+	public String getName()
 	{
 		return name;
 	}
-	public Lehrer getAv() 
+	public Lehrer getAv()
 	{
 		return Av;
-	}		
+	}
 }

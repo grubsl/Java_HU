@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /****************************************************************************
 * Gruber Lukas ; Alexander Wippel ; 4 AHELS
 * Lehrer - SubSubklasse
@@ -11,6 +14,8 @@ public class Lehrer extends Mitarbeiter
 	private Abteilung Abteilung;
 	public boolean Aufgabe;
 
+	private List<Abteilung> Abteilungen =new ArrayList<Abteilung>();
+
 	public Lehrer(){}
 	public Lehrer(String kuerzel,Schule Schule,Abteilung Abteilung)
 	{
@@ -18,19 +23,24 @@ public class Lehrer extends Mitarbeiter
 		Aufgabe = false;
 		this.kuerzel = kuerzel;
 		this.Abteilung = Abteilung;
-		this.Schule = Schule;		
+		this.Schule = Schule;
 	}
-	
-	public String getKuerzel() 
+
+	public String getKuerzel()
 	{
 		return kuerzel;
 	}
 	public void exportStundenplan()
 	{
-		
+
 	}
-	public Abteilung getAbteilung() 
+
+	public Abteilung getAbteilung()
 	{
 		return Abteilung;
+
+	public void addAbteilungen(Abteilung A)
+	{
+		Abteilungen.add(A);
 	}
 }

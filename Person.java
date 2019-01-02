@@ -10,8 +10,9 @@ public abstract class Person
 {
 	protected Long svnr;
 	protected String vorname, nachname;
-	protected Date geburtsdatum; 
+	protected Date geburtsdatum;
 	protected String email;
+	protected List<Adresse> Wohnorte =new ArrayList<Adresse>();
 	
 	public Person(){}
 	public Person(Long svnr, String vorname, String nachname, Date geburtsdatum, String email) 
@@ -42,6 +43,14 @@ public abstract class Person
 	public Long getSvnr() 
 	{
 		return svnr;
+	}
+	public getWohnort()
+	{
+		return this.Wohnort;
+	}
+	public void addWohnort(Adresse Wohnort)
+	{
+		Wohnorte.add(Wohnort);
 	}
 }
 

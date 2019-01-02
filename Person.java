@@ -12,7 +12,17 @@ public abstract class Person
 	protected String vorname, nachname;
 	protected Date geburtsdatum; 
 	protected String email;
-
+	
+	public Person(){}
+	public Person(Long svnr, String vorname, String nachname, Date geburtsdatum, String email) 
+	{
+		this.svnr = svnr;
+		this.vorname = vorname;
+		this.nachname = nachname;
+		this.geburtsdatum = geburtsdatum;
+		this.email = email;
+	}
+	
 	public String getNachname() 
 	{
 		return nachname;

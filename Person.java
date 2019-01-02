@@ -6,7 +6,7 @@
 
 import java.util.*;
 
-public class Person 
+public abstract class Person 
 {
 	protected Long svnr;
 	protected String vorname, nachname;

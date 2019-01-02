@@ -4,7 +4,7 @@
 * 17.12.2018 - Version 1
 ****************************************************************************/
 
-public class Mitarbeiter extends Person 
+public abstract class Mitarbeiter extends Person 
 {
 	static private int anzahl;
 

@@ -8,6 +8,7 @@ public class Abteilung
 {	
 	private String kuerzel;
 	private String name;
+	private Lehrer Av;
 	
 	public Abteilung(){}
 	public Abteilung(String name,String kuerzel)
@@ -23,6 +24,14 @@ public class Abteilung
 	
 	public boolean setAbteilungsvorstand(Lehrer Eule)
 	{
+		if(Eule.Aufgabe == false)
+		{
+			if(Eule != null)
+			{
+				Av = Eule;
+				return true;
+			}
+		}
 		return false;
 	}
 	
@@ -38,5 +47,9 @@ public class Abteilung
 	public String getName() 
 	{
 		return name;
+	}
+	public Lehrer getAv() 
+	{
+		return Av;
 	}		
 }

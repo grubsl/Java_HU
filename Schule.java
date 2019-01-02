@@ -10,7 +10,8 @@ public class Schule
 	private Long schulkennzahl;
 	private String schultyp;
 	private Adresse Ort = new Adresse();
-	private long Schulsprecher_ID;
+	private long schulsprecher_ID;
+	private Lehrer Direktor;
 
 	public Schule(){}
 	public Schule(String name,String schultyp,Long schulkennzahl,
@@ -46,11 +47,19 @@ public class Schule
 		return new Abteilung(name,kuerzel); 
 	}
 	
-	public boolean setDirektor(Lehrer lehrer)
+	public boolean setDirektor(Lehrer Lehrer)
 	{
+		if(Lehrer.Aufgabe == false)
+		{
+			if(Lehrer != null)
+			{
+				Lehrer = Direktor;
+				return true;
+			}
+		}
 		return false;
 	}
-		
+	
 	public Long getSchulkennzahl() 
 	{
 		return schulkennzahl;
@@ -70,10 +79,10 @@ public class Schule
 	
 	public long getSchulsprecher_ID() 
 	{
-		return Schulsprecher_ID;
+		return schulsprecher_ID;
 	}
 	public void setSchulsprecher_ID(long Schulsprecher_ID) 
 	{
-		this.Schulsprecher_ID = Schulsprecher_ID;
+		this.schulsprecher_ID = Schulsprecher_ID;
 	}
 }

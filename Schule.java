@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /****************************************************************************
 * Gruber Lukas ; Alexander Wippel ; 4 AHELS
 * Schule - Klasse
@@ -11,6 +14,7 @@ public class Schule
 	private String schultyp;
 	private Adresse Ort = new Adresse();
 	private long Schulsprecher_ID;
+	private List<Adresse> nichtlehrpersonal =new ArrayList<Adresse>();
 
 	public Schule(){}
 	public Schule(String name,String schultyp,Long schulkennzahl,
@@ -75,5 +79,9 @@ public class Schule
 	public void setSchulsprecher_ID(long Schulsprecher_ID) 
 	{
 		this.Schulsprecher_ID = Schulsprecher_ID;
+	}
+	public void addnichtlehrpersopnal(NichtLehrpersonal x)
+	{
+		nichtlehrpersonal.add(x);
 	}
 }

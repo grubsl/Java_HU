@@ -11,14 +11,16 @@ public class Schueler extends Person
 	private int katalognummer;
 	private boolean eigenberechtigt;
 	private Date eintrittsdatum;
+	private static int Schueleranz;
 	
-	public Schueler(){}
+	public Schueler(){Schueleranz++;}
 	public Schueler(int katalognummer,boolean eigenberechtigt,Date eintrittsdatum)
 	{
 		super();
 		this.katalognummer = katalognummer;
 		this.eigenberechtigt = eigenberechtigt;
 		this.eintrittsdatum = eintrittsdatum;
+		Schueleranz++;
 	}
 	
 	public int getKatalognummer() 

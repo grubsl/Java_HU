@@ -16,15 +16,23 @@ public class Klasse
 		this.bezeichnung = bezeichnung;
 	}
 	
-	public float getDurschnittsalter()
-	{
-		return (float) 1.0;
-	}
 	public boolean setKlassensprecher(Schueler schueler)
 	{
 		return false;
 	}
-	public boolean addSchueler(Schueler )
+	public boolean addSchueler(Schueler schueler)
+	{
+		return false;
+	}
+	public void exportStundenplan()
+	{
+		System.out.println("\n !!! 0 !!! \n"); 
+	}
+	
+	public float getDurschnittsalter()
+	{
+		return (float) 1.0;
+	}
 	public int getSchulstufe() 
 	{
 		return schulstufe;

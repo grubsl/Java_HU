@@ -14,7 +14,7 @@ public class Schule
 	private String schultyp;
 	private Adresse Ort = new Adresse();
 	private long Schulsprecher_ID;
-	private List<Adresse> nichtlehrpersonal =new ArrayList<Adresse>();
+	private List<NichtLehrpersonal> nichtlehrpersonal =new ArrayList<NichtLehrpersonal>();
 
 	public Schule(){}
 	public Schule(String name,String schultyp,Long schulkennzahl,
@@ -26,10 +26,7 @@ public class Schule
 		Ort = new Adresse(ort,strasse,nr,plz);
 	}
 	
-	public boolean addPersonal(NichtLehrpersonal personal)
-	{
-		return true;
-	}	
+	
 	public Abteilung addAbteilung(String name, String kuerzel)
 	{
 		/*BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));

@@ -4,6 +4,7 @@ public class Belegung
 	private int unterrichtsEinheit=0;
 	
 	
+	public Belegung() {}
 	public Belegung(int unterrichtsEinheit)
 	{
 		this.unterrichtsEinheit=unterrichtsEinheit;

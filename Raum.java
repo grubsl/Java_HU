@@ -6,6 +6,7 @@ public class Raum
 	private Raumtyp raumtyp;
 	
 	
+	public Raum() {}
 	public Raum(String raumNummer, int maxSitzplaetze, Raumtyp raumtyp) 
 	{
 		this.raumNummer = raumNummer;

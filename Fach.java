@@ -6,6 +6,15 @@ public class Fach
 	Raumtyp raumanforderung;
 	
 	
+	
+	public Fach() {}
+	public Fach(String name, int wochenstunden, Raumtyp raumanforderung) 
+	{
+		this.name = name;
+		this.wochenstunden = wochenstunden;
+		this.raumanforderung = raumanforderung;
+	}
+
 	public String getName() 
 	{
 		return name;

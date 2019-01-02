@@ -38,7 +38,7 @@ public class Lehrer extends Mitarbeiter
 	public Abteilung getAbteilung()
 	{
 		return Abteilung;
-
+	}
 	public void addAbteilungen(Abteilung A)
 	{
 		Abteilungen.add(A);

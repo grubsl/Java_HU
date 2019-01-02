@@ -17,7 +17,6 @@ public class Schule
 	private long schulsprecher_ID;
 	private Lehrer Direktor;
 
-	private long Schulsprecher_ID;
 	private List<NichtLehrpersonal> nichtlehrpersonal =new ArrayList<NichtLehrpersonal>();
 
 	public Schule(){}

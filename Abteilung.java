@@ -9,8 +9,8 @@ public class Abteilung
 	private String kuerzel;
 	private String name;
 	
-	Abteilung(){}
-	Abteilung(String name,String kuerzel)
+	public Abteilung(){}
+	public Abteilung(String name,String kuerzel)
 	{
 		this.kuerzel = kuerzel;
 		this.name = name;

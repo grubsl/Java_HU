@@ -6,7 +6,7 @@
 
 public class NichtLehrpersonal extends Mitarbeiter
 {
-	NichtLehrpersonal()
+	public NichtLehrpersonal()
 	{
 		super();
 	}

@@ -9,37 +9,28 @@ import java.util.*;
 public class Schueler extends Person
 {
 	private int katalognummer;
-	private boolean eigenberechtigung;
+	private boolean eigenberechtigt;
 	private Date eintrittsdatum;
+	
+	public Schueler(){}
+	public Schueler(int katalognummer,boolean eigenberechtigt,Date eintrittsdatum)
+	{
+		super();
+		this.katalognummer = katalognummer;
+		this.eigenberechtigt = eigenberechtigt;
+		this.eintrittsdatum = eintrittsdatum;
+	}
 	
 	public int getKatalognummer() 
 	{
 		return katalognummer;
 	}
-	public void setKatalognummer(int katalognummer) 
+	public boolean isEigenberechtigt() 
 	{
-		this.katalognummer = katalognummer;
+		return eigenberechtigt;
 	}
-	
-	public boolean isEigenberechtigung() 
-	{
-		return eigenberechtigung;
-	}
-	public void setEigenberechtigung(boolean eigenberechtigung) {
-		this.eigenberechtigung = eigenberechtigung;
-	}
-	
 	public Date getEintrittsdatum() 
 	{
 		return eintrittsdatum;
-	}
-	public void setEintrittsdatum(Date eintrittsdatum) 
-	{
-		this.eintrittsdatum = eintrittsdatum;
-	}
-	
-	Schueler()
-	{
-		super();
 	}
 }

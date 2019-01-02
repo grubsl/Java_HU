@@ -8,21 +8,19 @@ public class Lehrer extends Mitarbeiter
 {
 	private String kuerzel;
 
-	public String getKuerzel() {
-		return kuerzel;
-	}
-
-	public void setKuerzel(String kuerzel) {
+	public Lehrer(){}
+	public Lehrer(String kuerzel)
+	{
+		super();
 		this.kuerzel = kuerzel;
 	}
 	
+	public String getKuerzel() 
+	{
+		return kuerzel;
+	}
 	public void exportStundenplan()
 	{
 		
-	}
-
-	Lehrer()
-	{
-		super();
 	}
 }

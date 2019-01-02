@@ -17,7 +17,7 @@ public abstract class Mitarbeiter extends Person
 		Mitarbeiter.anzahl = anzahl;
 	}
 	
-	Mitarbeiter()
+	public Mitarbeiter()
 	{
 		super();
 		Mitarbeiter.anzahl++;

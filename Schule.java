@@ -11,8 +11,8 @@ public class Schule
 	private String schultyp;
 	private Adresse Ort = new Adresse();
 
-	Schule(){}
-	Schule(String name,String schultyp,Long schulkennzahl,
+	public Schule(){}
+	public Schule(String name,String schultyp,Long schulkennzahl,
 			String ort,String strasse,Integer nr,Integer plz)
 	{
 		this.schultyp = schultyp;

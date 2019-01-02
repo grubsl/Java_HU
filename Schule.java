@@ -10,9 +10,7 @@ public class Schule
 	private Long schulkennzahl;
 	private String schultyp;
 	private Adresse Ort = new Adresse();
-	private Schueler Schulsprecher;
-	
-	
+	private long Schulsprecher_ID;
 
 	public Schule(){}
 	public Schule(String name,String schultyp,Long schulkennzahl,
@@ -69,8 +67,13 @@ public class Schule
 	{
 		Ort.printAdresse();
 	}
-	public void setSchulsprecher(Schueler Schulsprecher)
+	
+	public long getSchulsprecher_ID() 
 	{
-		this.Schulsprecher=Schulsprecher;
+		return Schulsprecher_ID;
+	}
+	public void setSchulsprecher_ID(long Schulsprecher_ID) 
+	{
+		this.Schulsprecher_ID = Schulsprecher_ID;
 	}
 }

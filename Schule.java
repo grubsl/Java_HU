@@ -10,6 +10,9 @@ public class Schule
 	private Long schulkennzahl;
 	private String schultyp;
 	private Adresse Ort = new Adresse();
+	private Schueler Schulsprecher;
+	
+	
 
 	public Schule(){}
 	public Schule(String name,String schultyp,Long schulkennzahl,
@@ -65,5 +68,9 @@ public class Schule
 	public void printOrt() 
 	{
 		Ort.printAdresse();
+	}
+	public void setSchulsprecher(Schueler Schulsprecher)
+	{
+		this.Schulsprecher=Schulsprecher;
 	}
 }

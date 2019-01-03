@@ -34,7 +34,7 @@ public class Klassendiagramm_HTL
 			int option;
 			Scanner scan = new Scanner(System.in);
 			
-			System.out.print("Eingabe: ");
+			System.out.print("\n\nEingabe: ");
 			option = scan.nextInt() - 1;
 						
 			switch(Auswahl.values()[option])	// values liefert Array mit enum Konstanten, n.Element = n.Konstante 
@@ -65,6 +65,18 @@ public class Klassendiagramm_HTL
 					i++;
 				}*/
 				break;
+				
+			case MITARBEITER:
+				
+				Mitarbeiter hilfs;
+				
+		        for(Iterator<Mitarbeiter> iterator = (HTL.getPersonal()).iterator();iterator.hasNext();)
+				{
+		        	hilfs = iterator.next();
+					System.out.print("\n Mitarbeiter: " + hilfs.getVorname() + " " + hilfs.getNachname()+"\n Geburtsdatum: "+ hilfs.getGeburtsdatum());
+				}
+		        break;
+		        
 
 			case ABBRECHEN:
 				System.out.println("Programm wurde beendet.");

@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 /****************************************************************************
 * Gruber Lukas ; Alexander Wippel ; 4 AHELS
@@ -12,7 +14,8 @@ public class Abteilung
 	private String kuerzel;
 	private String name;
 	private Lehrer Av;
-	private List<Lehrer> LehrerInnen =new ArrayList<Lehrer>();
+	private List<Lehrer> lehrer = new ArrayList<Lehrer>();
+	private Set<Klasse> klassen = new TreeSet<Klasse>();
 
 	public Abteilung(){}
 	public Abteilung(String name,String kuerzel)
@@ -23,7 +26,11 @@ public class Abteilung
 
 	public void addLehrer(Lehrer L)
 	{
-		LehrerInnen.add(L);
+		lehrer.add(L);
+	}
+	public void addKlasse(Abteilung abteilung,int schulstufe,String bezeichnung)
+	{
+		klassen.add(new Klasse(abteilung,schulstufe,bezeichnung));
 	}
 
 	public boolean setAbteilungsvorstand(Lehrer Eule)

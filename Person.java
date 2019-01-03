@@ -12,7 +12,7 @@ public abstract class Person
 	protected String vorname, nachname;
 	protected Date geburtsdatum;
 	protected String email;
-	protected List<Adresse> Wohnorte =new ArrayList<Adresse>();
+	protected List<Adresse> wohnorte = new ArrayList<Adresse>();
 	
 	public Person(){}
 	public Person(Long svnr, String vorname, String nachname, Date geburtsdatum, String email) 
@@ -44,13 +44,14 @@ public abstract class Person
 	{
 		return svnr;
 	}
-	public getWohnort()
+	public List<Adresse> getWohnorte() 
 	{
-		return this.Wohnort;
+		return wohnorte;
 	}
-	public void addWohnort(Adresse Wohnort)
+	
+	public void addWohnort(String ort,String strasse,Integer hausnummer,Integer plz)
 	{
-		Wohnorte.add(Wohnort);
+		wohnorte.add(new Adresse(ort,strasse,hausnummer,plz));
 	}
 }
 

@@ -8,10 +8,12 @@ public class Klasse
 {
 	private int schulstufe;
 	private String bezeichnung;
+	private Abteilung abteilung;
 	
 	public Klasse(){}
-	public Klasse(int schulstufe,String bezeichnung)
+	public Klasse(Abteilung abteilung,int schulstufe,String bezeichnung)
 	{
+		this.abteilung = abteilung;
 		this.schulstufe = schulstufe;
 		this.bezeichnung = bezeichnung;
 	}
@@ -40,5 +42,9 @@ public class Klasse
 	public String getBezeichnung() 
 	{
 		return bezeichnung;
+	}
+	public Abteilung getAbteilung() 
+	{
+		return abteilung;
 	}
 }

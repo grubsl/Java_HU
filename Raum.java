@@ -5,12 +5,7 @@
 ****************************************************************************/
 
 public class Raum 
-{	
-	private enum RAUMTYP
-	{
-		KLASSENZIMMER,LABORRAUM
-	}
-	
+{		
 	private String raumNummer="";
 	private int maxSitzplaetze=0;
 	private Raumtyp raumtyp;
@@ -40,5 +35,9 @@ public class Raum
 	public void setMaxSitzplaetze(int maxSitzplaetze)
 	{
 		this.maxSitzplaetze = maxSitzplaetze;
+	}
+	public Raumtyp getRaumtyp() 
+	{
+		return raumtyp;
 	}
 }

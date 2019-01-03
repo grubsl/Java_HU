@@ -1,10 +1,10 @@
 /****************************************************************************
 * Gruber Lukas ; Alexander Wippel ; 4 AHELS
-* Raumtyp - enumeration
+* Unterrichtstag - enumeration
 * 17.12.2018 - Version 1
 ****************************************************************************/
 
-public enum Raumtyp 
+public enum Unterrichtstag 
 {
-	KLASSENZIMMER,LABORRAUM,WERKSTATT,VERWALTUNG
+	MONTAG,DIENSTAG,MITTWOCH,DONNERSTAG,FREITAG
 }

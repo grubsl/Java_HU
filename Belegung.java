@@ -6,11 +6,6 @@
 
 public class Belegung 
 {
-	private enum Unterrichtstag
-	{
-		MONTAG,DIENSTAG,MITTWOCH,DONNERSTAG,FREITAG
-	}
-	
 	private int unterrichtsEinheit;
 	
 	public Belegung(){}

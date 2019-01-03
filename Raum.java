@@ -1,6 +1,16 @@
+/****************************************************************************
+* Gruber Lukas ; Alexander Wippel ; 4 AHELS
+* Raum - Klasse
+* 17.12.2018 - Version 1
+****************************************************************************/
 
 public class Raum 
 {	
+	private enum RAUMTYP
+	{
+		KLASSENZIMMER,LABORRAUM
+	}
+	
 	private String raumNummer="";
 	private int maxSitzplaetze=0;
 	private Raumtyp raumtyp;

@@ -14,7 +14,7 @@ public class Schule
 	private Adresse Ort = new Adresse();
 	
 	Date datum1;
-	Schueler schlagla(100L,"Herbert","Oaschloch",date1,"hua@gmail.com",20,false,datum1);
+	Schueler schlagla = new Schueler(100L,"Herbert","Oaschloch",datum1,"hua@gmail.com",20,false,datum1);
 
 	private long schulsprecher_ID;
 	private Lehrer Direktor;

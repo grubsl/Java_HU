@@ -12,6 +12,9 @@ public class Schule
 	private Long schulkennzahl;
 	private String schultyp;
 	private Adresse Ort = new Adresse();
+	
+	Date datum1;
+	Schueler schlagla(100L,"Herbert","Oaschloch",date1,"hua@gmail.com",20,false,datum1);
 
 	private long schulsprecher_ID;
 	private Lehrer Direktor;
@@ -126,4 +129,5 @@ public class Schule
 			return false;
 		}
 	}
+	
 }

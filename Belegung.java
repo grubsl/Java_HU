@@ -1,22 +1,34 @@
+/****************************************************************************
+* Gruber Lukas ; Alexander Wippel ; 4 AHELS
+* Belegung - Klasse
+* 17.12.2018 - Version 1
+****************************************************************************/
 
 public class Belegung 
 {
-	private int unterrichtsEinheit=0;
+	private enum Unterrichtstag
+	{
+		MONTAG,DIENSTAG,MITTWOCH,DONNERSTAG,FREITAG
+	}
 	
+	private int unterrichtsEinheit;
 	
-	public Belegung() {}
+	public Belegung(){}
 	public Belegung(int unterrichtsEinheit)
 	{
 		this.unterrichtsEinheit=unterrichtsEinheit;
 	}
 	
-	
 	public Unterrichtstag getWochentag()
 	{
-		return this.Unterrichtstag;
+		return Unterrichtstag.DIENSTAG;
+	}
+	public int getUnterrichtsEinheit() 
+	{
+		return unterrichtsEinheit;
 	}
 	
-	public Klasse getKlasse()
+	/*public Klasse getKlasse()
 	{
 		return this.Klasse;
 	}
@@ -24,5 +36,5 @@ public class Belegung
 	public Lehrer getLehrer()
 	{
 		return this.Lehrer;
-	}
+	}*/
 }

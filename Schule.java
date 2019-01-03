@@ -1,11 +1,10 @@
-import java.util.ArrayList;
-import java.util.List;
-
 /****************************************************************************
 * Gruber Lukas ; Alexander Wippel ; 4 AHELS
 * Schule - Klasse
 * 17.12.2018 - Version 1
 ****************************************************************************/
+
+import java.util.*;
 
 public class Schule
 {
@@ -92,7 +91,7 @@ public class Schule
 	{
 		this.schulsprecher_ID = Schulsprecher_ID;
 	}
-	public void addnichtlehrpersopnal(NichtLehrpersonal x)
+	public void addNichtlehrpersonal(NichtLehrpersonal x)
 	{
 		nichtlehrpersonal.add(x);
 	}

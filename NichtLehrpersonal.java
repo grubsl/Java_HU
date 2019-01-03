@@ -1,3 +1,5 @@
+import java.util.Date;
+
 /****************************************************************************
 * Gruber Lukas ; Alexander Wippel ; 4 AHELS
 * Nichtlehrpersonal - SubSubklasse
@@ -6,8 +8,8 @@
 
 public class NichtLehrpersonal extends Mitarbeiter
 {
-	public NichtLehrpersonal()
+	public NichtLehrpersonal(Long svnr, String vorname, String nachname, Date geburtsdatum, String email)
 	{
-		super();
+		super(svnr, vorname, nachname, geburtsdatum, email);
 	}
 }

@@ -1,3 +1,5 @@
+import java.util.Date;
+
 /****************************************************************************
 * Gruber Lukas ; Alexander Wippel ; 4 AHELS
 * Mitarbeiter - Subklasse
@@ -20,6 +22,11 @@ public abstract class Mitarbeiter extends Person
 	public Mitarbeiter()
 	{
 		super();
+		Mitarbeiter.anzahl++;
+	}
+	public Mitarbeiter(Long svnr, String vorname, String nachname, Date geburtsdatum, String email)
+	{
+		super(svnr, vorname, nachname, geburtsdatum, email);
 		Mitarbeiter.anzahl++;
 	}
 }

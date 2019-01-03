@@ -18,6 +18,9 @@ public class Schule
 
 	private List<NichtLehrpersonal> nichtlehrpersonal = new ArrayList<>();
 	private List<Abteilung> abteilungen = new ArrayList<>();
+	private List<Mitarbeiter> mitarbeiter = new ArrayList<>();
+	private List<Schueler> schueler = new ArrayList<>();
+	
 	
 	public Schule(){}
 	public Schule(String name,String schultyp,Long schulkennzahl,
@@ -98,5 +101,29 @@ public class Schule
 	public List<Abteilung> getAbteilungen() 
 	{
 		return abteilungen;
+	}
+	public List<Mitarbeiter> getPersonal()
+	{
+		return mitarbeiter;
+	}
+	public List<Schueler> getSchueler()
+	{
+		return schueler;
+	}
+	public int getAnzahlSchueler()
+	{
+		return 1;
+	}
+	public boolean addPersonal(NichtLehrpersonal personal)
+	{
+		try 
+		{
+			mitarbeiter.add(personal);
+			return true;
+		} 
+		catch (Exception e) 
+		{
+			return false;
+		}
 	}
 }

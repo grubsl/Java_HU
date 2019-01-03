@@ -21,6 +21,17 @@ public class Klassendiagramm_HTL
 		Schule HTL= new Schule(	"HTL St.Pölten ", "Höhere Technische Lehranstalt" , 1120234446248L, 
 								"St.Pölten","Waldstraße",3,3100);	//add L for type Long 
 		
+		
+		//Test der Funktionen add und get Schueler
+		/*HTL.addSchuelerTest1();
+		HTL.getSchueler();
+		Schueler hs =new Schueler();
+		for(Iterator<Schueler> iterator = (HTL.getSchueler()).iterator();iterator.hasNext();)
+		{
+        	hs = iterator.next();
+			System.out.print("\n Schueler: " + hs.getVorname() + " " + hs.getNachname()+"\n Geburtsdatum: "+ hs.getGeburtsdatum());
+		}*/
+		
 		HTL.addAbteilung("Elektrotechnik", "ET");
 		HTL.addAbteilung("Elektronik    ", "EL");
 		HTL.addAbteilung("Maschinenbau  ", "MB");

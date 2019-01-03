@@ -13,8 +13,11 @@ public class Schule
 	private String schultyp;
 	private Adresse Ort = new Adresse();
 	
+	
+	//Zum Testen der Funktionen add und get Schueler
 	Date datum1;
 	Schueler schlagla = new Schueler(100L,"Herbert","Oaschloch",datum1,"hua@gmail.com",20,false,datum1);
+	
 
 	private long schulsprecher_ID;
 	private Lehrer Direktor;
@@ -23,6 +26,8 @@ public class Schule
 	private List<Abteilung> abteilungen = new ArrayList<>();
 	private List<Mitarbeiter> mitarbeiter = new ArrayList<>();
 	private List<Schueler> schueler = new ArrayList<>();
+	
+	
 	
 	
 	public Schule(){}
@@ -129,5 +134,8 @@ public class Schule
 			return false;
 		}
 	}
-	
+	public void addSchuelerTest1()
+	{
+		schueler.add(schlagla);
+	}
 }

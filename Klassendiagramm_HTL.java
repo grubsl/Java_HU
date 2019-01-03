@@ -12,7 +12,7 @@ public class Klassendiagramm_HTL
 	{
 		SCHULE,ABTEILUNG,ADRESSE,
 		PERSONAL,MITARBEITER,LEHRER,NICHTLEHRPERSONAL,SCHUELER,
-		KLASSE,FACH,Raum,BELEGUNG,
+		KLASSE,FACH,RAUM,BELEGUNG,
 		ABBRECHEN
 	}
 	
@@ -24,6 +24,7 @@ public class Klassendiagramm_HTL
 		HTL.addAbteilung("Elektrotechnik", "ET");
 		HTL.addAbteilung("Elektronik    ", "EL");
 		HTL.addAbteilung("Maschinenbau  ", "MB");
+		
 		
 		System.out.print("\n Informationsseite:" +
 						 "\n  Schule \t [1]" +

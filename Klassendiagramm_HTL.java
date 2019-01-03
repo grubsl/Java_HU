@@ -20,11 +20,10 @@ public class Klassendiagramm_HTL
 	{		
 		Schule HTL= new Schule(	"HTL St.Pölten ", "Höhere Technische Lehranstalt" , 1120234446248L, 
 								"St.Pölten","Waldstraße",3,3100);	//add L for type Long 
-		Abteilung Sammel [] = new Abteilung [5]; 
 		
-		Sammel[0] = HTL.addAbteilung("Elektrotechnik", "ET");
-		Sammel[1] = HTL.addAbteilung("Elektronik    ", "EL");
-		Sammel[2] = HTL.addAbteilung("Maschinenbau  ", "MB");
+		HTL.addAbteilung("Elektrotechnik", "ET");
+		HTL.addAbteilung("Elektronik    ", "EL");
+		HTL.addAbteilung("Maschinenbau  ", "MB");
 		
 		System.out.print("\n Informationsseite:" +
 						 "\n  Schule \t [1]" +
@@ -48,14 +47,23 @@ public class Klassendiagramm_HTL
 					HTL.printOrt();
 				break;
 			case ABTEILUNG:
-				int i = 0;
+				
+				Abteilung hilf = new Abteilung();
+				
+		        for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
+				{
+		        	hilf = iterator.next();
+					System.out.print("\n Abteilung:" + hilf.getName() + "\t Kuerzel" + hilf.getKuerzel());
+				}			
+				
+				/*int i = 0;
 				while(Sammel[i] != null)
 				{
 					System.out.print(
 						"\n Abteilung:" + Sammel[i].getName() + "\t" +
 						"Kuerzel" + Sammel[i].getKuerzel());
 					i++;
-				}
+				}*/
 				break;
 
 			case ABBRECHEN:

@@ -17,8 +17,9 @@ public class Schule
 	private long schulsprecher_ID;
 	private Lehrer Direktor;
 
-	private List<NichtLehrpersonal> nichtlehrpersonal =new ArrayList<NichtLehrpersonal>();
-
+	private List<NichtLehrpersonal> nichtlehrpersonal = new ArrayList<>();
+	private List<Abteilung> abteilungen = new ArrayList<>();
+	
 	public Schule(){}
 	public Schule(String name,String schultyp,Long schulkennzahl,
 			String ort,String strasse,Integer nr,Integer plz)
@@ -32,6 +33,11 @@ public class Schule
 
 	public Abteilung addAbteilung(String name, String kuerzel)
 	{
+		Abteilung abteilung = new Abteilung(name,kuerzel);
+		abteilungen.add(abteilung);
+		
+		return abteilung;
+		
 		/*BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
 
 		try
@@ -46,8 +52,6 @@ public class Schule
     	}
 
 		Abteilung X = new Abteilung(name, kuerzel);*/
-
-		return new Abteilung(name,kuerzel);
 	}
 
 	public boolean setDirektor(Lehrer Lehrer)
@@ -91,5 +95,9 @@ public class Schule
 	public void addnichtlehrpersopnal(NichtLehrpersonal x)
 	{
 		nichtlehrpersonal.add(x);
+	}
+	public List<Abteilung> getAbteilungen() 
+	{
+		return abteilungen;
 	}
 }

@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /****************************************************************************
 * Gruber Lukas ; Alexander Wippel ; 4 AHELS
 * Raum - Klasse
@@ -9,6 +12,7 @@ public class Raum
 	private String raumNummer="";
 	private int maxSitzplaetze=0;
 	private Raumtyp raumtyp;
+	private List<Belegung> belegungen = new ArrayList<Belegung>();
 	
 	
 	public Raum() {}
@@ -39,5 +43,9 @@ public class Raum
 	public Raumtyp getRaumtyp() 
 	{
 		return raumtyp;
+	}
+	public void addBelegung(int unterrichtsEinheit)
+	{
+		belegungen.add(new Belegung(unterrichtsEinheit));
 	}
 }

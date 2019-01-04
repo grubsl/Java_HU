@@ -7,6 +7,7 @@
 public class Belegung 
 {
 	private int unterrichtsEinheit;
+	private Fach x;
 	
 	public Belegung(){}
 	public Belegung(int unterrichtsEinheit)
@@ -22,7 +23,10 @@ public class Belegung
 	{
 		return unterrichtsEinheit;
 	}
-	
+	public void setFach(String name, int wochenstunden, Raumtyp raumanforderung)
+	{
+		x=new Fach(name,wochenstunden,raumanforderung);
+	}
 	/*public Klasse getKlasse()
 	{
 		return this.Klasse;
@@ -32,4 +36,5 @@ public class Belegung
 	{
 		return this.Lehrer;
 	}*/
+	
 }

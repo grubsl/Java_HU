@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /****************************************************************************
 * Gruber Lukas ; Alexander Wippel ; 4 AHELS
 * Klasse - Klasse
@@ -9,6 +12,9 @@ public class Klasse
 	private int schulstufe;
 	private String bezeichnung;
 	private Abteilung abteilung;
+	private int klassengröße = 1;
+	
+	private List<Schueler> schueler = new ArrayList<>();
 	
 	public Klasse(){}
 	public Klasse(Abteilung abteilung,int schulstufe,String bezeichnung)
@@ -24,6 +30,18 @@ public class Klasse
 	}
 	public boolean addSchueler(Schueler schueler)
 	{
+		if(klassengröße < 36)
+		{
+			try 
+			{
+				this.schueler.add(schueler);
+			} 
+			catch (Exception e) 
+			{
+				return false;
+			}
+			return true;
+		}
 		return false;
 	}
 	public void exportStundenplan()
@@ -46,5 +64,9 @@ public class Klasse
 	public Abteilung getAbteilung() 
 	{
 		return abteilung;
+	}
+	public List<Schueler> getSchueler() 
+	{
+		return schueler;
 	}
 }

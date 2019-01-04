@@ -60,4 +60,8 @@ public class Abteilung
 	{
 		return Av;
 	}
+	public List<Lehrer> getLehrer()
+	{
+		return lehrer;
+	}
 }

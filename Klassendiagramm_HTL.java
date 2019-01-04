@@ -27,9 +27,20 @@ public class Klassendiagramm_HTL
 		Schueler alex = new Schueler();
 		
 		System.out.print("\n Informationsseite:" +
-						 "\n  Schule \t [1]" +
-						 "\n  Abteilung \t [2]" + 
-						 "\n  Adresse \t [3]");
+						 "\n  Schule \t\t [1]" +
+						 "\n  Abteilung \t\t [2]" + 
+						 "\n  Adresse \t\t [3]"+
+						 "\n  Personal \t\t [4]" +
+						 "\n  Mitarbeiter \t\t [5]" + 
+						 "\n  Lehrer \t\t [6]"+
+						 "\n  Nichtlehrpersonal \t [7]" + 
+						 "\n  Schueler \t\t [8]"+
+						 "\n  Klasse \t\t [9]" +
+						 "\n  Fach \t\t\t [10]" + 
+						 "\n  Raum \t\t\t [11]"+
+						 "\n  Belegung \t\t [12]" + 
+						 "\n  Abbrechen \t\t [13]");
+		
 		try
 		{
 			int option;
@@ -77,6 +88,19 @@ public class Klassendiagramm_HTL
 					System.out.print("\n Mitarbeiter: " + hilfs.getVorname() + " " + hilfs.getNachname()+"\n Geburtsdatum: "+ hilfs.getGeburtsdatum());
 				}
 		        break;
+		        
+			case LEHRER:
+				
+				Lehrer hilfslehrer;
+				Abteilung hilfsabteilung;
+				
+				for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
+				{
+		        	hilfsabteilung = iterator.next();
+					System.out.print("\n Lehrer: " + hilfslehrer.getVorname() + " " + hilfslehrer.getNachname()+"\n Geburtsdatum: "+ hilfslehrer.getGeburtsdatum());
+				}
+		        break;
+				
 		        
 
 			case ABBRECHEN:

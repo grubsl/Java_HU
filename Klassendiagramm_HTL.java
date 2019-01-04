@@ -103,8 +103,17 @@ public class Klassendiagramm_HTL
 					{
 			        	hilfs_leh = iterator3.next();
 			        	hilfs_leh.addVorstand(new Klasse(hilfs_abt,12,"4AHELS", hilfs_leh));
-			        	System.out.print("\n Lehrer: " + hilfs_leh.getVorname() + " " + hilfs_leh.getNachname()+"\n\t Geburtsdatum: "+ hilfs_leh.getGeburtsdatum());
-			        	System.out.print("\n Kuerzel:" + hilfs_leh.getKuerzel() + "\tKlassenvorstand bei:" + (hilfs_leh.getVorstand())[0] + "  " + (hilfs_leh.getVorstand())[1]);
+			        	System.out.print("\n Lehrer: " + hilfs_leh.getVorname() + " " + hilfs_leh.getNachname()+
+			        		"\t Kuerzel:" + hilfs_leh.getKuerzel() + "\n\t Geburtsdatum: "+ hilfs_leh.getGeburtsdatum());
+			        	try
+			        	{
+			        		System.out.print("\n\t Klassenvorstand bei:" + (hilfs_leh.getVorstand())[0].getBezeichnung());
+			        		System.out.print("\t&\t" + (hilfs_leh.getVorstand())[1].getBezeichnung());
+			        	}
+			        	catch(Exception e)
+			        	{
+			        		System.out.print("\t0");
+			        	}
 					}
 				}
 		        break;

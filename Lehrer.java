@@ -18,14 +18,14 @@ public class Lehrer extends Mitarbeiter
 	private List<Fach> faecher = new ArrayList<Fach>();
 	
 	public Lehrer(){}
-	public Lehrer(Long svnr, String vorname, String nachname, Date geburtsdatum, String email, String kuerzel,Abteilung Abteilung,Klasse klassenvorstand1,Klasse klassenvorstand2)
+	public Lehrer(Long svnr, String vorname, String nachname, Date geburtsdatum, String email, String kuerzel,Abteilung Abteilung)
 	{
 		super(svnr, vorname, nachname, geburtsdatum, email);
 		Aufgabe = false;
 		this.kuerzel = kuerzel;
 		this.Abteilung = Abteilung;
-		vorstand[0]=klassenvorstand1;
-		vorstand[1]=klassenvorstand2;
+		vorstand[0]=null;
+		vorstand[1]=null;
 	}
 
 	public String getKuerzel()
@@ -63,7 +63,7 @@ public class Lehrer extends Mitarbeiter
 			}
 			else 
 			{
-				return true;
+				return false;
 			}
 			return true;
 		} 

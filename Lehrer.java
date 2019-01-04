@@ -12,7 +12,8 @@ public class Lehrer extends Mitarbeiter
 	private Abteilung Abteilung;
 	public boolean Aufgabe;
 
-	private List<Abteilung> Abteilungen =new ArrayList<Abteilung>();
+	private Klasse[] = new Klasse[2];
+	private List<Abteilung> Abteilungen = new ArrayList<Abteilung>();
 
 	public Lehrer(){}
 	public Lehrer(String kuerzel,Abteilung Abteilung)

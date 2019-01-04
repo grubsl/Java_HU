@@ -13,11 +13,7 @@ public class Schule
 	private String schultyp;
 	private Adresse Ort = new Adresse();
 	
-	
-	//Zum Testen der Funktionen add und get Schueler
 	Date datum1;
-	Schueler schlagla = new Schueler(100L,"Herbert","Oaschloch",datum1,"hua@gmail.com",20,false,datum1);
-	
 
 	private long schulsprecher_ID;
 	private Lehrer Direktor;

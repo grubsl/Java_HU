@@ -12,6 +12,8 @@ public class Raum
 	private String raumNummer="";
 	private int maxSitzplaetze=0;
 	private Raumtyp raumtyp;
+	private Klasse stammklasse;
+	
 	private List<Belegung> belegungen = new ArrayList<Belegung>();
 	
 	
@@ -47,5 +49,9 @@ public class Raum
 	public void addBelegung(int unterrichtsEinheit)
 	{
 		belegungen.add(new Belegung(unterrichtsEinheit));
+	}
+	public void setStammklasse(Klasse k)
+	{
+		stammklasse=k;
 	}
 }

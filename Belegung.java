@@ -8,6 +8,7 @@ public class Belegung
 {
 	private int unterrichtsEinheit;
 	private Fach x;
+	private Raum r;
 	
 	public Belegung(){}
 	public Belegung(int unterrichtsEinheit)
@@ -26,6 +27,10 @@ public class Belegung
 	public void setFach(String name, int wochenstunden, Raumtyp raumanforderung)
 	{
 		x=new Fach(name,wochenstunden,raumanforderung);
+	}
+	public void setRaum(String raumNummer,int maxSitzplaetze,Raumtyp raumtyp)
+	{
+		r=new Raum(raumNummer,maxSitzplaetze,raumtyp);
 	}
 	/*public Klasse getKlasse()
 	{

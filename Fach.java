@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class Fach 
 {
@@ -6,6 +8,7 @@ public class Fach
 	private Raumtyp raumanforderung;
 	private Belegung x;
 	
+	private List<Lehrer> lehrer = new ArrayList<Lehrer>();
 	
 	
 	public Fach() {}
@@ -27,5 +30,9 @@ public class Fach
 	public void setBelegung(int unterrichtsEinheit)
 	{
 		x=new Belegung(unterrichtsEinheit);
+	}
+	public void addLehrer(String kuerzel, Abteilung abteilung)
+	{
+		lehrer.add(new Lehrer(kuerzel,abteilung));
 	}
 }

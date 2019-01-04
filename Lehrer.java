@@ -13,6 +13,7 @@ public class Lehrer extends Mitarbeiter
 	public boolean Aufgabe;
 
 	private List<Abteilung> Abteilungen =new ArrayList<Abteilung>();
+	private List<Fach> faecher = new ArrayList<Fach>();
 
 	public Lehrer(){}
 	public Lehrer(String kuerzel,Abteilung Abteilung)
@@ -39,5 +40,9 @@ public class Lehrer extends Mitarbeiter
 	public void addAbteilungen(Abteilung A)
 	{
 		Abteilungen.add(A);
+	}
+	public void addFach(String name,int wochenstunden,Raumtyp raumanforderung)
+	{
+		faecher.add(new Fach(name,wochenstunden,raumanforderung));
 	}
 }

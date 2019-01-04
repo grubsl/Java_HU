@@ -5,6 +5,7 @@
 ****************************************************************************/
 
 import java.util.*;
+import java.text.*;
 
 public class Klassendiagramm_HTL 
 {	
@@ -95,16 +96,20 @@ public class Klassendiagramm_HTL
 				
 		        for(Iterator<Abteilung> iterator2 = (HTL.getAbteilungen()).iterator();iterator2.hasNext();)
 				{
+		        	DateFormat df2 = DateFormat.getDateInstance(DateFormat.MEDIUM);
 		        	hilfs_abt = iterator2.next();
 		        	System.out.print("\n\n Lehrer in der Abteilung " + hilfs_abt.getName() + "\n");
-		        	hilfs_abt.addLehrer(new Lehrer(0000L, "Herbert", "Wagner", new Date(40811344L), "perversion@hostdas.at","WAGN \t",hilfs_abt));
+		        	Date parsedDate = df2.parse("10.02.1978");
+		        	hilfs_abt.addLehrer(new Lehrer(0000L, "Herbert", "Wagner", parsedDate
+		        		, "perversion@hostdas.at","WAGN \t",hilfs_abt));
 		        	
 			        for(Iterator<Lehrer> iterator3 = (hilfs_abt.getLehrer()).iterator();iterator3.hasNext();)
 					{
 			        	hilfs_leh = iterator3.next();
 			        	hilfs_leh.addVorstand(new Klasse(hilfs_abt,12,"4AHELS", hilfs_leh));
+			        	DateFormat df = new SimpleDateFormat("d MM yyyy");
 			        	System.out.print("\n Lehrer: " + hilfs_leh.getVorname() + " " + hilfs_leh.getNachname()+
-			        		"\t Kuerzel:" + hilfs_leh.getKuerzel() + "\n\t Geburtsdatum: "+ hilfs_leh.getGeburtsdatum());
+			        		"\t Kuerzel:" + hilfs_leh.getKuerzel() + "\n\t Geburtsdatum:\t "+ df.format(hilfs_leh.getGeburtsdatum()));
 			        	try
 			        	{
 			        		System.out.print("\n\t Klassenvorstand bei:" + (hilfs_leh.getVorstand())[0].getBezeichnung());

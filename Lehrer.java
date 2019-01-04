@@ -47,4 +47,32 @@ public class Lehrer extends Mitarbeiter
 	{
 		faecher.add(new Fach(name,wochenstunden,raumanforderung));
 	}
+	public boolean addVorstand(Klasse klasse)
+	{
+		try 
+		{
+			if(this.vorstand[0] == null)
+			{
+				vorstand[0] = klasse;
+			}
+			else if(this.vorstand[1] == null)
+			{
+				vorstand[1] = klasse;
+			}
+			else 
+			{
+				return true;
+			}
+			return true;
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			return false;
+		}
+	}
+	public Klasse[] getVorstand()
+	{
+		return vorstand;
+	}
 }

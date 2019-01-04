@@ -25,9 +25,9 @@ public class Abteilung
 	{
 		lehrer.add(L);
 	}
-	public void addKlasse(Abteilung abteilung,int schulstufe,String bezeichnung)
+	public void addKlasse(Abteilung abteilung,int schulstufe,String bezeichnung,Lehrer Klassenvorstand)
 	{
-		klassen.add(new Klasse(abteilung,schulstufe,bezeichnung));
+		klassen.add(new Klasse(abteilung,schulstufe,bezeichnung,Klassenvorstand));
 	}
 
 	public boolean setAbteilungsvorstand(Lehrer Eule)

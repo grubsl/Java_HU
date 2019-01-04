@@ -1,13 +1,10 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
-
 /****************************************************************************
 * Gruber Lukas ; Alexander Wippel ; 4 AHELS
 * Abteilung - Klasse
 * 17.12.2018 - Version 1
 ****************************************************************************/
+
+import java.util.*;
 
 public class Abteilung
 {

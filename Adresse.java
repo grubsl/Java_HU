@@ -24,9 +24,8 @@ public class Adresse
 	public void printAdresse()
 	{
 		System.out.print(
-				"\n" + getOrt() + "\n" +
-				getStrasse() + "\t"+
-				getHausnummer());	
+				"\n" + getPlz() + ", " + getOrt() + "\t" +
+				getStrasse() + ", "+ getHausnummer());	
 	}
 	public String getOrt() 
 	{

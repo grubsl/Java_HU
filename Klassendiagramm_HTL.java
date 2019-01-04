@@ -40,7 +40,14 @@ public class Klassendiagramm_HTL
 						 "\n  Fach \t\t\t [10]" + 
 						 "\n  Raum \t\t\t [11]"+
 						 "\n  Belegung \t\t [12]" + 
-						 "\n  Abbrechen \t\t [13]");
+						 "\n  Abbrechen \t\t [13]" + 
+						 
+						 "\n\n Erschaffe        :" +
+						 "\n  Abteilung \t\t [14]" +
+						 "\n  Nicht-Lehr-Personal \t [15]" +
+						 "\n        Lehr-Personal \t [16]" +
+						 "\n  Klasse \t\t [17]" +
+						 "\n  Raum \t\t\t [18]");
 		
 		try
 		{
@@ -66,7 +73,7 @@ public class Klassendiagramm_HTL
 		        for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
 				{
 		        	hilf = iterator.next();
-					System.out.print("\n Abteilung:" + hilf.getName() + "\t Kuerzel" + hilf.getKuerzel());
+					System.out.print("\n Abteilung:" + hilf.getName() + "\tKuerzel: " + hilf.getKuerzel());
 				}			
 				
 				/*int i = 0;
@@ -96,12 +103,20 @@ public class Klassendiagramm_HTL
 				
 		        for(Iterator<Abteilung> iterator2 = (HTL.getAbteilungen()).iterator();iterator2.hasNext();)
 				{
-		        	DateFormat df2 = DateFormat.getDateInstance(DateFormat.MEDIUM);
 		        	hilfs_abt = iterator2.next();
 		        	System.out.print("\n\n Lehrer in der Abteilung " + hilfs_abt.getName() + "\n");
-		        	Date parsedDate = df2.parse("10.02.1978");
-		        	hilfs_abt.addLehrer(new Lehrer(0000L, "Herbert", "Wagner", parsedDate
-		        		, "perversion@hostdas.at","WAGN \t",hilfs_abt));
+		        	
+		        	try
+		        	{
+		        		DateFormat df2 = DateFormat.getDateInstance(DateFormat.MEDIUM);
+		        		Date parsedDate = df2.parse("10.02.1978");
+			        	hilfs_abt.addLehrer(new Lehrer(0000L, "Herbert", "Wagner", parsedDate
+			        			,"perversion@hostdas.at","WAGN \t",hilfs_abt));
+		        	}
+		        	catch(ParseException e) 
+		        	{
+		        		System.out.print("Ungültiges Format!");
+		        	}
 		        	
 			        for(Iterator<Lehrer> iterator3 = (hilfs_abt.getLehrer()).iterator();iterator3.hasNext();)
 					{

@@ -97,13 +97,14 @@ public class Klassendiagramm_HTL
 				{
 		        	hilfs_abt = iterator2.next();
 		        	System.out.print("\n\n Lehrer in der Abteilung " + hilfs_abt.getName() + "\n");
-		        	hilfs_abt.addLehrer(new Lehrer("WAGN \t",hilfs_abt));
+		        	hilfs_abt.addLehrer(new Lehrer(0000L, "Herbert", "Wagner", new Date(40811344L), "perversion@hostdas.at","WAGN \t",hilfs_abt));
 		        	
 			        for(Iterator<Lehrer> iterator3 = (hilfs_abt.getLehrer()).iterator();iterator3.hasNext();)
 					{
 			        	hilfs_leh = iterator3.next();
-			        	System.out.print("\n Lehrer: " + hilfs_leh.getVorname() + " " + hilfs_leh.getNachname()+"\n Geburtsdatum: "+ hilfs_leh.getGeburtsdatum());
-			        	System.out.print("\n Kuerzel:" + hilfs_leh.getKuerzel() + "Klassenvorstand bei:" + hilfs_leh.getVorstand()[0] + "  " + hilfs_leh.getVorstand()[1]);
+			        	hilfs_leh.addVorstand(new Klasse(hilfs_abt,12,"4AHELS", hilfs_leh));
+			        	System.out.print("\n Lehrer: " + hilfs_leh.getVorname() + " " + hilfs_leh.getNachname()+"\n\t Geburtsdatum: "+ hilfs_leh.getGeburtsdatum());
+			        	System.out.print("\n Kuerzel:" + hilfs_leh.getKuerzel() + "\tKlassenvorstand bei:" + (hilfs_leh.getVorstand())[0] + "  " + (hilfs_leh.getVorstand())[1]);
 					}
 				}
 		        break;

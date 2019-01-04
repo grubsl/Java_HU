@@ -25,8 +25,6 @@ public class Schule
 	private List<NichtLehrpersonal> nichtlehrpersonal = new ArrayList<>();
 	private List<Abteilung> abteilungen = new ArrayList<>();
 	private List<Mitarbeiter> mitarbeiter = new ArrayList<>();
-	private List<Schueler> schueler = new ArrayList<>();
-	
 	
 	
 	
@@ -114,10 +112,10 @@ public class Schule
 	{
 		return mitarbeiter;
 	}
-	public List<Schueler> getSchueler()
+	/*public List<Schueler> getSchueler()
 	{
 		return schueler;
-	}
+	}*/
 	public int getAnzahlSchueler()
 	{
 		return 1;
@@ -133,9 +131,5 @@ public class Schule
 		{
 			return false;
 		}
-	}
-	public void addSchuelerTest1()
-	{
-		schueler.add(schlagla);
 	}
 }

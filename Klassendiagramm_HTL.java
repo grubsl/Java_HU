@@ -24,7 +24,7 @@ public class Klassendiagramm_HTL
 		HTL.addAbteilung("Elektrotechnik", "ET");
 		HTL.addAbteilung("Elektronik    ", "EL");
 		HTL.addAbteilung("Maschinenbau  ", "MB");
-		Schueler alex = new Schueler();
+		
 		
 		System.out.print("\n Informationsseite:" +
 						 "\n  Schule \t\t [1]" +
@@ -91,17 +91,22 @@ public class Klassendiagramm_HTL
 		        
 			case LEHRER:
 				
-				Lehrer hilfslehrer;
-				Abteilung hilfsabteilung;
+				Abteilung hilfs_abt; Lehrer hilfs_leh;
 				
-				for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
+		        for(Iterator<Abteilung> iterator2 = (HTL.getAbteilungen()).iterator();iterator2.hasNext();)
 				{
-		        	hilfsabteilung = iterator.next();
-					System.out.print("\n Lehrer: " + hilfslehrer.getVorname() + " " + hilfslehrer.getNachname()+"\n Geburtsdatum: "+ hilfslehrer.getGeburtsdatum());
+		        	hilfs_abt = iterator2.next();
+		        	System.out.print("\n\n Lehrer in der Abteilung " + hilfs_abt.getName() + "\n");
+		        	hilfs_abt.addLehrer(new Lehrer("WAGN \t",hilfs_abt));
+		        	
+			        for(Iterator<Lehrer> iterator3 = (hilfs_abt.getLehrer()).iterator();iterator3.hasNext();)
+					{
+			        	hilfs_leh = iterator3.next();
+			        	System.out.print("\n Lehrer: " + hilfs_leh.getVorname() + " " + hilfs_leh.getNachname()+"\n Geburtsdatum: "+ hilfs_leh.getGeburtsdatum());
+			        	System.out.print("\n Kuerzel:" + hilfs_leh.getKuerzel() + "Klassenvorstand bei:" + hilfs_leh.getVorstand()[0] + "  " + hilfs_leh.getVorstand()[1]);
+					}
 				}
 		        break;
-				
-		        
 
 			case ABBRECHEN:
 				System.out.println("Programm wurde beendet.");

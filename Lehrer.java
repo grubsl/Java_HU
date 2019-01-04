@@ -12,9 +12,11 @@ public class Lehrer extends Mitarbeiter
 	private Abteilung Abteilung;
 	public boolean Aufgabe;
 
-	private List<Abteilung> Abteilungen =new ArrayList<Abteilung>();
+	private Klasse[] vorstand = new Klasse[2];
+	
+	private List<Abteilung> Abteilungen = new ArrayList<Abteilung>();
 	private List<Fach> faecher = new ArrayList<Fach>();
-
+	
 	public Lehrer(){}
 	public Lehrer(String kuerzel,Abteilung Abteilung)
 	{
@@ -44,5 +46,33 @@ public class Lehrer extends Mitarbeiter
 	public void addFach(String name,int wochenstunden,Raumtyp raumanforderung)
 	{
 		faecher.add(new Fach(name,wochenstunden,raumanforderung));
+	}
+	public boolean addVorstand(Klasse klasse)
+	{
+		try 
+		{
+			if(this.vorstand[0] == null)
+			{
+				vorstand[0] = klasse;
+			}
+			else if(this.vorstand[1] == null)
+			{
+				vorstand[1] = klasse;
+			}
+			else 
+			{
+				return true;
+			}
+			return true;
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			return false;
+		}
+	}
+	public Klasse[] getVorstand()
+	{
+		return vorstand;
 	}
 }

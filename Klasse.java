@@ -1,32 +1,42 @@
-import java.util.ArrayList;
-import java.util.List;
-
 /****************************************************************************
 * Gruber Lukas ; Alexander Wippel ; 4 AHELS
 * Klasse - Klasse
 * 17.12.2018 - Version 1
 ****************************************************************************/
+import java.util.*;
 
 public class Klasse
 {
 	private int schulstufe;
 	private String bezeichnung;
-	private Abteilung abteilung;
+	private Abteilung Abteilung;
 	private int klassengröße = 1;
+	private Schueler Klassensprecher;
+	private Lehrer Klassenvorstand;
 	
 	private List<Schueler> schueler = new ArrayList<>();
 	
 	public Klasse(){}
-	public Klasse(Abteilung abteilung,int schulstufe,String bezeichnung)
+	public Klasse(Abteilung abteilung,int schulstufe,String bezeichnung, Lehrer Klassenvorstand)
 	{
-		this.abteilung = abteilung;
+		this.Klassenvorstand = Klassenvorstand;
+		this.Abteilung = abteilung;
 		this.schulstufe = schulstufe;
 		this.bezeichnung = bezeichnung;
 	}
 	
-	public boolean setKlassensprecher(Schueler schueler)
+	public boolean setKlassensprecher(Schueler Schueler)
 	{
-		return false;
+		try 
+		{
+			Klassensprecher = Schueler;
+			return true;
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			return false;
+		}
 	}
 	public boolean addSchueler(Schueler schueler)
 	{
@@ -35,12 +45,13 @@ public class Klasse
 			try 
 			{
 				this.schueler.add(schueler);
+				return true;
 			} 
 			catch (Exception e) 
 			{
+				e.printStackTrace();
 				return false;
 			}
-			return true;
 		}
 		return false;
 	}
@@ -63,10 +74,18 @@ public class Klasse
 	}
 	public Abteilung getAbteilung() 
 	{
-		return abteilung;
+		return Abteilung;
 	}
 	public List<Schueler> getSchueler() 
 	{
 		return schueler;
+	}
+	public Schueler getKlassensprecher()
+	{
+		return Klassensprecher;
+	}
+	public Lehrer getKlassenvorstand() 
+	{
+		return Klassenvorstand;
 	}
 }

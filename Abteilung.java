@@ -13,6 +13,8 @@ public class Abteilung
 	private Lehrer Av;
 	private List<Lehrer> lehrer = new ArrayList<Lehrer>();
 	private Set<Klasse> klassen = new TreeSet<Klasse>();
+	
+	
 
 	public Abteilung(){}
 	public Abteilung(String name,String kuerzel)
@@ -73,5 +75,13 @@ public class Abteilung
 	public List<Lehrer> getLehrer()
 	{
 		return lehrer;
+	}
+	public Set<Klasse> getKlassen()
+	{
+		return klassen;
+	}
+	public void addKlasse(Klasse k)
+	{
+		klassen.add(k);
 	}
 }

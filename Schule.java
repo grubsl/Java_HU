@@ -13,6 +13,7 @@ public class Schule
 	private String schultyp;
 	private Adresse Ort = new Adresse();
 	
+	
 	Date datum1;
 
 	private long schulsprecher_ID;

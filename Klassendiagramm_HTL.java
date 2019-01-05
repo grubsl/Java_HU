@@ -8,75 +8,102 @@ import java.util.*;
 import java.io.*;
 import java.text.*;
 
-public class Klassendiagramm_HTL 
-{	
-	enum Auswahl 
+public class Klassendiagramm_HTL
+{
+	enum Auswahl
 	{
 		SCHULE,ABTEILUNG,ADRESSE,
 		PERSONAL,MITARBEITER,LEHRER,NICHTLEHRPERSONAL,SCHUELER,
 		KLASSE,FACH,RAUM,BELEGUNG,
 		ABBRECHEN
 	}
-	
-	public static void main(String[] args) 
-	{		
-		Schule HTL= new Schule(	"HTL St.Pölten ", "Höhere Technische Lehranstalt" , 1120234446248L, 
-								"St.Pölten","Waldstraße",3,3100);	//add L for type Long 
-		
+
+	public static void main(String[] args)
+	{
+		Schule HTL= new Schule(	"HTL St.Pï¿½lten ", "Hï¿½here Technische Lehranstalt" , 1120234446248L,
+								"St.Pï¿½lten","Waldstraï¿½e",3,3100);	//add L for type Long
+
 		HTL.addAbteilung("Elektrotechnik", "ET");
 		HTL.addAbteilung("Elektronik    ", "EL");
 		HTL.addAbteilung("Maschinenbau  ", "MB");
-		
-		
+
+
+
+
+
+
 		System.out.print("\n Informationsseite:" +
 						 "\n  Schule \t\t [1]" +
-						 "\n  Abteilung \t\t [2]" + 
+						 "\n  Abteilung \t\t [2]" +
 						 "\n  Adresse \t\t [3]"+
 						 "\n  Personal \t\t [4]" +
-						 "\n  Mitarbeiter \t\t [5]" + 
+						 "\n  Mitarbeiter \t\t [5]" +
 						 "\n  Lehrer \t\t [6]"+
-						 "\n  Nichtlehrpersonal \t [7]" + 
+						 "\n  Nichtlehrpersonal \t [7]" +
 						 "\n  Schueler \t\t [8]"+
 						 "\n  Klasse \t\t [9]" +
-						 "\n  Fach \t\t\t [10]" + 
+						 "\n  Fach \t\t\t [10]" +
 						 "\n  Raum \t\t\t [11]"+
-						 "\n  Belegung \t\t [12]" + 
-						 "\n  Abbrechen \t\t [13]" + 
-						 
+						 "\n  Belegung \t\t [12]" +
+						 "\n  Abbrechen \t\t [13]" +
+
 						 "\n\n Erschaffe        :" +
 						 "\n  Abteilung \t\t [14]" +
 						 "\n  Nicht-Lehr-Personal \t [15]" +
 						 "\n        Lehr-Personal \t [16]" +
 						 "\n  Klasse \t\t [17]" +
 						 "\n  Raum \t\t\t [18]");
-		
+
 		try
 		{
 			int option;
 			Scanner scan = new Scanner(System.in);
-			
+
 			System.out.print("\n\nEingabe: ");
 			option = scan.nextInt() - 1;
-						
-			switch(Auswahl.values()[option])	// values liefert Array mit enum Konstanten, n.Element = n.Konstante 
+
+
+
+
+			Lehrer l1 = null;
+
+			int i=0;
+
+
+
+			for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
+			{
+	        	i++;
+				Abteilung hilf;
+	        	Klasse hilfsk;
+				hilf = iterator.next();
+				hilfsk=new Klasse(hilf,i,"haha",l1);
+				hilf.addKlasse(hilfsk);
+			}
+
+
+
+
+
+			switch(Auswahl.values()[option])	// values liefert Array mit enum Konstanten, n.Element = n.Konstante
 			{
 			case SCHULE:
 				System.out.print(
 						"\n" + HTL.getName() + "\t" +
 						HTL.getSchulkennzahl() + "\n" +
-						HTL.getSchultyp());		
+						HTL.getSchultyp());
 					HTL.printOrt();
 				break;
 			case ABTEILUNG:
-				
+
 				Abteilung hilf = new Abteilung();
-				
+
 		        for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
 				{
 		        	hilf = iterator.next();
 					System.out.print("\n Abteilung:" + hilf.getName() + "\tKuerzel: " + hilf.getKuerzel());
-				}			
-				
+				}
+
 				/*int i = 0;
 				while(Sammel[i] != null)
 				{
@@ -86,37 +113,37 @@ public class Klassendiagramm_HTL
 					i++;
 				}*/
 				break;
-				
+
 			case MITARBEITER:
-				
+
 				Mitarbeiter hilfs;
-				
+
 		        for(Iterator<Mitarbeiter> iterator = (HTL.getPersonal()).iterator();iterator.hasNext();)
 				{
 		        	hilfs = iterator.next();
 					System.out.print("\n Mitarbeiter: " + hilfs.getVorname() + " " + hilfs.getNachname()+"\n Geburtsdatum: "+ hilfs.getGeburtsdatum());
 				}
 		        break;
-		        
+
 			case LEHRER:
-				
+
 				Abteilung hilfs_abt; Lehrer hilfs_leh;
-				
+
 		        for(Iterator<Abteilung> iterator2 = (HTL.getAbteilungen()).iterator();iterator2.hasNext();)
 				{
 		        	hilfs_abt = iterator2.next();
 		        	System.out.print("\n\n Lehrer in der Abteilung " + hilfs_abt.getName() + "\n");
-		        	
+
 		        	try
 		        	{
 			        	hilfs_abt.addLehrer(new Lehrer(0000L, "Herbert", "Wagner", callDate()
 			        			,"perversion@hostdas.at","WAGN \t",hilfs_abt));
 		        	}
-		        	catch(ParseException e) 
+		        	catch(ParseException e)
 		        	{
-		        		System.out.print("Ungültiges Format!");
+		        		System.out.print("Ungï¿½ltiges Format!");
 		        	}
-		        	
+
 			        for(Iterator<Lehrer> iterator3 = (hilfs_abt.getLehrer()).iterator();iterator3.hasNext();)
 					{
 			        	hilfs_leh = iterator3.next();
@@ -136,42 +163,55 @@ public class Klassendiagramm_HTL
 					}
 				}
 		        break;
-		        
+
 			case SCHUELER:
 				System.out.print(HTL.getSchueler());
 				break;
+
+			case KLASSE:
+				    List<Schueler> alleschueler = new ArrayList<>();
+				    Abteilung hilfsabteilung;
+				    Klasse hilfsklasse;
+
+				    for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
+					{
+			        	hilfsabteilung = iterator.next();
+						System.out.print("\n"+hilfsabteilung.getKlassen());
+					}
+
+				    break;
 			case ABBRECHEN:
 				System.out.println("Programm wurde beendet.");
 				scan.close();
 				System.exit(0);
 			default:
-				System.out.println("Fehlerhafte Eingabe");  
+				System.out.println("Fehlerhafte Eingabe");
 				break;
 			}
 		}
 		catch(InputMismatchException e)
 		{
 			System.out.println("Eingabe Abgebrochen");
-			
+
 		}
 		catch(NumberFormatException e)
 		{
 			System.out.println("Fehlerhafte Eingabe");
 		}
-		catch(Exception e) 
+		catch(Exception e)
 		{
 			System.out.println("Fehler");
 		}
 	}
-	
+
 	public static Date callDate() throws ParseException
 	{
 		DateFormat df2 = DateFormat.getDateInstance(DateFormat.MEDIUM);
 		Date parsedDate = df2.parse("10.02.1978");
-		
+
 		return parsedDate;
 	}
-	public static String callString() throws IOException 
+	public static String callString() throws IOException
 	{
 		BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
 		return rd.readLine();
@@ -179,8 +219,7 @@ public class Klassendiagramm_HTL
 	public static int callInt() throws ParseException
 	{
 		Scanner scanner = new Scanner(System.in);
-		
+
 		return scanner.nextInt();
 	}
 }
-

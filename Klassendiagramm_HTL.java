@@ -5,6 +5,7 @@
 ****************************************************************************/
 
 import java.util.*;
+import java.io.*;
 import java.text.*;
 
 public class Klassendiagramm_HTL 
@@ -108,9 +109,7 @@ public class Klassendiagramm_HTL
 		        	
 		        	try
 		        	{
-		        		DateFormat df2 = DateFormat.getDateInstance(DateFormat.MEDIUM);
-		        		Date parsedDate = df2.parse("10.02.1978");
-			        	hilfs_abt.addLehrer(new Lehrer(0000L, "Herbert", "Wagner", parsedDate
+			        	hilfs_abt.addLehrer(new Lehrer(0000L, "Herbert", "Wagner", callDate()
 			        			,"perversion@hostdas.at","WAGN \t",hilfs_abt));
 		        	}
 		        	catch(ParseException e) 
@@ -139,8 +138,8 @@ public class Klassendiagramm_HTL
 		        break;
 		        
 			case SCHUELER:
-				
-		    
+				System.out.print(HTL.getSchueler());
+				break;
 			case ABBRECHEN:
 				System.out.println("Programm wurde beendet.");
 				scan.close();
@@ -164,4 +163,24 @@ public class Klassendiagramm_HTL
 			System.out.println("Fehler");
 		}
 	}
+	
+	public static Date callDate() throws ParseException
+	{
+		DateFormat df2 = DateFormat.getDateInstance(DateFormat.MEDIUM);
+		Date parsedDate = df2.parse("10.02.1978");
+		
+		return parsedDate;
+	}
+	public static String callString() throws IOException 
+	{
+		BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
+		return rd.readLine();
+	}
+	public static int callInt() throws ParseException
+	{
+		Scanner scanner = new Scanner(System.in);
+		
+		return scanner.nextInt();
+	}
 }
+

@@ -22,8 +22,6 @@ public class Schule
 	private List<Abteilung> abteilungen = new ArrayList<>();
 	private List<Mitarbeiter> mitarbeiter = new ArrayList<>();
 	
-	
-	
 	public Schule(){}
 	public Schule(String name,String schultyp,Long schulkennzahl,
 			String ort,String strasse,Integer nr,Integer plz)
@@ -41,21 +39,6 @@ public class Schule
 		abteilungen.add(abteilung);
 		
 		return abteilung;
-		
-		/*BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
-
-		try
-    	{
-    		name = rd.readLine();
-    		kuerzel = rd.readLine();
-    	}
-    	catch(IOException e)
-    	{
-    		System.out.println("Bad luck ...");
-    		e.printStackTrace();
-    	}
-
-		Abteilung X = new Abteilung(name, kuerzel);*/
 	}
 
 	public boolean setDirektor(Lehrer Lehrer)
@@ -108,20 +91,20 @@ public class Schule
 	{
 		return mitarbeiter;
 	}
-	/*public List<Schueler> getSchueler()
+	public Set<Schueler> getSchueler()
 	{
-	    List<Schueler> alleschueler = new ArrayList<>();
-	    Abteilung hilfsabteilung;
+	    Set<Schueler> alleschueler = new TreeSet<>();
 	    
-	    for(Iterator<Abteilung> iterator = (HTL.getPersonal()).iterator();iterator.hasNext();)
+	    Abteilung hilf;
+	    
+	    for(Iterator<Abteilung> iterator = (this.abteilungen).iterator();iterator.hasNext();)
 		{
-        	hilfsabteilung = iterator.next();
-			System.out.print("\n Mitarbeiter: " + hilfs.getVorname() + " " + hilfs.getNachname()+"\n Geburtsdatum: "+ hilfs.getGeburtsdatum());
+        	hilf = iterator.next();
+        	alleschueler.addAll(hilf.getSchueler());
 		}
 	    
-	    
 		return alleschueler;
-	}*/
+	}
 	public int getAnzahlSchueler()
 	{
 		return 1;

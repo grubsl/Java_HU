@@ -43,17 +43,17 @@ public class Abteilung
 		return false;
 	}
 
-	public List<Schueler> getSchueler()
+	public Set<Schueler> getSchueler()
 	{
-	    List<Schueler> alleschueler = new ArrayList<>();
-	    Abteilung hilfsabteilung;
+	    Set<Schueler> alleschueler = new TreeSet<>();
 	    
-	    for(Iterator<Abteilung> iterator = (HTL.getPersonal()).iterator();iterator.hasNext();)
+	    Klasse hilf;
+	    
+	    for(Iterator<Klasse> iterator = (this.klassen).iterator();iterator.hasNext();)
 		{
-        	hilfsabteilung = iterator.next();
-			System.out.print("\n Mitarbeiter: " + hilfs.getVorname() + " " + hilfs.getNachname()+"\n Geburtsdatum: "+ hilfs.getGeburtsdatum());
+        	hilf = iterator.next();
+        	alleschueler.addAll(hilf.getSchueler());
 		}
-	    
 	    
 		return alleschueler;
 	}

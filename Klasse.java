@@ -18,7 +18,7 @@ public class Klasse
 	
 	public Klasse(){}
 	public Klasse(Abteilung abteilung,int schulstufe,String bezeichnung, Lehrer Klassenvorstand)
-	{
+	{//schueler.add(new Schueler("4AHELS",0000L,"Alex","Wippel",new Date(),"@",4,true,new Date()));
 		this.Klassenvorstand = Klassenvorstand;
 		this.Abteilung = abteilung;
 		this.schulstufe = schulstufe;

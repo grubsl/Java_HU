@@ -134,7 +134,7 @@ public class Klassendiagramm_HTL
 
 			case KLASSE:
 
-				Abteilung hilfe;				
+				Abteilung hilfe; Klasse hilfekl;
 				int i=0;
 				Lehrer lehrer1 = new Lehrer();
 				for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
@@ -145,26 +145,19 @@ public class Klassendiagramm_HTL
 					System.out.print("ok");
 				}
 				
-
-				    //List<Schueler> alleschueler = new ArrayList<>();
-				    Abteilung hilfsabteilung;
-				    Klasse hilfsklasse;
-				    
-				    for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
+				hilfe = null;
+		        for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
+				{
+		        	hilfe = iterator.next();
+			        
+		        	for(Iterator<Klasse> iterator2 = (hilfe.getKlassen()).iterator();iterator2.hasNext();)
 					{
-
-				    	hilfsabteilung = iterator.next();
-			        	for(Iterator<Klasse> iterator2 = (hilfsabteilung.getKlassen()).iterator();iterator.hasNext();)
-			        	{
-			        		hilfsklasse=iterator2.next();
-			        		System.out.print("\n"+hilfsklasse.getBezeichnung());
-
-			        	}
-
+			        	hilfekl = iterator2.next();
+						System.out.print("\n" + hilfekl.getBezeichnung());
 					}
-
-				    break;
-
+				}
+				
+				break;
 
 			case EABT:
 
@@ -179,13 +172,16 @@ public class Klassendiagramm_HTL
 
 				break;
 			case EK:
-
+				String choose = new String("ET");
 				for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
 				{
 					hilfe = iterator.next();
-		        	Lehrer Wagner = new Lehrer(0000L, "Herbert", "Wagner", callDate()
-		        			,"perversion@hostdas.at","WAGN \t",hilfe);
-					hilfe.addKlasse(hilfe,4,"4AHELS",Wagner);
+					if(hilfe.getKuerzel().equals(choose))
+					{
+			        	Lehrer Wagner = new Lehrer(0000L, "Herbert", "Wagner", callDate()
+			        			,"perversion@hostdas.at","WAGN \t",hilfe);
+						hilfe.addKlasse(hilfe,4,"4AHELS",Wagner);
+					}
 				}
 
 				break;

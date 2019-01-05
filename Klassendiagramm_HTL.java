@@ -218,7 +218,7 @@ public class Klassendiagramm_HTL
 					if(hilfe.getKuerzel().equals(choose))
 					{
 
-						for(Iterator<Klasse> iterator2 = (hilfe.getKlassen()).iterator();iterator.hasNext();)
+						for(Iterator<Klasse> iterator2 = (hilfe.getKlassen()).iterator();iterator2.hasNext();)
 						{
 							hilfsklasse = iterator2.next();
 
@@ -240,7 +240,7 @@ public class Klassendiagramm_HTL
 
 				break;
 			case EK:
-				String choose = callString(); hilfe = null;
+				choose = callString(); hilfe = null;
 				for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
 				{
 					hilfe = iterator.next();
@@ -294,9 +294,12 @@ public class Klassendiagramm_HTL
 		{
 			e.printStackTrace();
 		}
-		for (int i=0; i<10000; i++)
-		{
-			   System.out.println();
+		
+		try {
+			System.in.read();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		}
 	}

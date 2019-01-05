@@ -47,7 +47,7 @@ public class Schueler extends Person
 	{
 		return schueler_id;
 	}
-	public String getKlasse() 
+	public Klasse getKlasse() 
 	{
 		return klasse;
 	}

@@ -15,13 +15,14 @@ public class Klassendiagramm_HTL
 		SCHULE,ABTEILUNG,ADRESSE,
 		PERSONAL,MITARBEITER,LEHRER,NICHTLEHRPERSONAL,SCHUELER,
 		KLASSE,FACH,RAUM,BELEGUNG,
-		ABBRECHEN
+		
+		EABT,ENLP,ELP,ES,EK,ER,ABBRECHEN
 	}
 
 	public static void main(String[] args)
 	{
-		Schule HTL= new Schule(	"HTL St.Pï¿½lten ", "Hï¿½here Technische Lehranstalt" , 1120234446248L,
-								"St.Pï¿½lten","Waldstraï¿½e",3,3100);	//add L for type Long
+		Schule HTL= new Schule(	"HTL St.Pölten ", "Höhere Technische Lehranstalt" , 1120234446248L,
+								"St.Pölten","Waldstraße",3,3100);	//add L for type Long
 
 		HTL.addAbteilung("Elektrotechnik", "ET");
 		HTL.addAbteilung("Elektronik    ", "EL");
@@ -40,15 +41,15 @@ public class Klassendiagramm_HTL
 						 "\n  Fach \t\t\t [10]" +
 						 "\n  Raum \t\t\t [11]"+
 						 "\n  Belegung \t\t [12]" +
-						 "\n  Abbrechen \t\t [13]" +
-
 						 "\n\n Erschaffe        :" +
-						 "\n  Abteilung \t\t [14]" +
-						 "\n  Nicht-Lehr-Personal \t [15]" +
-						 "\n        Lehr-Personal \t [16]" +
+						 "\n  Abteilung \t\t [13]" +
+						 "\n  Nicht-Lehr-Personal \t [14]" +
+						 "\n        Lehr-Personal \t [15]" +
+						 "\n  Schueler \t\t [16]" +
 						 "\n  Klasse \t\t [17]" +
-						 "\n  Raum \t\t\t [18]");
-
+						 "\n  Raum \t\t\t [18]" +
+						 "\n  Abbrechen \t\t [19]");
+		
 		try
 		{
 			int option;
@@ -75,15 +76,6 @@ public class Klassendiagramm_HTL
 		        	hilf = iterator.next();
 					System.out.print("\n Abteilung:" + hilf.getName() + "\tKuerzel: " + hilf.getKuerzel());
 				}
-
-				/*int i = 0;
-				while(Sammel[i] != null)
-				{
-					System.out.print(
-						"\n Abteilung:" + Sammel[i].getName() + "\t" +
-						"Kuerzel" + Sammel[i].getKuerzel());
-					i++;
-				}*/
 				break;
 
 			case MITARBEITER:
@@ -113,7 +105,7 @@ public class Klassendiagramm_HTL
 		        	}
 		        	catch(ParseException e)
 		        	{
-		        		System.out.print("Ungï¿½ltiges Format!");
+		        		System.out.print("Ungültiges Format!");
 		        	}
 
 			        for(Iterator<Lehrer> iterator3 = (hilfs_abt.getLehrer()).iterator();iterator3.hasNext();)
@@ -144,9 +136,9 @@ public class Klassendiagramm_HTL
 
 				Abteilung hilfe;
 
-				for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
+				for(Iterator<Abteilung> iterator5 = (HTL.getAbteilungen()).iterator();iterator5.hasNext();)
 				{
-					hilfe = iterator.next();
+					hilfe = iterator5.next();
 					hilfe.addKlasse(new Klasse(hilfe,1,"haha",new Lehrer()));
 				}
 				
@@ -160,6 +152,34 @@ public class Klassendiagramm_HTL
 					}
 
 				    break;
+				    
+				    
+			case EABT:
+				
+				break;
+			case ENLP:
+				
+				break;
+			case ELP:
+				
+				break;
+			case ES:
+				
+				break;
+			case EK:
+
+				for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
+				{
+					hilfe = iterator.next();
+		        	Lehrer Wagner = new Lehrer(0000L, "Herbert", "Wagner", callDate()
+		        			,"perversion@hostdas.at","WAGN \t",hilfe);
+					hilfe.addKlasse(hilfe,4,"4AHELS",Wagner);
+				}
+				
+				break;
+			case ER:
+				
+				break;		    
 			case ABBRECHEN:
 				System.out.println("Programm wurde beendet.");
 				scan.close();
@@ -184,10 +204,12 @@ public class Klassendiagramm_HTL
 		}
 	}
 
-	public static Date callDate() throws ParseException
+	public static Date callDate() throws ParseException, IOException
 	{
+		BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
+		
 		DateFormat df2 = DateFormat.getDateInstance(DateFormat.MEDIUM);
-		Date parsedDate = df2.parse("10.02.1978");
+		Date parsedDate = df2.parse("12.02.1974" /*rd.readLine()*/);
 
 		return parsedDate;
 	}
@@ -196,10 +218,12 @@ public class Klassendiagramm_HTL
 		BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
 		return rd.readLine();
 	}
-	public static int callInt() throws ParseException
+	public static int callInt(Scanner scan)
 	{
-		Scanner scanner = new Scanner(System.in);
-
-		return scanner.nextInt();
+		return scan.nextInt();
+	}
+	public static Long callDouble(Scanner scan)
+	{
+		return scan.nextLong();
 	}
 }

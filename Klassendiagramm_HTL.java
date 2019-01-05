@@ -144,19 +144,19 @@ public class Klassendiagramm_HTL
 					hilfe.addKlasse(hilfe,i,"1A",lehrer1);
 					System.out.print("ok");
 				}
-				
+
 				hilfe = null;
 		        for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
 				{
 		        	hilfe = iterator.next();
-			        
+
 		        	for(Iterator<Klasse> iterator2 = (hilfe.getKlassen()).iterator();iterator2.hasNext();)
 					{
 			        	hilfekl = iterator2.next();
 						System.out.print("\n" + hilfekl.getBezeichnung());
 					}
 				}
-				
+
 				break;
 
 			case EABT:

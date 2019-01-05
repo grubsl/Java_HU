@@ -108,7 +108,7 @@ public class Klassendiagramm_HTL
 
 		        	try
 		        	{
-			        	hilfs_abt.addLehrer(new Lehrer(0000L, "Herbert", "Wagner", callDate()
+			        	hilfs_abt.addLehrer(new Lehrer(0000L, "Herbert", "Wagner", callDate(),
 			        			,"perversion@hostdas.at","WAGN \t",hilfs_abt));
 		        	}
 		        	catch(ParseException e)
@@ -143,20 +143,31 @@ public class Klassendiagramm_HTL
 			case KLASSE:
 
 				Abteilung hilfe;
-
+				int i=0;
+				Lehrer lehrer1(0000L,"Hermann","Blad",D);
 				for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
 				{
+					i++;
 					hilfe = iterator.next();
-					hilfe.addKlasse(new Klasse(hilfe,1,"haha",new Lehrer()));
+					hilfe.addKlasse(hilfe,i,"1A",lehrer1);
+					System.out.print("ok");
 				}
 				
 				    //List<Schueler> alleschueler = new ArrayList<>();
 				    Abteilung hilfsabteilung;
-
+				    Klasse hilfsklasse;
+				    
 				    for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
 					{
-			        	hilfsabteilung = iterator.next();
-						System.out.print("\n"+hilfsabteilung.getKlassen());
+			        	
+				    	hilfsabteilung = iterator.next();
+			        	for(Iterator<Klasse> iterator2 = (hilfsabteilung.getKlassen()).iterator();iterator.hasNext();)
+			        	{
+			        		hilfsklasse=iterator2.next();
+			        		System.out.print("\n"+hilfsklasse.getBezeichnung());
+			        		
+			        	}
+						
 					}
 
 				    break;

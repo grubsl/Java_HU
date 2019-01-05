@@ -110,7 +110,17 @@ public class Schule
 	}
 	/*public List<Schueler> getSchueler()
 	{
-		return schueler;
+	    List<Schueler> alleschueler = new ArrayList<>();
+	    Abteilung hilfsabteilung;
+	    
+	    for(Iterator<Abteilung> iterator = (HTL.getPersonal()).iterator();iterator.hasNext();)
+		{
+        	hilfsabteilung = iterator.next();
+			System.out.print("\n Mitarbeiter: " + hilfs.getVorname() + " " + hilfs.getNachname()+"\n Geburtsdatum: "+ hilfs.getGeburtsdatum());
+		}
+	    
+	    
+		return alleschueler;
 	}*/
 	public int getAnzahlSchueler()
 	{

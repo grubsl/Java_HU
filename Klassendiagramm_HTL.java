@@ -137,7 +137,10 @@ public class Klassendiagramm_HTL
 					}
 				}
 		        break;
-
+		        
+			case SCHUELER:
+				
+		    
 			case ABBRECHEN:
 				System.out.println("Programm wurde beendet.");
 				scan.close();

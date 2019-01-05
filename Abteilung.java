@@ -43,9 +43,19 @@ public class Abteilung
 		return false;
 	}
 
-	public String getSchueler()
+	public List<Schueler> getSchueler()
 	{
-		return "Not done yet!";
+	    List<Schueler> alleschueler = new ArrayList<>();
+	    Abteilung hilfsabteilung;
+	    
+	    for(Iterator<Abteilung> iterator = (HTL.getPersonal()).iterator();iterator.hasNext();)
+		{
+        	hilfsabteilung = iterator.next();
+			System.out.print("\n Mitarbeiter: " + hilfs.getVorname() + " " + hilfs.getNachname()+"\n Geburtsdatum: "+ hilfs.getGeburtsdatum());
+		}
+	    
+	    
+		return alleschueler;
 	}
 
 	public String getKuerzel()

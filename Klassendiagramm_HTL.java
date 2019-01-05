@@ -19,10 +19,13 @@ public class Klassendiagramm_HTL
 		EABT,ENLP,ELP,ES,EK,ER,ABBRECHEN
 	}
 
+	
 	public static void main(String[] args)
 	{
-		Schule HTL= new Schule(	"HTL St.Pï¿½lten ", "Hï¿½here Technische Lehranstalt" , 1120234446248L,
-								"St.Pï¿½lten","Waldstraï¿½e",3,3100);	//add L for type Long
+		while(true)
+		{
+		Schule HTL= new Schule(	"HTL St.Pölten ", "Höhere Technische Lehranstalt" , 1120234446248L,
+								"St.Pölten","Waldstraï¿½e",3,3100);	//add L for type Long
 
 		HTL.addAbteilung("Elektrotechnik", "ET");
 		HTL.addAbteilung("Elektronik    ", "EL");
@@ -105,7 +108,7 @@ public class Klassendiagramm_HTL
 		        	}
 		        	catch(ParseException e)
 		        	{
-		        		System.out.print("Ungï¿½ltiges Format!");
+		        		System.out.print("Ungültiges Format!");
 		        	}
 
 			        for(Iterator<Lehrer> iterator3 = (hilfs_abt.getLehrer()).iterator();iterator3.hasNext();)
@@ -142,7 +145,6 @@ public class Klassendiagramm_HTL
 					i++;
 					hilfe = iterator.next();
 					hilfe.addKlasse(hilfe,i,"1A",lehrer1);
-					System.out.print("ok");
 				}
 
 				hilfe = null;
@@ -169,10 +171,43 @@ public class Klassendiagramm_HTL
 
 				break;
 			case ES:
-
+				hilfe=null;
+				boolean b=false;
+				String choose = new String("ET");
+				String chooseklasse=new String("4AHELS");
+				Klasse hilfsklasse=null;
+				Schueler schueler =new Schueler();
+				
+				
+				for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
+				{
+					hilfe = iterator.next();
+					if(hilfe.getKuerzel().equals(choose))
+					{
+						
+						for(Iterator<Klasse> iterator2 = (hilfe.getKlassen()).iterator();iterator.hasNext();)
+						{
+							hilfsklasse = iterator2.next();
+							
+							if(hilfsklasse.getBezeichnung().equals(chooseklasse))
+							{
+								b=hilfsklasse.addSchueler(schueler);
+								if(b==true)
+								{
+									System.out.println("Schueler wurde angelegt");
+								}
+								else
+								{
+									System.out.println("Fehler beim Anlegen vom Schüler");
+								}
+							}
+						}
+					}
+				}
+				
 				break;
 			case EK:
-				String choose = new String("ET");
+				choose =new String("ET");
 				for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
 				{
 					hilfe = iterator.next();
@@ -208,7 +243,23 @@ public class Klassendiagramm_HTL
 		}
 		catch(Exception e)
 		{
-			System.out.println("Fehler");
+				System.out.println("Fehler");
+				e.printStackTrace();
+		}
+		
+		
+		try
+		{
+			Thread.sleep(3500);
+		} 
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+		for (int i=0; i<10000; i++)
+		{
+			   System.out.println(); 
+		}
 		}
 	}
 

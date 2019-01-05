@@ -31,7 +31,11 @@ public class Abteilung
 	{
 		klassen.add(new Klasse(abteilung,schulstufe,bezeichnung,Klassenvorstand));
 	}
-
+	/*public void addKlasse(Klasse k)
+	{
+		klassen.add(k);
+	}*/
+	
 	public boolean setAbteilungsvorstand(Lehrer Eule)
 	{
 		if(Eule.Aufgabe == false)
@@ -80,8 +84,5 @@ public class Abteilung
 	{
 		return klassen;
 	}
-	public void addKlasse(Klasse k)
-	{
-		klassen.add(k);
-	}
+	
 }

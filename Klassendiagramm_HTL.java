@@ -100,7 +100,7 @@ public class Klassendiagramm_HTL
 
 		        	try
 		        	{
-			        	hilfs_abt.addLehrer(new Lehrer(0000L, "Herbert", "Wagner", callDate(),
+			        	hilfs_abt.addLehrer(new Lehrer(0000L, "Herbert", "Wagner", callDate()
 			        			,"perversion@hostdas.at","WAGN \t",hilfs_abt));
 		        	}
 		        	catch(ParseException e)
@@ -134,9 +134,9 @@ public class Klassendiagramm_HTL
 
 			case KLASSE:
 
-				Abteilung hilfe;
+				Abteilung hilfe;				
 				int i=0;
-				Lehrer lehrer1(0000L,"Hermann","Blad",D);
+				Lehrer lehrer1 = new Lehrer();
 				for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
 				{
 					i++;
@@ -144,6 +144,7 @@ public class Klassendiagramm_HTL
 					hilfe.addKlasse(hilfe,i,"1A",lehrer1);
 					System.out.print("ok");
 				}
+				
 
 				    //List<Schueler> alleschueler = new ArrayList<>();
 				    Abteilung hilfsabteilung;

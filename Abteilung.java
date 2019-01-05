@@ -12,9 +12,7 @@ public class Abteilung
 	private String name;
 	private Lehrer Av;
 	private List<Lehrer> lehrer = new ArrayList<Lehrer>();
-	private Set<Klasse> klassen = new TreeSet<Klasse>();
-	
-	
+	private List<Klasse> klassen = new ArrayList<Klasse>();
 
 	public Abteilung(){}
 	public Abteilung(String name,String kuerzel)
@@ -27,9 +25,10 @@ public class Abteilung
 	{
 		lehrer.add(L);
 	}
-	public void addKlasse(Abteilung abteilung,int schulstufe,String bezeichnung,Lehrer Klassenvorstand)
+	public boolean addKlasse(Abteilung abteilung,int schulstufe,String bezeichnung,Lehrer Klassenvorstand)
 	{
 		klassen.add(new Klasse(abteilung,schulstufe,bezeichnung,Klassenvorstand));
+		return true;
 	}
 	/*public void addKlasse(Klasse k)
 	{
@@ -80,7 +79,7 @@ public class Abteilung
 	{
 		return lehrer;
 	}
-	public Set<Klasse> getKlassen()
+	public List<Klasse> getKlassen()
 	{
 		return klassen;
 	}

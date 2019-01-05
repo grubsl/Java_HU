@@ -134,36 +134,7 @@ public class Klassendiagramm_HTL
 
 			case KLASSE:
 
-				Abteilung hilfe;				
-				int i=0;
-				Lehrer lehrer1 = new Lehrer();
-				for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
-				{
-					i++;
-					hilfe = iterator.next();
-					hilfe.addKlasse(hilfe,i,"1A",lehrer1);
-					System.out.print("ok");
-				}
 				
-
-				    //List<Schueler> alleschueler = new ArrayList<>();
-				    Abteilung hilfsabteilung;
-				    Klasse hilfsklasse;
-				    
-				    for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
-					{
-
-				    	hilfsabteilung = iterator.next();
-			        	for(Iterator<Klasse> iterator2 = (hilfsabteilung.getKlassen()).iterator();iterator.hasNext();)
-			        	{
-			        		hilfsklasse=iterator2.next();
-			        		System.out.print("\n"+hilfsklasse.getBezeichnung());
-
-			        	}
-
-					}
-
-				    break;
 
 
 			case EABT:

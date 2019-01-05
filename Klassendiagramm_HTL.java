@@ -27,11 +27,6 @@ public class Klassendiagramm_HTL
 		HTL.addAbteilung("Elektronik    ", "EL");
 		HTL.addAbteilung("Maschinenbau  ", "MB");
 
-
-
-
-
-
 		System.out.print("\n Informationsseite:" +
 						 "\n  Schule \t\t [1]" +
 						 "\n  Abteilung \t\t [2]" +
@@ -61,29 +56,6 @@ public class Klassendiagramm_HTL
 
 			System.out.print("\n\nEingabe: ");
 			option = scan.nextInt() - 1;
-
-
-
-
-			Lehrer l1 = null;
-
-			int i=0;
-
-
-
-			for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
-			{
-	        	i++;
-				Abteilung hilf;
-	        	Klasse hilfsk;
-				hilf = iterator.next();
-				hilfsk=new Klasse(hilf,i,"haha",l1);
-				hilf.addKlasse(hilfsk);
-			}
-
-
-
-
 
 			switch(Auswahl.values()[option])	// values liefert Array mit enum Konstanten, n.Element = n.Konstante
 			{
@@ -169,9 +141,17 @@ public class Klassendiagramm_HTL
 				break;
 
 			case KLASSE:
-				    List<Schueler> alleschueler = new ArrayList<>();
+
+				Abteilung hilfe;
+
+				for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
+				{
+					hilfe = iterator.next();
+					hilfe.addKlasse(new Klasse(hilfe,1,"haha",new Lehrer()));
+				}
+				
+				    //List<Schueler> alleschueler = new ArrayList<>();
 				    Abteilung hilfsabteilung;
-				    Klasse hilfsklasse;
 
 				    for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
 					{

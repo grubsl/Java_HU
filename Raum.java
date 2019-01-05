@@ -11,18 +11,19 @@ public class Raum
 {		
 	private String raumNummer="";
 	private int maxSitzplaetze=0;
-	private Raumtyp raumtyp;
-	private Klasse stammklasse;
+	private Raumtyp Raumtyp;
+	private Klasse Stammklasse;
+	private Schule Schule;
 	
 	private List<Belegung> belegungen = new ArrayList<Belegung>();
 	
 	
 	public Raum() {}
-	public Raum(String raumNummer, int maxSitzplaetze, Raumtyp raumtyp) 
+	public Raum(String raumNummer, int maxSitzplaetze, Raumtyp Raumtyp) 
 	{
 		this.raumNummer = raumNummer;
 		this.maxSitzplaetze = maxSitzplaetze;
-		this.raumtyp = raumtyp;
+		this.Raumtyp = Raumtyp;
 	}
 	
 	
@@ -44,7 +45,7 @@ public class Raum
 	}
 	public Raumtyp getRaumtyp() 
 	{
-		return raumtyp;
+		return Raumtyp;
 	}
 	public void addBelegung(int unterrichtsEinheit)
 	{
@@ -52,6 +53,6 @@ public class Raum
 	}
 	public void setStammklasse(Klasse k)
 	{
-		stammklasse=k;
+		Stammklasse=k;
 	}
 }

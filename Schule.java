@@ -12,16 +12,12 @@ public class Schule
 	private Long schulkennzahl;
 	private String schultyp;
 	private Adresse Ort = new Adresse();
-	
-	
-	Date datum1;
-
 	private long schulsprecher_ID;
 	private Lehrer Direktor;
-
 	private List<NichtLehrpersonal> nichtlehrpersonal = new ArrayList<>();
 	private List<Abteilung> abteilungen = new ArrayList<>();
 	private List<Mitarbeiter> mitarbeiter = new ArrayList<>();
+	private List<Raum> raeume = new ArrayList<>();
 	
 	public Schule(){}
 	public Schule(String name,String schultyp,Long schulkennzahl,
@@ -33,11 +29,10 @@ public class Schule
 		Ort = new Adresse(ort,strasse,nr,plz);
 	}
 
-
 	public Abteilung addAbteilung(String name, String kuerzel)
 	{
 		Abteilung abteilung = new Abteilung(name,kuerzel);
-		abteilungen.add(abteilung);
+		this.abteilungen.add(abteilung);
 		
 		return abteilung;
 	}
@@ -80,10 +75,6 @@ public class Schule
 	{
 		this.schulsprecher_ID = Schulsprecher_ID;
 	}
-	public void addNichtlehrpersonal(NichtLehrpersonal x)
-	{
-		nichtlehrpersonal.add(x);
-	}
 	public List<Abteilung> getAbteilungen() 
 	{
 		return abteilungen;
@@ -122,5 +113,12 @@ public class Schule
 			return false;
 		}
 	}
-	
+	public List<Raum> getRaeume() 
+	{
+		return raeume;
+	}
+	public void addRaeum(Raum Raum) 
+	{
+		this.raeume.add(Raum);
+	}
 }

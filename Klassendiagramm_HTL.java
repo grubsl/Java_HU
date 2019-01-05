@@ -27,6 +27,9 @@ public class Klassendiagramm_HTL
 		HTL.addAbteilung("Elektrotechnik", "ET");
 		HTL.addAbteilung("Elektronik    ", "EL");
 		HTL.addAbteilung("Maschinenbau  ", "MB");
+		
+		HTL.addRaeum(new Raum("W211",25,Raumtyp.KLASSENZIMMER));
+		HTL.addRaeum(new Raum("W213",35,Raumtyp.KLASSENZIMMER));
 
 		System.out.print("\n Informationsseite:" +
 						 "\n  Schule \t\t [1]" +
@@ -153,40 +156,75 @@ public class Klassendiagramm_HTL
 		        	for(Iterator<Klasse> iterator2 = (hilfe.getKlassen()).iterator();iterator2.hasNext();)
 					{
 			        	hilfekl = iterator2.next();
-						System.out.print("\n" + hilfekl.getBezeichnung());
+						System.out.print("\n" + hilfekl.getAbteilung().getKuerzel() + ":\t" + hilfekl.getBezeichnung());
 					}
 				}
 
 				break;
 
 			case EABT:
-
+				try 
+				{
+					HTL.addAbteilung(callString(),callString());
+				} 
+				catch (Exception e) 
+				{
+					System.out.println("Nicht erfolgreich!");
+				}
 				break;
 			case ENLP:
-
+				try 
+				{
+					HTL.addPersonal(new NichtLehrpersonal(callLong(scan),callString(),callString(),callDate(),callString()));
+				} 
+				catch (Exception e) 
+				{
+					System.out.println("Nicht erfolgreich!");
+				}
 				break;
 			case ELP:
-
+				try 
+				{
+					String choose = callString(); hilfe = null;
+					for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
+					{
+						hilfe = iterator.next();
+						if(hilfe.getKuerzel().equals(choose))
+						{
+							hilfe.addLehrer(new Lehrer(callLong(scan),callString(),callString(),callDate(),
+									callString(),callString(),hilfe));
+						}
+					}
+				} 
+				catch (Exception e) 
+				{
+					System.out.println("Nicht erfolgreich!");
+				}
 				break;
 			case ES:
 
 				break;
 			case EK:
-				String choose = new String("ET");
+				String choose = callString(); hilfe = null;
 				for(Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator();iterator.hasNext();)
 				{
 					hilfe = iterator.next();
 					if(hilfe.getKuerzel().equals(choose))
 					{
-			        	Lehrer Wagner = new Lehrer(0000L, "Herbert", "Wagner", callDate()
-			        			,"perversion@hostdas.at","WAGN \t",hilfe);
-						hilfe.addKlasse(hilfe,4,"4AHELS",Wagner);
+						hilfe.addKlasse(hilfe,4,"4AHELS",null);
 					}
 				}
-
 				break;
 			case ER:
-
+				try 
+				{
+					HTL.addRaeum(new Raum(callString(),callint(scan),Raumtyp.values()[callint(scan)]));
+				} 
+				catch (Exception e) 
+				{
+					
+					System.out.println("Nicht erfolgreich!");
+				}
 				break;
 			case ABBRECHEN:
 				System.out.println("Programm wurde beendet.");
@@ -217,7 +255,7 @@ public class Klassendiagramm_HTL
 		BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
 
 		DateFormat df2 = DateFormat.getDateInstance(DateFormat.MEDIUM);
-		Date parsedDate = df2.parse("12.02.1974" /*rd.readLine()*/);
+		Date parsedDate = df2.parse(rd.readLine());
 
 		return parsedDate;
 	}
@@ -226,11 +264,11 @@ public class Klassendiagramm_HTL
 		BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
 		return rd.readLine();
 	}
-	public static int callInt(Scanner scan)
+	public static int callint(Scanner scan) throws Exception
 	{
 		return scan.nextInt();
 	}
-	public static Long callDouble(Scanner scan)
+	public static Long callLong(Scanner scan) throws Exception
 	{
 		return scan.nextLong();
 	}

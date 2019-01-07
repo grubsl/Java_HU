@@ -83,9 +83,9 @@ public class Schule
 	{
 		return mitarbeiter;
 	}
-	public Set<Schueler> getSchueler()
+	public List<Schueler> getSchueler()
 	{
-	    Set<Schueler> alleschueler = new TreeSet<>();
+	    List<Schueler> alleschueler = new ArrayList<>();
 	    
 	    Abteilung hilf;
 	    
@@ -117,8 +117,9 @@ public class Schule
 	{
 		return raeume;
 	}
-	public void addRaeum(Raum Raum) 
+	public boolean addRaum(Raum Raum) 
 	{
 		this.raeume.add(Raum);
+		return true;
 	}
 }

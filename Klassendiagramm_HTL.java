@@ -29,8 +29,8 @@ public class Klassendiagramm_HTL
 		HTL.addAbteilung("Elektronik    ", "EL");
 		HTL.addAbteilung("Maschinenbau  ", "MB");
 
-		HTL.addRaeum(new Raum("W211", 25, Raumtyp.KLASSENZIMMER));
-		HTL.addRaeum(new Raum("W213", 35, Raumtyp.KLASSENZIMMER));
+		HTL.addRaum(new Raum("W211", 25, Raumtyp.KLASSENZIMMER));
+		HTL.addRaum(new Raum("W213", 35, Raumtyp.KLASSENZIMMER));
 
 		while(true)
 		{
@@ -135,8 +135,11 @@ public class Klassendiagramm_HTL
 					}
 
 					break;
-
+					
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+				
 				case EABT:
+					
 					try
 					{
 						HTL.addAbteilung(callString(), callString());
@@ -146,7 +149,9 @@ public class Klassendiagramm_HTL
 						System.out.println("Nicht erfolgreich!");
 					}
 					break;
+					
 				case ENLP:
+					
 					try
 					{
 						HTL.addPersonal(new NichtLehrpersonal(callLong(scan), callString(), callString(), callDate(),
@@ -157,31 +162,53 @@ public class Klassendiagramm_HTL
 						System.out.println("Nicht erfolgreich!");
 					}
 					break;
+					
 				case ELP:
+					
+					String choose;
 					try
 					{
-						String choose = callString();
-						hilfe = null;
-						for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();)
+						System.out.println("Abteilung:");choose = callString();
+					}
+					catch (Exception e)
+					{
+						System.out.println("Auswahl inkorrekt!");
+						break;
+					}
+					
+					hilfe = null;
+					for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();)
+					{
+						hilfe = iterator.next();
+						if (hilfe.getKuerzel().equals(choose))
 						{
-							hilfe = iterator.next();
-							if (hilfe.getKuerzel().equals(choose))
+							try 
 							{
-								hilfe.addLehrer(new Lehrer(callLong(scan), callString(), callString(), callDate(),
-										callString(), callString(), hilfe));
+								System.out.println("Folgend wird abgefragt: svnr,V-name,N-name\n,geb.(z.B.:10.12.2000),email,kuerzel");
+								if(hilfe.addLehrer(new Lehrer(callLong(scan), callString(), callString(), callDate(),
+										callString(), callString(), hilfe)))
+								{
+									System.out.println("Lehrer wurde angelegt");
+									break;
+								}
+								System.out.println("Fehler!");
+							}
+							catch(Exception e)
+							{
+								System.out.println("Auswahl inkorrekt!");
+								break;
 							}
 						}
-					} catch (Exception e)
-					{
-						System.out.println("Nicht erfolgreich!");
 					}
 					break;
+					
 				case ES:
+					
 					hilfe = null;
-					boolean b = false;
-					String choose = new String("ET");
-					String chooseklasse = new String("4AHELS");
 					Klasse hilfsklasse = null;
+					System.out.println("Folgend wird abgefragt: Jahrgang,Bezeichnung");
+					choose = new String(callString());
+					String chooseklasse = new String(callString());
 					Schueler schueler = new Schueler();
 
 					for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();)
@@ -189,21 +216,21 @@ public class Klassendiagramm_HTL
 						hilfe = iterator.next();
 						if (hilfe.getKuerzel().equals(choose))
 						{
-
 							for (Iterator<Klasse> iterator2 = (hilfe.getKlassen()).iterator(); iterator2.hasNext();)
 							{
 								hilfsklasse = iterator2.next();
 
 								if (hilfsklasse.getBezeichnung().equals(chooseklasse))
 								{
-									b = hilfsklasse.addSchueler(schueler);
-									if (b == true)
+									if (hilfsklasse.addSchueler(schueler))
 									{
 										System.out.println("Schueler wurde angelegt");
+										break;
 									}
 									else
 									{
-										System.out.println("Fehler beim Anlegen vom Schï¿½ler");
+										System.out.println("Fehler beim Anlegen vom Schueler!");
+										break;
 									}
 								}
 							}
@@ -211,37 +238,75 @@ public class Klassendiagramm_HTL
 					}
 
 					break;
+					
 				case EK:
-					choose = callString();
+					
 					hilfe = null;
+					Lehrer Lehrer = new Lehrer();
+					try 
+					{
+						System.out.println("Abteilung:");choose = callString();
+					} 
+					catch (IOException e) 
+					{
+						System.out.println("Auswahl inkorrekt!");
+						break;
+					}
+					
 					for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();)
 					{
 						hilfe = iterator.next();
 						if (hilfe.getKuerzel().equals(choose))
 						{
-							hilfe.addKlasse(hilfe, 4, "4AHELS", new Lehrer());
-							System.out.println("Klasse wurde angelegt");
+							try 
+							{
+								System.out.println("Folgend wird abgefragt: Jahrgang,Bezeichnung");
+								if(hilfe.addKlasse(hilfe, callint(scan),callString(),Lehrer))
+								{
+									System.out.println("Klasse wurde angelegt");
+									break;
+								}
+								else
+								{
+									System.out.println("Nicht erfolgreich!");
+									break;
+								}
+							} 
+							catch (Exception e) 
+							{
+								System.out.println("Nicht erfolgreich!");
+								break;
+							}
 						}
-
 					}
 					break;
+					
 				case ER:
+					
 					try
 					{
-						HTL.addRaeum(new Raum(callString(), callint(scan), Raumtyp.values()[callint(scan)]));
+						System.out.println("Folgend wird abgefragt: Nummer,Sitzplätze,Raumtyp(1..4)");
+						if(HTL.addRaum(new Raum(callString(), callint(scan), Raumtyp.values()[callint(scan)])))
+						{
+							System.out.println("Raum wurde angelegt");
+						}
+						else
+						{
+							System.out.println("Nicht erfolgreich!");
+						}
 					}
-					catch (Exception e) {
-
+					catch (Exception e) 
+					{
 						System.out.println("Nicht erfolgreich!");
 					}
 					break;
+					
 				case ABBRECHEN:
 					System.out.println("Programm wurde beendet.");
 					scan.close();
 					System.exit(0);
 				default:
 					System.out.println("Fehlerhafte Eingabe");
-					break;
 				}
 			}
 			catch (InputMismatchException e)
@@ -257,11 +322,6 @@ public class Klassendiagramm_HTL
 				System.out.println("Fehler");
 				e.printStackTrace();
 			}
-
-			/*
-			 * try { Thread.sleep(3500); } catch (InterruptedException e) {
-			 * e.printStackTrace(); }
-			 */
 
 			try
 			{

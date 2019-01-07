@@ -21,9 +21,10 @@ public class Abteilung
 		this.name = name;
 	}
 
-	public void addLehrer(Lehrer L)
+	public boolean addLehrer(Lehrer L)
 	{
 		lehrer.add(L);
+		return true;
 	}
 	public boolean addKlasse(Abteilung abteilung,int schulstufe,String bezeichnung,Lehrer Klassenvorstand)
 	{
@@ -44,9 +45,9 @@ public class Abteilung
 		return false;
 	}
 
-	public Set<Schueler> getSchueler()
+	public List<Schueler> getSchueler()
 	{
-	    Set<Schueler> alleschueler = new TreeSet<>();
+	    List<Schueler> alleschueler = new ArrayList<>();
 	    
 	    Klasse hilf;
 	    

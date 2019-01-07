@@ -31,7 +31,7 @@ public class Klassendiagramm_HTL
 
 		HTL.addRaeum(new Raum("W211", 25, Raumtyp.KLASSENZIMMER));
 		HTL.addRaeum(new Raum("W213", 35, Raumtyp.KLASSENZIMMER));
-		
+
 		while(true)
 		{
 			System.out.print("\n Informationsseite:" + "\n  Schule \t\t [1]" + "\n  Abteilung \t\t [2]"
@@ -42,7 +42,7 @@ public class Klassendiagramm_HTL
 					+ "\n        Lehr-Personal \t [15]" + "\n  Schueler \t\t [16]" + "\n  Klasse \t\t [17]"
 					+ "\n  Raum \t\t\t [18]" + "\n  Abbrechen \t\t [19]");
 
-			try 
+			try
 			{
 				int option;
 				Scanner scan = new Scanner(System.in);
@@ -60,7 +60,7 @@ public class Klassendiagramm_HTL
 
 					Abteilung hilf = new Abteilung();
 
-					for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();) 
+					for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();)
 					{
 						hilf = iterator.next();
 						System.out.print("\n Abteilung:" + hilf.getName() + "\tKuerzel: " + hilf.getKuerzel());
@@ -121,47 +121,58 @@ public class Klassendiagramm_HTL
 
 					Abteilung hilfe;
 					Klasse hilfekl;
-
 					hilfe = null;hilfekl = null;
-					for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();) {
+
+					for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();)
+					{
 						hilfe = iterator.next();
 
-						for (Iterator<Klasse> iterator2 = (hilfe.getKlassen()).iterator(); iterator2.hasNext();) {
+						for (Iterator<Klasse> iterator2 = (hilfe.getKlassen()).iterator(); iterator2.hasNext();)
+						{
 							hilfekl = iterator2.next();
-							System.out.print(
-									"\n" + hilfekl.getAbteilung().getKuerzel() + ":\t" + hilfekl.getBezeichnung());
+							System.out.print("\n" + hilfekl.getAbteilung().getKuerzel() + ":\t" + hilfekl.getBezeichnung());
 						}
 					}
 
 					break;
 
 				case EABT:
-					try {
+					try
+					{
 						HTL.addAbteilung(callString(), callString());
-					} catch (Exception e) {
+					}
+					catch (Exception e)
+					{
 						System.out.println("Nicht erfolgreich!");
 					}
 					break;
 				case ENLP:
-					try {
+					try
+					{
 						HTL.addPersonal(new NichtLehrpersonal(callLong(scan), callString(), callString(), callDate(),
 								callString()));
-					} catch (Exception e) {
+					}
+					catch (Exception e)
+					{
 						System.out.println("Nicht erfolgreich!");
 					}
 					break;
 				case ELP:
-					try {
+					try
+					{
 						String choose = callString();
 						hilfe = null;
-						for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();) {
+						for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();)
+						{
 							hilfe = iterator.next();
-							if (hilfe.getKuerzel().equals(choose)) {
+							if (hilfe.getKuerzel().equals(choose))
+							{
 								hilfe.addLehrer(new Lehrer(callLong(scan), callString(), callString(), callDate(),
 										callString(), callString(), hilfe));
 							}
 						}
-					} catch (Exception e) {
+					} catch (Exception e)
+					{
 						System.out.println("Nicht erfolgreich!");
 					}
 					break;
@@ -173,24 +184,24 @@ public class Klassendiagramm_HTL
 					Klasse hilfsklasse = null;
 					Schueler schueler = new Schueler();
 
-					for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();) 
+					for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();)
 					{
 						hilfe = iterator.next();
-						if (hilfe.getKuerzel().equals(choose)) 
+						if (hilfe.getKuerzel().equals(choose))
 						{
 
-							for (Iterator<Klasse> iterator2 = (hilfe.getKlassen()).iterator(); iterator2.hasNext();) 
+							for (Iterator<Klasse> iterator2 = (hilfe.getKlassen()).iterator(); iterator2.hasNext();)
 							{
 								hilfsklasse = iterator2.next();
 
-								if (hilfsklasse.getBezeichnung().equals(chooseklasse)) 
+								if (hilfsklasse.getBezeichnung().equals(chooseklasse))
 								{
 									b = hilfsklasse.addSchueler(schueler);
-									if (b == true) 
+									if (b == true)
 									{
 										System.out.println("Schueler wurde angelegt");
-									} 
-									else 
+									}
+									else
 									{
 										System.out.println("Fehler beim Anlegen vom Sch�ler");
 									}
@@ -203,21 +214,22 @@ public class Klassendiagramm_HTL
 				case EK:
 					choose = callString();
 					hilfe = null;
-					for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();) 
+					for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();)
 					{
 						hilfe = iterator.next();
-						if (hilfe.getKuerzel().equals(choose)) 
+						if (hilfe.getKuerzel().equals(choose))
 						{
 							hilfe.addKlasse(hilfe, 4, "4AHELS", new Lehrer());
-							System.out.println("Klasse wurde angelegt");							
+							System.out.println("Klasse wurde angelegt");
 						}
+
 					}
 					break;
 				case ER:
-					try 
+					try
 					{
 						HTL.addRaeum(new Raum(callString(), callint(scan), Raumtyp.values()[callint(scan)]));
-					} 
+					}
 					catch (Exception e) {
 
 						System.out.println("Nicht erfolgreich!");
@@ -231,16 +243,16 @@ public class Klassendiagramm_HTL
 					System.out.println("Fehlerhafte Eingabe");
 					break;
 				}
-			} 
-			catch (InputMismatchException e) 
+			}
+			catch (InputMismatchException e)
 			{
 				System.out.println("Eingabe Abgebrochen");
-			} 
-			catch (NumberFormatException e) 
+			}
+			catch (NumberFormatException e)
 			{
 				System.out.println("Fehlerhafte Eingabe");
-			} 
-			catch (Exception e) 
+			}
+			catch (Exception e)
 			{
 				System.out.println("Fehler");
 				e.printStackTrace();
@@ -251,16 +263,34 @@ public class Klassendiagramm_HTL
 			 * e.printStackTrace(); }
 			 */
 
-			try 
+			try
 			{
 				System.in.read();
-			} 
-			catch (IOException e) 
+			}
+			catch (IOException e)
 			{
 				e.printStackTrace();
 			}
 
-			 System.out.flush();  
+		/*try
+		{
+			Thread.sleep(3500);
+		}
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}*/
+
+			try
+			{
+				System.in.read();
+			}
+			catch (IOException e)
+			{
+				e.printStackTrace();
+			}
+
+		    System.out.flush();
 		}
 	}
 

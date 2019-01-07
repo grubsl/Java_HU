@@ -286,21 +286,26 @@ public class Klassendiagramm_HTL
 		}
 
 
-		try
+		/*try
 		{
 			Thread.sleep(3500);
 		}
 		catch (InterruptedException e)
 		{
 			e.printStackTrace();
-		}
+		}*/
 		
-		try {
+		try 
+		{
 			System.in.read();
-		} catch (IOException e) {
+		} catch (IOException e) 
+		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		    System.out.print("\033[H\033[2J");  
+		    System.out.flush();  
 		}
 	}
 

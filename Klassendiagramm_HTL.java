@@ -300,7 +300,6 @@ public class Klassendiagramm_HTL
 			System.in.read();
 		} catch (IOException e) 
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

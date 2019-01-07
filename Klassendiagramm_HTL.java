@@ -22,6 +22,7 @@ public class Klassendiagramm_HTL
 
 	public static void main(String[] args)
 	{
+		Lehrer globalerlehrer=new Lehrer();
 		while(true)
 		{
 			Schule HTL = new Schule("HTL St.P�lten ", "H�here Technische Lehranstalt", 1120234446248L,
@@ -119,56 +120,68 @@ public class Klassendiagramm_HTL
 
 				case KLASSE:
 
-					Abteilung hilfe;
-					Klasse hilfekl;
+					Abteilung hilfe=null;
+					Klasse hilfekl=null;
 					int i = 0;
 					Lehrer lehrer1 = new Lehrer();
-					for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();) {
+					for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();)
+					{
 						i++;
 						hilfe = iterator.next();
 						hilfe.addKlasse(hilfe, i, "1A", lehrer1);
 					}
 
 					hilfe = null;
-					for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();) {
+					for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();) 
+					{
 						hilfe = iterator.next();
 
-						for (Iterator<Klasse> iterator2 = (hilfe.getKlassen()).iterator(); iterator2.hasNext();) {
+						for (Iterator<Klasse> iterator2 = (hilfe.getKlassen()).iterator(); iterator2.hasNext();) 
+						{
 							hilfekl = iterator2.next();
-							System.out.print(
-									"\n" + hilfekl.getAbteilung().getKuerzel() + ":\t" + hilfekl.getBezeichnung());
+							System.out.print("\n" + hilfekl.getAbteilung().getKuerzel() + ":\t" + hilfekl.getBezeichnung());
 						}
 					}
 
 					break;
 
 				case EABT:
-					try {
+					try
+					{
 						HTL.addAbteilung(callString(), callString());
-					} catch (Exception e) {
+					} 
+					catch (Exception e) 
+					{
 						System.out.println("Nicht erfolgreich!");
 					}
 					break;
 				case ENLP:
-					try {
+					try 
+					{
 						HTL.addPersonal(new NichtLehrpersonal(callLong(scan), callString(), callString(), callDate(),
 								callString()));
-					} catch (Exception e) {
+					}
+					catch (Exception e)
+					{
 						System.out.println("Nicht erfolgreich!");
 					}
 					break;
 				case ELP:
-					try {
+					try
+					{
 						String choose = callString();
 						hilfe = null;
-						for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();) {
+						for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();) 
+						{
 							hilfe = iterator.next();
-							if (hilfe.getKuerzel().equals(choose)) {
+							if (hilfe.getKuerzel().equals(choose))
+							{
 								hilfe.addLehrer(new Lehrer(callLong(scan), callString(), callString(), callDate(),
 										callString(), callString(), hilfe));
 							}
 						}
-					} catch (Exception e) {
+					} catch (Exception e)
+					{
 						System.out.println("Nicht erfolgreich!");
 					}
 					break;
@@ -195,7 +208,7 @@ public class Klassendiagramm_HTL
 									if (b == true) {
 										System.out.println("Schueler wurde angelegt");
 									} else {
-										System.out.println("Fehler beim Anlegen vom Sch�ler");
+										System.out.println("Fehler beim Anlegen vom Schueler");
 									}
 								}
 							}
@@ -212,7 +225,9 @@ public class Klassendiagramm_HTL
 						if (hilfe.getKuerzel().equals(choose))
 						{
 							hilfe.addKlasse(hilfe, 4, "4AHELS", null);
+							System.out.println("Klasse wurde angelegt");
 						}
+						
 					}
 					break;
 				case ER:

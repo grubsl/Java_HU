@@ -22,18 +22,18 @@ public class Klassendiagramm_HTL
 
 	public static void main(String[] args)
 	{
+		Schule HTL = new Schule("HTL St.P�lten ", "H�here Technische Lehranstalt", 1120234446248L,
+				"St.P�lten", "Waldstra�e", 3, 3100); // add L for type Long
+
+		HTL.addAbteilung("Elektrotechnik", "ET");
+		HTL.addAbteilung("Elektronik    ", "EL");
+		HTL.addAbteilung("Maschinenbau  ", "MB");
+
+		HTL.addRaeum(new Raum("W211", 25, Raumtyp.KLASSENZIMMER));
+		HTL.addRaeum(new Raum("W213", 35, Raumtyp.KLASSENZIMMER));
+		
 		while(true)
 		{
-			Schule HTL = new Schule("HTL St.P�lten ", "H�here Technische Lehranstalt", 1120234446248L,
-					"St.P�lten", "Waldstra�e", 3, 3100); // add L for type Long
-
-			HTL.addAbteilung("Elektrotechnik", "ET");
-			HTL.addAbteilung("Elektronik    ", "EL");
-			HTL.addAbteilung("Maschinenbau  ", "MB");
-
-			HTL.addRaeum(new Raum("W211", 25, Raumtyp.KLASSENZIMMER));
-			HTL.addRaeum(new Raum("W213", 35, Raumtyp.KLASSENZIMMER));
-
 			System.out.print("\n Informationsseite:" + "\n  Schule \t\t [1]" + "\n  Abteilung \t\t [2]"
 					+ "\n  Adresse \t\t [3]" + "\n  Personal \t\t [4]" + "\n  Mitarbeiter \t\t [5]"
 					+ "\n  Lehrer \t\t [6]" + "\n  Nichtlehrpersonal \t [7]" + "\n  Schueler \t\t [8]"
@@ -121,15 +121,8 @@ public class Klassendiagramm_HTL
 
 					Abteilung hilfe;
 					Klasse hilfekl;
-					int i = 0;
-					Lehrer lehrer1 = new Lehrer();
-					for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();) {
-						i++;
-						hilfe = iterator.next();
-						hilfe.addKlasse(hilfe, i, "1A", lehrer1);
-					}
 
-					hilfe = null;
+					hilfe = null;hilfekl = null;
 					for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();) {
 						hilfe = iterator.next();
 
@@ -190,11 +183,15 @@ public class Klassendiagramm_HTL
 							{
 								hilfsklasse = iterator2.next();
 
-								if (hilfsklasse.getBezeichnung().equals(chooseklasse)) {
+								if (hilfsklasse.getBezeichnung().equals(chooseklasse)) 
+								{
 									b = hilfsklasse.addSchueler(schueler);
-									if (b == true) {
+									if (b == true) 
+									{
 										System.out.println("Schueler wurde angelegt");
-									} else {
+									} 
+									else 
+									{
 										System.out.println("Fehler beim Anlegen vom Sch�ler");
 									}
 								}
@@ -211,7 +208,8 @@ public class Klassendiagramm_HTL
 						hilfe = iterator.next();
 						if (hilfe.getKuerzel().equals(choose)) 
 						{
-							hilfe.addKlasse(hilfe, 4, "4AHELS", null);
+							hilfe.addKlasse(hilfe, 4, "4AHELS", new Lehrer());
+							System.out.println("Klasse wurde angelegt");							
 						}
 					}
 					break;
@@ -262,8 +260,7 @@ public class Klassendiagramm_HTL
 				e.printStackTrace();
 			}
 
-		    System.out.print("\033[H\033[2J");  
-		    System.out.flush();  
+			 System.out.flush();  
 		}
 	}
 

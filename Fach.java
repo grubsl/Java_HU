@@ -31,8 +31,8 @@ public class Fach
 	{
 		x=new Belegung(unterrichtsEinheit);
 	}
-	public void addLehrer(String kuerzel, Abteilung abteilung)
+	public void addLehrer(Lehrer Lehrer)
 	{
-		lehrer.add(new Lehrer(kuerzel,abteilung));
+		lehrer.add(Lehrer);
 	}
 }

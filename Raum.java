@@ -13,10 +13,8 @@ public class Raum
 	private int maxSitzplaetze=0;
 	private Raumtyp Raumtyp;
 	private Klasse Stammklasse;
-	private Schule Schule;
 	
 	private List<Belegung> belegungen = new ArrayList<Belegung>();
-	
 	
 	public Raum() {}
 	public Raum(String raumNummer, int maxSitzplaetze, Raumtyp Raumtyp) 
@@ -54,5 +52,9 @@ public class Raum
 	public void setStammklasse(Klasse k)
 	{
 		Stammklasse=k;
+	}
+	public Klasse getStammklasse() 
+	{
+		return Stammklasse;
 	}
 }

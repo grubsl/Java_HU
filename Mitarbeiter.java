@@ -14,10 +14,6 @@ public abstract class Mitarbeiter extends Person
 	{
 		return anzahl;
 	}
-	public static void setAnzahl(int anzahl) 
-	{
-		Mitarbeiter.anzahl = anzahl;
-	}
 	
 	public Mitarbeiter()
 	{

@@ -14,7 +14,6 @@ public class Schule
 	private Adresse Ort = new Adresse();
 	private long schulsprecher_ID;
 	private Lehrer Direktor;
-	private List<NichtLehrpersonal> nichtlehrpersonal = new ArrayList<>();
 	private List<Abteilung> abteilungen = new ArrayList<>();
 	private List<Mitarbeiter> mitarbeiter = new ArrayList<>();
 	private List<Raum> raeume = new ArrayList<>();
@@ -29,12 +28,12 @@ public class Schule
 		Ort = new Adresse(ort,strasse,nr,plz);
 	}
 
-	public Abteilung addAbteilung(String name, String kuerzel)
+	public boolean addAbteilung(String name, String kuerzel)
 	{
 		Abteilung abteilung = new Abteilung(name,kuerzel);
 		this.abteilungen.add(abteilung);
 		
-		return abteilung;
+		return true;
 	}
 
 	public boolean setDirektor(Lehrer Lehrer)

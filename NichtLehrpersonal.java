@@ -8,6 +8,7 @@ import java.util.*;
 
 public class NichtLehrpersonal extends Mitarbeiter
 {
+	public NichtLehrpersonal(){super();}
 	public NichtLehrpersonal(Long svnr, String vorname, String nachname, Date geburtsdatum, String email)
 	{
 		super(svnr, vorname, nachname, geburtsdatum, email);

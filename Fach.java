@@ -4,7 +4,7 @@ import java.util.List;
 public class Fach 
 {
 	private String name="";
-	private int wochenstunden=0;
+	private int wochenstunden;
 	private Raumtyp raumanforderung;
 	private Belegung x;
 	
@@ -34,5 +34,17 @@ public class Fach
 	public void addLehrer(Lehrer Lehrer)
 	{
 		lehrer.add(Lehrer);
+	}
+	public int getWochenstunden() 
+	{
+		return wochenstunden;
+	}
+	public void setWochenstunden(int wochenstunden) 
+	{
+		this.wochenstunden = wochenstunden;
+	}
+	public Belegung getX() 
+	{
+		return x;
 	}
 }

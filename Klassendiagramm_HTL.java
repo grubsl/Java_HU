@@ -22,8 +22,8 @@ public class Klassendiagramm_HTL
 
 	public static void main(String[] args)
 	{
-		Schule HTL = new Schule("HTL St.Pï¿½lten ", "Hï¿½here Technische Lehranstalt", 1120234446248L,
-				"St.Pï¿½lten", "Waldstraï¿½e", 3, 3100); // add L for type Long
+		Schule HTL = new Schule("HTL St.Poelten ", "Hoehere Technische Lehranstalt", 1120234446248L,
+				"St.Poelten", "Waldstrasse", 3, 3100); // add L for type Long
 
 		HTL.addAbteilung("Elektrotechnik", "ET");
 		HTL.addAbteilung("Elektronik    ", "EL");
@@ -53,9 +53,11 @@ public class Klassendiagramm_HTL
 				switch (Auswahl.values()[option]) // values liefert Array mit enum Konstanten, n.Element = n.Konstante
 				{
 				case SCHULE:
+					
 					System.out.print("\n" + HTL.getName() + "\t" + HTL.getSchulkennzahl() + "\n" + HTL.getSchultyp());
 					HTL.printOrt();
 					break;
+					
 				case ABTEILUNG:
 
 					Abteilung hilf = new Abteilung();
@@ -66,19 +68,20 @@ public class Klassendiagramm_HTL
 						System.out.print("\n Abteilung:" + hilf.getName() + "\tKuerzel: " + hilf.getKuerzel());
 					}
 					break;
+					
+				case ADRESSE:
+					HTL.printOrt();
+					break;
 
 				case MITARBEITER:
 
-					Mitarbeiter hilfs;
-
-					for (Iterator<Mitarbeiter> iterator = (HTL.getPersonal()).iterator(); iterator.hasNext();)
-					{
-						hilfs = iterator.next();
-						System.out.print("\n Mitarbeiter: " + hilfs.getVorname() + " " + hilfs.getNachname()
-								+ "\n Geburtsdatum: " + hilfs.getGeburtsdatum());
-					}
+					System.out.print("\n Anzahl der Mitarbeiter:" + Mitarbeiter.getAnzahl());
 					break;
-
+					
+				case PERSONAL:
+					System.out.print("\n Bitte Chase Lehrer und Nichtlehrpersonal betätigen!");
+					break;
+					
 				case LEHRER:
 
 					Abteilung hilfs_abt;
@@ -112,9 +115,27 @@ public class Klassendiagramm_HTL
 						}
 					}
 					break;
+					
+				case NICHTLEHRPERSONAL:
+					
+					Mitarbeiter hilfe_NichtLehrpersonal;
+					
+					for (Iterator<Mitarbeiter> iterator = (HTL.getPersonal()).iterator(); iterator.hasNext();)
+					{
+						hilfe_NichtLehrpersonal = iterator.next();
+						System.out.print("\n" + hilfe_NichtLehrpersonal.getVorname() + " " + hilfe_NichtLehrpersonal.getNachname());
+					}
+					break;
 
 				case SCHUELER:
-					System.out.print(HTL.getSchueler());
+					
+					Schueler hilfe_schueler;
+					
+					for (Iterator<Schueler> iterator = (HTL.getSchueler()).iterator(); iterator.hasNext();)
+					{
+						hilfe_schueler = iterator.next();
+						System.out.print("\n" + hilfe_schueler.getVorname() + " " + hilfe_schueler.getNachname());
+					}
 					break;
 
 				case KLASSE:
@@ -136,13 +157,42 @@ public class Klassendiagramm_HTL
 
 					break;
 					
+				case FACH:
+					
+					break;
+					
+				case RAUM:
+					
+					Raum hilfe_raum;
+					
+					for (Iterator<Raum> iterator = (HTL.getRaeume()).iterator(); iterator.hasNext();)
+					{
+						hilfe_raum = iterator.next();
+						System.out.print("\n" + hilfe_raum.getRaumNummer() + " " + hilfe_raum.getMaxSitzplaetze() + " " + hilfe_raum.getRaumtyp());
+					}
+					break;
+					
+				case BELEGUNG:
+					
+					break;
+					
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				
 				case EABT:
 					
 					try
 					{
-						HTL.addAbteilung(callString(), callString());
+						System.out.println("Folgend wird abgefragt: Bezeichnung,Kuerzel");
+						if(HTL.addAbteilung(callString(), callString()))
+						{
+							System.out.println("Abteilung wurde angelegt");
+							break;
+						}
+						else
+						{
+							System.out.println("Fehler beim Anlegen von Abteilung!");
+							break;
+						}
 					}
 					catch (Exception e)
 					{
@@ -154,8 +204,17 @@ public class Klassendiagramm_HTL
 					
 					try
 					{
-						HTL.addPersonal(new NichtLehrpersonal(callLong(scan), callString(), callString(), callDate(),
-								callString()));
+						System.out.println("Folgend wird abgefragt: svnr,vorname,nachname,geburtsdatum,email");
+						if(HTL.addPersonal(new NichtLehrpersonal(callLong(scan), callString(), callString(), callDate(),callString())))
+						{
+							System.out.println("N-Lp. wurde angelegt");
+							break;
+						}
+						else
+						{
+							System.out.println("Fehler beim Anlegen von N-Lehrpersonal");
+							break;
+						}
 					}
 					catch (Exception e)
 					{
@@ -206,11 +265,10 @@ public class Klassendiagramm_HTL
 					
 					hilfe = null;
 					Klasse hilfsklasse = null;
-					System.out.println("Folgend wird abgefragt: Jahrgang,Bezeichnung");
+					System.out.println("Folgend wird abgefragt: Abteilung,Klasse");
 					choose = new String(callString());
 					String chooseklasse = new String(callString());
-					Schueler schueler = new Schueler();
-
+					
 					for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();)
 					{
 						hilfe = iterator.next();
@@ -222,7 +280,10 @@ public class Klassendiagramm_HTL
 
 								if (hilfsklasse.getBezeichnung().equals(chooseklasse))
 								{
-									if (hilfsklasse.addSchueler(schueler))
+									System.out.println("Folgend wird abgefragt: svnr,vorname,nachname,geburtsdatum,\n"
+										+ "email,katalognummer,eigenberechtigt(true,false),eintrittsdatum");
+									if (hilfsklasse.addSchueler(new Schueler(new Klasse(),callLong(scan),
+										callString(),callString(),callDate(),callString(),callint(scan),callboolean(),callDate())))
 									{
 										System.out.println("Schueler wurde angelegt");
 										break;
@@ -375,5 +436,17 @@ public class Klassendiagramm_HTL
 	public static Long callLong(Scanner scan) throws Exception
 	{
 		return scan.nextLong();
+	}
+	public static boolean callboolean() throws IOException
+	{
+		String hilf = callString();
+		if(hilf.equals("true"))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 }

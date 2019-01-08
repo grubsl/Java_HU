@@ -41,5 +41,12 @@ public class Belegung
 	{
 		return this.Lehrer;
 	}*/
-	
+	public Fach getX() 
+	{
+		return x;
+	}
+	public Raum getR() 
+	{
+		return r;
+	}	
 }

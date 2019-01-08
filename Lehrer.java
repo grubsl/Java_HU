@@ -17,7 +17,7 @@ public class Lehrer extends Mitarbeiter
 	private List<Abteilung> Abteilungen = new ArrayList<Abteilung>();
 	private List<Fach> faecher = new ArrayList<Fach>();
 	
-	public Lehrer(){}
+	public Lehrer(){super();}
 	public Lehrer(Long svnr, String vorname, String nachname, Date geburtsdatum, String email, String kuerzel,Abteilung Abteilung)
 	{
 		super(svnr, vorname, nachname, geburtsdatum, email);

@@ -17,9 +17,8 @@ public class Klasse
 	private List<Schueler> schueler = new ArrayList<>();
 	
 	public Klasse(){}
-	public Klasse(Abteilung abteilung,int schulstufe,String bezeichnung, Lehrer Klassenvorstand)
+	public Klasse(Abteilung abteilung,int schulstufe,String bezeichnung)
 	{
-		this.Klassenvorstand = Klassenvorstand;
 		this.Abteilung = abteilung;
 		this.schulstufe = schulstufe;
 		this.bezeichnung = bezeichnung;
@@ -87,5 +86,9 @@ public class Klasse
 	public Lehrer getKlassenvorstand() 
 	{
 		return Klassenvorstand;
+	}
+	public void setKlassenvorstand(Lehrer klassenvorstand) 
+	{
+		Klassenvorstand = klassenvorstand;
 	}
 }

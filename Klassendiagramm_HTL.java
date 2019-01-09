@@ -24,10 +24,20 @@ public class Klassendiagramm_HTL
 	{
 		Schule HTL = new Schule("HTL St.Poelten ", "Hoehere Technische Lehranstalt", 1120234446248L,
 				"St.Poelten", "Waldstrasse", 3, 3100); // add L for type Long
-
-		HTL.addAbteilung("Elektrotechnik", "ET");
-		HTL.addAbteilung("Elektronik    ", "EL");
-		HTL.addAbteilung("Maschinenbau  ", "MB");
+		
+		Abteilung a1 = HTL.addAbteilung("Elektrotechnik", "ET");
+		Abteilung a2 = HTL.addAbteilung("Maschinenbau  ", "MB");
+		Abteilung a3 = HTL.addAbteilung("Elektronik    ", "EL");
+		
+		a1.addKlasse(new Klasse(a1, 2,"2AHETS"));	a2.addKlasse(new Klasse(a2, 2,"2AHMBA"));
+		a1.addKlasse(new Klasse(a1, 3,"3AHETS"));	a2.addKlasse(new Klasse(a2, 3,"3AHMBA"));
+		a1.addKlasse(new Klasse(a1, 4,"4AHETS"));	a2.addKlasse(new Klasse(a2, 4,"4AHMBA"));
+		a1.addKlasse(new Klasse(a1, 5,"5AHETS"));	a2.addKlasse(new Klasse(a2, 5,"5AHMBA"));
+		
+		a3.addKlasse(new Klasse(a3, 2,"2AHELS"));	
+		a3.addKlasse(new Klasse(a3, 3,"3AHELS"));	
+		a3.addKlasse(new Klasse(a3, 4,"4AHELS"));	
+		a3.addKlasse(new Klasse(a3, 5,"5AHELS"));	
 
 		HTL.addRaum(new Raum("W211", 25, Raumtyp.KLASSENZIMMER));
 		HTL.addRaum(new Raum("W213", 35, Raumtyp.KLASSENZIMMER));
@@ -100,7 +110,7 @@ public class Klassendiagramm_HTL
 
 						for (Iterator<Lehrer> iterator3 = (hilfs_abt.getLehrer()).iterator(); iterator3.hasNext();) {
 							hilfs_leh = iterator3.next();
-							hilfs_leh.addVorstand(new Klasse(hilfs_abt, 12, "4AHELS", hilfs_leh));
+							hilfs_leh.addVorstand(new Klasse(hilfs_abt, 12, "4AHELS"));
 							DateFormat df = new SimpleDateFormat("d MM yyyy");
 							System.out.print("\n Lehrer: " + hilfs_leh.getVorname() + " " + hilfs_leh.getNachname()
 									+ "\t Kuerzel:" + hilfs_leh.getKuerzel() + "\n\t Geburtsdatum:\t "
@@ -182,8 +192,11 @@ public class Klassendiagramm_HTL
 					
 					try
 					{
-						System.out.println("Folgend wird abgefragt: Bezeichnung,Kuerzel");
-						if(HTL.addAbteilung(callString(), callString()))
+						System.out.println("Folgend wird abgefragt: Kl.Stufe,Kl.Name,Bezeichnung,Kuerzel");
+						Abteilung aberz = new Abteilung();
+						aberz = HTL.addAbteilung(callString(), callString());
+
+						if(aberz != null)
 						{
 							System.out.println("Abteilung wurde angelegt");
 							break;
@@ -303,7 +316,6 @@ public class Klassendiagramm_HTL
 				case EK:
 					
 					hilfe = null;
-					Lehrer Lehrer = new Lehrer();
 					try 
 					{
 						System.out.println("Abteilung:");choose = callString();
@@ -322,7 +334,7 @@ public class Klassendiagramm_HTL
 							try 
 							{
 								System.out.println("Folgend wird abgefragt: Jahrgang,Bezeichnung");
-								if(hilfe.addKlasse(hilfe, callint(scan),callString(),Lehrer))
+								if(hilfe.addKlasse(new Klasse(hilfe, callint(scan),callString())))
 								{
 									System.out.println("Klasse wurde angelegt");
 									break;

@@ -28,12 +28,12 @@ public class Schule
 		Ort = new Adresse(ort,strasse,nr,plz);
 	}
 
-	public boolean addAbteilung(String name, String kuerzel)
+	public Abteilung addAbteilung(String name, String kuerzel)
 	{
 		Abteilung abteilung = new Abteilung(name,kuerzel);
 		this.abteilungen.add(abteilung);
 		
-		return true;
+		return abteilung;
 	}
 
 	public boolean setDirektor(Lehrer Lehrer)

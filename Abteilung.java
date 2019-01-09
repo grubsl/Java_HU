@@ -19,6 +19,7 @@ public class Abteilung
 	{
 		this.kuerzel = kuerzel;
 		this.name = name;
+	//	addKlasse(new Klasse(new Abteilung(name,kuerzel),"1","Start"));
 	}
 
 	public boolean addLehrer(Lehrer L)
@@ -26,9 +27,9 @@ public class Abteilung
 		lehrer.add(L);
 		return true;
 	}
-	public boolean addKlasse(Abteilung abteilung,int schulstufe,String bezeichnung,Lehrer Klassenvorstand)
+	public boolean addKlasse(Klasse klasse)
 	{
-		klassen.add(new Klasse(abteilung,schulstufe,bezeichnung,Klassenvorstand));
+		klassen.add(klasse);
 		return true;
 	}
 

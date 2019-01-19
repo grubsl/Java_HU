@@ -7,12 +7,12 @@
 public class Belegung 
 {
 	private int unterrichtsEinheit;
-	private Fach x;
-	private Raum r;
+	private Fach Fach;
 	
 	public Belegung(){}
-	public Belegung(int unterrichtsEinheit)
+	public Belegung(int unterrichtsEinheit, Fach Fach)
 	{
+		this.Fach = Fach;
 		this.unterrichtsEinheit=unterrichtsEinheit;
 	}
 	
@@ -24,14 +24,11 @@ public class Belegung
 	{
 		return unterrichtsEinheit;
 	}
-	public void setFach(String name, int wochenstunden, Raumtyp raumanforderung)
+	public Fach getFach() 
 	{
-		x=new Fach(name,wochenstunden,raumanforderung);
+		return Fach;
 	}
-	public void setRaum(String raumNummer,int maxSitzplaetze,Raumtyp raumtyp)
-	{
-		r=new Raum(raumNummer,maxSitzplaetze,raumtyp);
-	}
+
 	/*public Klasse getKlasse()
 	{
 		return this.Klasse;
@@ -41,12 +38,4 @@ public class Belegung
 	{
 		return this.Lehrer;
 	}*/
-	public Fach getX() 
-	{
-		return x;
-	}
-	public Raum getR() 
-	{
-		return r;
-	}	
 }

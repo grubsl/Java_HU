@@ -45,9 +45,13 @@ public class Raum
 	{
 		return Raumtyp;
 	}
-	public void addBelegung(int unterrichtsEinheit)
+	public void addBelegung(int unterrichtsEinheit, Fach Fach)
 	{
-		belegungen.add(new Belegung(unterrichtsEinheit));
+		belegungen.add(new Belegung(unterrichtsEinheit, Fach));
+	}
+	public List<Belegung> getBelegungen() 
+	{
+		return belegungen;
 	}
 	public void setStammklasse(Klasse k)
 	{

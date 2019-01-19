@@ -22,12 +22,16 @@ public class Klassendiagramm_HTL
 
 	public static void main(String[] args)
 	{
+		
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Folgender Abteil: Um Funktionalitaet aufzuzeigen/////////////////////////////////////////////////////////////////////////////
+		
 		Schule HTL = new Schule("HTL St.Poelten ", "Hoehere Technische Lehranstalt", 1120234446248L,
 				"St.Poelten", "Waldstrasse", 3, 3100); // add L for type Long
 		
-		Abteilung a1 = HTL.addAbteilung("Elektrotechnik", "ET");
-		Abteilung a2 = HTL.addAbteilung("Maschinenbau  ", "MB");
-		Abteilung a3 = HTL.addAbteilung("Elektronik    ", "EL");
+		Abteilung a1 = HTL.addAbteilung("Elektrotechnik", "ET",HTL);
+		Abteilung a2 = HTL.addAbteilung("Maschinenbau  ", "MB",HTL);
+		Abteilung a3 = HTL.addAbteilung("Elektronik    ", "EL",HTL);
 		
 		a1.addKlasse(new Klasse(a1, 2,"2AHETS"));	a2.addKlasse(new Klasse(a2, 2,"2AHMBA"));
 		a1.addKlasse(new Klasse(a1, 3,"3AHETS"));	a2.addKlasse(new Klasse(a2, 3,"3AHMBA"));
@@ -42,6 +46,9 @@ public class Klassendiagramm_HTL
 		HTL.addRaum(new Raum("W211", 25, Raumtyp.KLASSENZIMMER));
 		HTL.addRaum(new Raum("W213", 35, Raumtyp.KLASSENZIMMER));
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Folgender Abteil: Anzeige der Auswahlmöglichkeiten//////////////////////////////////////////////////////////////////////////
+		
 		while(true)
 		{
 			System.out.print("\n Informationsseite:" + "\n  Schule \t\t [1]" + "\n  Abteilung \t\t [2]"
@@ -52,6 +59,9 @@ public class Klassendiagramm_HTL
 					+ "\n        Lehr-Personal \t [15]" + "\n  Schueler \t\t [16]" + "\n  Klasse \t\t [17]"
 					+ "\n  Raum \t\t\t [18]" + "\n  Abbrechen \t\t [19]");
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Folgender Abteil: Anzeigen aller zu Klassen zugehörigen Elemente nach Auswahl///////////////////////////////////////////////
+			
 			try
 			{
 				int option;
@@ -65,6 +75,7 @@ public class Klassendiagramm_HTL
 				case SCHULE:
 					
 					System.out.print("\n" + HTL.getName() + "\t" + HTL.getSchulkennzahl() + "\n" + HTL.getSchultyp());
+					System.out.print("\nSchulsprecher: " + HTL.getSchulsprecher());
 					HTL.printOrt();
 					break;
 					
@@ -76,6 +87,7 @@ public class Klassendiagramm_HTL
 					{
 						hilf = iterator.next();
 						System.out.print("\n Abteilung:" + hilf.getName() + "\tKuerzel: " + hilf.getKuerzel());
+						System.out.print("\n Abteilungssprecher: " + hilf.getAbteilungssprecher());
 					}
 					break;
 					
@@ -100,13 +112,6 @@ public class Klassendiagramm_HTL
 					for (Iterator<Abteilung> iterator2 = (HTL.getAbteilungen()).iterator(); iterator2.hasNext();) {
 						hilfs_abt = iterator2.next();
 						System.out.print("\n\n Lehrer in der Abteilung " + hilfs_abt.getName() + "\n");
-
-						try {
-							hilfs_abt.addLehrer(new Lehrer(0000L, "Herbert", "Wagner", callDate(),
-									"perversion@hostdas.at", "WAGN \t", hilfs_abt));
-						} catch (ParseException e) {
-							System.out.print("Ungï¿½ltiges Format!");
-						}
 
 						for (Iterator<Lehrer> iterator3 = (hilfs_abt.getLehrer()).iterator(); iterator3.hasNext();) {
 							hilfs_leh = iterator3.next();
@@ -162,6 +167,7 @@ public class Klassendiagramm_HTL
 						{
 							hilfekl = iterator2.next();
 							System.out.print("\n" + hilfekl.getAbteilung().getKuerzel() + ":\t" + hilfekl.getBezeichnung());
+							System.out.print("\tKlassensprecher: " + hilfekl.getKlassensprecher());
 						}
 					}
 
@@ -187,14 +193,15 @@ public class Klassendiagramm_HTL
 					break;
 					
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-				
+// Folgender Abteil: Erzeugen von neuen Klassen ///////////////////////////////////////////////////////////////////////////////
+					
 				case EABT:
 					
 					try
 					{
 						System.out.println("Folgend wird abgefragt: Kl.Stufe,Kl.Name,Bezeichnung,Kuerzel");
 						Abteilung aberz = new Abteilung();
-						aberz = HTL.addAbteilung(callString(), callString());
+						aberz = HTL.addAbteilung(callString(), callString(), HTL);
 
 						if(aberz != null)
 						{
@@ -217,8 +224,10 @@ public class Klassendiagramm_HTL
 					
 					try
 					{
-						System.out.println("Folgend wird abgefragt: svnr,vorname,nachname,geburtsdatum,email");
-						if(HTL.addPersonal(new NichtLehrpersonal(callLong(scan), callString(), callString(), callDate(),callString())))
+						System.out.println("Folgend wird abgefragt: svnr,vorname,nachname,geburtsdatum,"
+										  +"\nemail, Adresse(ort,strasse,hausnummer,plz),kuerzel");
+						if(HTL.addPersonal(new NichtLehrpersonal(callLong(scan), callString(), callString(), callDate(),callString(),
+								new Adresse(callString(),callString(),callint(scan),callint(scan)))))
 						{
 							System.out.println("N-Lp. wurde angelegt");
 							break;
@@ -256,9 +265,11 @@ public class Klassendiagramm_HTL
 						{
 							try 
 							{
-								System.out.println("Folgend wird abgefragt: svnr,V-name,N-name\n,geb.(z.B.:10.12.2000),email,kuerzel");
+								System.out.println("Folgend wird abgefragt: svnr,V-name,N-name" + 
+												   "\n,geb.(z.B.:10.12.2000),email," +
+												   "\nAdresse(ort,strasse,hausnummer,plz),kuerzel");
 								if(hilfe.addLehrer(new Lehrer(callLong(scan), callString(), callString(), callDate(),
-										callString(), callString(), hilfe)))
+										callString(), new Adresse(callString(),callString(),callint(scan),callint(scan)), callString(), hilfe)))
 								{
 									System.out.println("Lehrer wurde angelegt");
 									break;
@@ -294,9 +305,11 @@ public class Klassendiagramm_HTL
 								if (hilfsklasse.getBezeichnung().equals(chooseklasse))
 								{
 									System.out.println("Folgend wird abgefragt: svnr,vorname,nachname,geburtsdatum,\n"
-										+ "email,katalognummer,eigenberechtigt(true,false),eintrittsdatum");
-									if (hilfsklasse.addSchueler(new Schueler(new Klasse(),callLong(scan),
-										callString(),callString(),callDate(),callString(),callint(scan),callboolean(),callDate())))
+													 + ",Adresse(ort,strasse,hausnummer,plz), email,katalognummer, \n" + 
+													   "eigenberechtigt(true,false),eintrittsdatum");
+									if (hilfsklasse.addSchueler(new Schueler(hilfsklasse,callLong(scan),
+										callString(),callString(),callDate(),callString(),
+										new Adresse(callString(),callString(),callint(scan),callint(scan)),callint(scan),callboolean(),callDate())))
 									{
 										System.out.println("Schueler wurde angelegt");
 										break;
@@ -427,6 +440,9 @@ public class Klassendiagramm_HTL
 		}
 	}
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Folgender Abteil: Hilfreiche Methoden zur Eingabe///////////////////////////////////////////////////////////////////////////
+	
 	public static Date callDate() throws ParseException, IOException
 	{
 		BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));

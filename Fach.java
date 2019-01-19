@@ -27,9 +27,9 @@ public class Fach
 	{
 		return raumanforderung;
 	}
-	public void setBelegung(int unterrichtsEinheit)
+	public void setBelegung(int unterrichtsEinheit,Fach Fach)
 	{
-		x=new Belegung(unterrichtsEinheit);
+		x=new Belegung(unterrichtsEinheit,Fach);
 	}
 	public void addLehrer(Lehrer Lehrer)
 	{

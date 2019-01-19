@@ -11,9 +11,11 @@ public class Schule
 	private String name;
 	private Long schulkennzahl;
 	private String schultyp;
+	
 	private Adresse Ort = new Adresse();
-	private long schulsprecher_ID;
+	private Schueler Schulsprecher;
 	private Lehrer Direktor;
+	
 	private List<Abteilung> abteilungen = new ArrayList<>();
 	private List<Mitarbeiter> mitarbeiter = new ArrayList<>();
 	private List<Raum> raeume = new ArrayList<>();
@@ -28,9 +30,9 @@ public class Schule
 		Ort = new Adresse(ort,strasse,nr,plz);
 	}
 
-	public Abteilung addAbteilung(String name, String kuerzel)
+	public Abteilung addAbteilung(String name, String kuerzel, Schule Schule)
 	{
-		Abteilung abteilung = new Abteilung(name,kuerzel);
+		Abteilung abteilung = new Abteilung(name,kuerzel,Schule);
 		this.abteilungen.add(abteilung);
 		
 		return abteilung;
@@ -64,15 +66,6 @@ public class Schule
 	public void printOrt()
 	{
 		Ort.printAdresse();
-	}
-
-	public long getSchulsprecher_ID()
-	{
-		return schulsprecher_ID;
-	}
-	public void setSchulsprecher_ID(long Schulsprecher_ID)
-	{
-		this.schulsprecher_ID = Schulsprecher_ID;
 	}
 	public List<Abteilung> getAbteilungen() 
 	{
@@ -118,7 +111,39 @@ public class Schule
 	}
 	public boolean addRaum(Raum Raum) 
 	{
-		this.raeume.add(Raum);
-		return true;
+		try 
+		{
+			this.raeume.add(Raum);
+			return true;
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			return false;
+		}
+	}
+	public String getSchulsprecher() 
+	{
+		if(this.Schulsprecher == null)
+		{
+			return "Keiner Zugewiesen";
+		}
+		else
+		{
+			return this.Schulsprecher.getVorname() + " " + this.Schulsprecher.getNachname();
+		}
+	}
+	public boolean setSchulsprecher(Schueler Schulsprecher) 
+	{
+		try 
+		{
+			this.Schulsprecher = Schulsprecher;
+			return true;
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			return false;
+		}
 	}
 }

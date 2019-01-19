@@ -16,9 +16,10 @@ public class Schueler extends Person
 	private static long schueler_id;
 	
 	public Schueler(){schueleranz++;}
-	public Schueler(Klasse klasse,Long svnr, String vorname, String nachname, Date geburtsdatum, String email, int katalognummer,boolean eigenberechtigt,Date eintrittsdatum)
+	public Schueler(Klasse klasse,Long svnr, String vorname, String nachname, Date geburtsdatum, String email, Adresse Adresse, 
+					int katalognummer,boolean eigenberechtigt,Date eintrittsdatum)
 	{
-		super(svnr, vorname, nachname, geburtsdatum, email);
+		super(svnr, vorname, nachname, geburtsdatum, email, Adresse);
 		this.klasse = klasse;
 		schueleranz++;
 		schueler_id = schueleranz;

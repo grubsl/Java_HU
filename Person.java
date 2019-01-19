@@ -12,16 +12,18 @@ public abstract class Person
 	protected String vorname, nachname;
 	protected Date geburtsdatum;
 	protected String email;
+	
 	protected List<Adresse> wohnorte = new ArrayList<Adresse>();
 	
 	public Person(){}
-	public Person(Long svnr, String vorname, String nachname, Date geburtsdatum, String email) 
+	public Person(Long svnr, String vorname, String nachname, Date geburtsdatum, String email, Adresse Adresse) 
 	{
 		this.svnr = svnr;
 		this.vorname = vorname;
 		this.nachname = nachname;
 		this.geburtsdatum = geburtsdatum;
 		this.email = email;
+		addWohnort(Adresse);
 	}
 	
 	public String getNachname() 
@@ -49,9 +51,18 @@ public abstract class Person
 		return wohnorte;
 	}
 	
-	public void addWohnort(String ort,String strasse,Integer hausnummer,Integer plz)
+	public boolean addWohnort(Adresse Adresse)
 	{
-		wohnorte.add(new Adresse(ort,strasse,hausnummer,plz));
+		try 
+		{
+			wohnorte.add(Adresse);
+			return true;
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			return false;
+		}
 	}
 }
 

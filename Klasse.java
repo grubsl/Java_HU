@@ -37,6 +37,17 @@ public class Klasse
 			return false;
 		}
 	}
+	public String getKlassensprecher()
+	{
+		if(this.Klassensprecher == null)
+		{
+			return "Keiner Zugewiesen";
+		}
+		else
+		{
+			return this.Klassensprecher.getVorname() + " " + this.Klassensprecher.getNachname();
+		}
+	}
 	public boolean addSchueler(Schueler schueler)
 	{
 		if(klassengröße < 36)
@@ -78,10 +89,6 @@ public class Klasse
 	public List<Schueler> getSchueler() 
 	{
 		return schueler;
-	}
-	public Schueler getKlassensprecher()
-	{
-		return Klassensprecher;
 	}
 	public Lehrer getKlassenvorstand() 
 	{

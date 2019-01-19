@@ -10,15 +10,20 @@ public class Abteilung
 {
 	private String kuerzel;
 	private String name;
+	
 	private Lehrer Av;
+	private Schueler Abteilungssprecher;
+	private Schule Schule;
+	
 	private List<Lehrer> lehrer = new ArrayList<Lehrer>();
 	private List<Klasse> klassen = new ArrayList<Klasse>();
 
 	public Abteilung(){}
-	public Abteilung(String name,String kuerzel)
+	public Abteilung(String name,String kuerzel,Schule Schule)
 	{
 		this.kuerzel = kuerzel;
 		this.name = name;
+		this.Schule = Schule;
 	//	addKlasse(new Klasse(new Abteilung(name,kuerzel),"1","Start"));
 	}
 
@@ -81,5 +86,32 @@ public class Abteilung
 	{
 		return klassen;
 	}
-	
+	public String getAbteilungssprecher() 
+	{
+		if(this.Abteilungssprecher == null)
+		{
+			return "Keiner Zugewiesen";
+		}
+		else
+		{
+			return this.Abteilungssprecher.getVorname() + " " + this.Abteilungssprecher.getNachname();
+		}
+	}
+	public boolean setAbteilungssprecher(Schueler Abteilungssprecher) 
+	{
+		try 
+		{
+			this.Abteilungssprecher = Abteilungssprecher;
+			return true;
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			return false;
+		}
+	}
+	public Schule getSchule() 
+	{
+		return Schule;
+	}
 }

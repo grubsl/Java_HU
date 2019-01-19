@@ -18,9 +18,10 @@ public class Lehrer extends Mitarbeiter
 	private List<Fach> faecher = new ArrayList<Fach>();
 	
 	public Lehrer(){super();}
-	public Lehrer(Long svnr, String vorname, String nachname, Date geburtsdatum, String email, String kuerzel,Abteilung Abteilung)
+	public Lehrer(	Long svnr, String vorname, String nachname, Date geburtsdatum, String email, Adresse Adresse,
+					String kuerzel,Abteilung Abteilung)
 	{
-		super(svnr, vorname, nachname, geburtsdatum, email);
+		super(svnr, vorname, nachname, geburtsdatum, email, Adresse);
 		Aufgabe = false;
 		this.kuerzel = kuerzel;
 		this.Abteilung = Abteilung;

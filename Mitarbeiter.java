@@ -20,9 +20,9 @@ public abstract class Mitarbeiter extends Person
 		super();
 		Mitarbeiter.anzahl++;
 	}
-	public Mitarbeiter(Long svnr, String vorname, String nachname, Date geburtsdatum, String email)
+	public Mitarbeiter(Long svnr, String vorname, String nachname, Date geburtsdatum, String email, Adresse Adresse)
 	{
-		super(svnr, vorname, nachname, geburtsdatum, email);
+		super(svnr, vorname, nachname, geburtsdatum, email, Adresse);
 		Mitarbeiter.anzahl++;
 	}
 }

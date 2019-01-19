@@ -146,4 +146,29 @@ public class Schule
 			return false;
 		}
 	}
+	public boolean setStammklasse(Abteilung Abteilung, String Klasse, String Raum)
+	{  
+	    Klasse hilf = null;
+	    
+	    for(Iterator<Klasse> iterator = (Abteilung.getKlassen()).iterator();iterator.hasNext();)
+		{
+        	hilf = iterator.next();
+        	if (hilf.getBezeichnung().equals(Klasse))
+        	{
+        	    Raum hilf2 = null;
+        	    
+        	    for(Iterator<Raum> iterator2 = raeume.iterator();iterator.hasNext();)
+        		{
+        	    	hilf2 = iterator2.next();
+                	if (hilf2.getRaumNummer().equals(Raum))
+                	{
+                		if(hilf2.setStammklasse(hilf) != true) return false;
+                		if(Abteilung.setStammklasse(hilf,hilf2) != true) return false;
+                		return true;
+                	}
+        		}
+        	}
+		}
+	    return false;
+	}
 }

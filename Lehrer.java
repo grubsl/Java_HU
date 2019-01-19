@@ -74,6 +74,11 @@ public class Lehrer extends Mitarbeiter
 			return false;
 		}
 	}
+	public void rmVorstand(boolean b)
+	{
+		if(b)this.vorstand[0] = null;
+		else this.vorstand[1] = null;
+	}
 	public Klasse[] getVorstand()
 	{
 		return vorstand;

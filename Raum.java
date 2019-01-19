@@ -53,9 +53,18 @@ public class Raum
 	{
 		return belegungen;
 	}
-	public void setStammklasse(Klasse k)
+	public boolean setStammklasse(Klasse Klasse)
 	{
-		Stammklasse=k;
+		try 
+		{
+			Stammklasse=Klasse;
+			return true;
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			return false;
+		}
 	}
 	public Klasse getStammklasse() 
 	{

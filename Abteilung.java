@@ -24,7 +24,46 @@ public class Abteilung
 		this.kuerzel = kuerzel;
 		this.name = name;
 		this.Schule = Schule;
-	//	addKlasse(new Klasse(new Abteilung(name,kuerzel),"1","Start"));
+	}
+	
+	public boolean changeKlassenvorstand(String lehrerkuerzel,String klassenname)
+	{
+		Klasse hilfkl = null;
+		for (Iterator<Klasse> iterator1 = this.klassen.iterator(); iterator1.hasNext();)
+		{
+			hilfkl = iterator1.next();
+			if (hilfkl.getBezeichnung().equals(klassenname))
+			{
+				Lehrer hilfe = null;
+				for (Iterator<Lehrer> iterator = this.lehrer.iterator(); iterator.hasNext();)
+				{
+					hilfe = iterator.next();
+					if (hilfe.getKuerzel().equals(lehrerkuerzel))
+					{
+						/*Prüft ob anderer Lehrer diesen Vorstand bereits besitzt */
+						Lehrer adam = new Lehrer();					
+						if((adam = hilfkl.getKlassenvorstand()) != null)
+						{
+							if((adam.getVorstand())[0] == hilfkl)adam.rmVorstand(true);
+							else adam.rmVorstand(false);
+						}
+						/*Prüft ob hinzufügen erfolgreich war					  */
+						if(hilfe.addVorstand(hilfkl) && hilfkl.setKlassenvorstand(hilfe))
+						{
+							//System.out.println("Vorstand gesetzt!");
+							return true;
+						}
+						else
+						{
+							System.out.println("Ueberpruefen Sie Ihre Eingabe!(max2Vorstände/Lehrer)");
+							return false;
+						}
+					}
+				}
+			}
+		}
+		System.out.println("Ueberpruefen Sie Ihre Eingabe!Richtig benannt?");
+		return false;
 	}
 
 	public boolean addLehrer(Lehrer L)
@@ -113,5 +152,18 @@ public class Abteilung
 	public Schule getSchule() 
 	{
 		return Schule;
+	}
+	public boolean setStammklasse(Klasse Klasse, Raum Raum)
+	{
+		try 
+		{
+			Klasse.setZuhause(Raum);
+			return true;
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			return false;
+		}
 	}
 }

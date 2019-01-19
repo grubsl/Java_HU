@@ -8,9 +8,12 @@ import java.util.*;
 
 public class NichtLehrpersonal extends Mitarbeiter
 {
+	Schule Schule;
+	
 	public NichtLehrpersonal(){super();}
-	public NichtLehrpersonal(Long svnr, String vorname, String nachname, Date geburtsdatum, String email, Adresse Adresse)
+	public NichtLehrpersonal(Long svnr, String vorname, String nachname, Date geburtsdatum, String email, Adresse Adresse, Schule Schule)
 	{
 		super(svnr, vorname, nachname, geburtsdatum, email, Adresse);
+		this.Schule = Schule;
 	}
 }

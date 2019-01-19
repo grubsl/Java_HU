@@ -33,18 +33,64 @@ public class Klassendiagramm_HTL
 		Abteilung a2 = HTL.addAbteilung("Maschinenbau  ", "MB",HTL);
 		Abteilung a3 = HTL.addAbteilung("Elektronik    ", "EL",HTL);
 		
-		a1.addKlasse(new Klasse(a1, 2,"2AHETS"));	a2.addKlasse(new Klasse(a2, 2,"2AHMBA"));
-		a1.addKlasse(new Klasse(a1, 3,"3AHETS"));	a2.addKlasse(new Klasse(a2, 3,"3AHMBA"));
-		a1.addKlasse(new Klasse(a1, 4,"4AHETS"));	a2.addKlasse(new Klasse(a2, 4,"4AHMBA"));
-		a1.addKlasse(new Klasse(a1, 5,"5AHETS"));	a2.addKlasse(new Klasse(a2, 5,"5AHMBA"));
+		Date test = new Date();
+		//Um jeden Lehrer richtiges geb zuzuweisen callDate() statt test einsetzen
+		Lehrer a = new Lehrer(1121L,"Albert","Strauß",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ1",a1);
+		Lehrer b = new Lehrer(1121L,"Manuel","Wiesi",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ2",a1);
+		b.addAbteilungen(a3);
+		Lehrer c = new Lehrer(1121L,"Alex","Pfeifer",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ3",a2);
+		Lehrer d = new Lehrer(1121L,"Fabian","Sickinger",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ4",a2);
+		d.addAbteilungen(a1);
+		Lehrer e = new Lehrer(1121L,"Anna","Jings",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ5",a3);
+		Lehrer f = new Lehrer(1121L,"Nonan","Ole",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ6",a3);
+		f.addAbteilungen(a2);
+		Lehrer x = new Lehrer(1121L,"Albert","Johann",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ7",a3);
+
+		a1.addLehrer(a);	a2.addLehrer(a);	a3.addLehrer(a);
+		a1.addLehrer(b);	a2.addLehrer(b);	a3.addLehrer(b);
+		a1.addLehrer(c);	a2.addLehrer(c);	a3.addLehrer(c);
+		a1.addLehrer(d);	a2.addLehrer(d);	a3.addLehrer(d);
+		a1.addLehrer(e);	a2.addLehrer(e);	a3.addLehrer(e);
+		a1.addLehrer(f);	a2.addLehrer(f);	a3.addLehrer(f);
+		a3.addLehrer(x);	
 		
-		a3.addKlasse(new Klasse(a3, 2,"2AHELS"));	
-		a3.addKlasse(new Klasse(a3, 3,"3AHELS"));	
-		a3.addKlasse(new Klasse(a3, 4,"4AHELS"));	
-		a3.addKlasse(new Klasse(a3, 5,"5AHELS"));	
+		a.addAbteilungen(a2);a.addAbteilungen(a3);		c.addAbteilungen(a1);c.addAbteilungen(a3);
+		b.addAbteilungen(a2);b.addAbteilungen(a3);		d.addAbteilungen(a1);d.addAbteilungen(a3);
+		e.addAbteilungen(a1);e.addAbteilungen(a2);		f.addAbteilungen(a1);f.addAbteilungen(a2);
+		
+		a1.addKlasse(new Klasse(a1, 2,"2AHETS",a));		a2.addKlasse(new Klasse(a2, 2,"2AHMBA",c));
+		a1.addKlasse(new Klasse(a1, 3,"3AHETS",d));		a2.addKlasse(new Klasse(a2, 3,"3AHMBA",c));
+		a1.addKlasse(new Klasse(a1, 4,"4AHETS",a));		a2.addKlasse(new Klasse(a2, 4,"4AHMBA",d));
+		a1.addKlasse(new Klasse(a1, 5,"5AHETS",b));		a2.addKlasse(new Klasse(a2, 5,"5AHMBA",f));
+		
+		a3.addKlasse(new Klasse(a3, 2,"2AHELS",e));	
+		a3.addKlasse(new Klasse(a3, 3,"3AHELS",e));	
+		a3.addKlasse(new Klasse(a3, 4,"4AHELS",f));	
+		a3.addKlasse(new Klasse(a3, 5,"5AHELS",b));	
+		
+		a1.changeKlassenvorstand("AJ1", "2AHETS");		a3.changeKlassenvorstand("AJ5", "2AHELS");
+		a1.changeKlassenvorstand("AJ1", "4AHETS");		a3.changeKlassenvorstand("AJ5", "3AHELS");
+		a1.changeKlassenvorstand("AJ2", "5AHETS");		a3.changeKlassenvorstand("AJ6", "4AHELS");
+		a3.changeKlassenvorstand("AJ2", "5AHELS");		a2.changeKlassenvorstand("AJ6", "5AHMBA");
+		a2.changeKlassenvorstand("AJ3", "2AHMBA");		a2.changeKlassenvorstand("AJ4", "4AHMBA");
+		a2.changeKlassenvorstand("AJ3", "3AHMBA");		a1.changeKlassenvorstand("AJ4", "3AHETS");
+		
+		//a1.changeKlassenvorstand("AJ4", "4AHETS");		// 3.Vorstand geht nicht
 
 		HTL.addRaum(new Raum("W211", 25, Raumtyp.KLASSENZIMMER));
 		HTL.addRaum(new Raum("W213", 35, Raumtyp.KLASSENZIMMER));
+		HTL.addRaum(new Raum("W214", 35, Raumtyp.KLASSENZIMMER));
+		HTL.addRaum(new Raum("W215", 35, Raumtyp.KLASSENZIMMER));
+		HTL.addRaum(new Raum("W217", 35, Raumtyp.KLASSENZIMMER));
+		
+		HTL.setStammklasse(a3, "4AHELS", "W211");
+		HTL.setStammklasse(a1, "2AHETS", "W215");
+		HTL.setStammklasse(a3, "4AHELS", "W211");
+		HTL.setStammklasse(a1, "2AHETS", "W215");
+		HTL.setStammklasse(a3, "4AHELS", "W211");
+	
+		
+		
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Folgender Abteil: Anzeige der Auswahlmöglichkeiten//////////////////////////////////////////////////////////////////////////
@@ -109,23 +155,36 @@ public class Klassendiagramm_HTL
 					Abteilung hilfs_abt;
 					Lehrer hilfs_leh;
 
-					for (Iterator<Abteilung> iterator2 = (HTL.getAbteilungen()).iterator(); iterator2.hasNext();) {
+					for (Iterator<Abteilung> iterator2 = (HTL.getAbteilungen()).iterator(); iterator2.hasNext();) 
+					{
 						hilfs_abt = iterator2.next();
 						System.out.print("\n\n Lehrer in der Abteilung " + hilfs_abt.getName() + "\n");
 
-						for (Iterator<Lehrer> iterator3 = (hilfs_abt.getLehrer()).iterator(); iterator3.hasNext();) {
+						for (Iterator<Lehrer> iterator3 = (hilfs_abt.getLehrer()).iterator(); iterator3.hasNext();) 
+						{
 							hilfs_leh = iterator3.next();
-							hilfs_leh.addVorstand(new Klasse(hilfs_abt, 12, "4AHELS"));
 							DateFormat df = new SimpleDateFormat("d MM yyyy");
 							System.out.print("\n Lehrer: " + hilfs_leh.getVorname() + " " + hilfs_leh.getNachname()
 									+ "\t Kuerzel:" + hilfs_leh.getKuerzel() + "\n\t Geburtsdatum:\t "
 									+ df.format(hilfs_leh.getGeburtsdatum()));
-							try {
-								System.out.print(
-										"\n\t Klassenvorstand bei:" + (hilfs_leh.getVorstand())[0].getBezeichnung());
-								System.out.print("\t&\t" + (hilfs_leh.getVorstand())[1].getBezeichnung());
-							} catch (Exception e) {
+							
+							System.out.print("\n\t Klassenvorstand bei:");
+							try 
+							{							
+								System.out.print((hilfs_leh.getVorstand())[0].getBezeichnung());
+							} 
+							catch (Exception e14) 
+							{
 								System.out.print("\t0");
+							}
+							System.out.print("\t&\t");
+							try
+							{
+								System.out.print((hilfs_leh.getVorstand())[1].getBezeichnung());
+							}
+							catch(Exception e15)
+							{
+								System.out.print("0");
 							}
 						}
 					}
@@ -167,7 +226,8 @@ public class Klassendiagramm_HTL
 						{
 							hilfekl = iterator2.next();
 							System.out.print("\n" + hilfekl.getAbteilung().getKuerzel() + ":\t" + hilfekl.getBezeichnung());
-							System.out.print("\tKlassensprecher: " + hilfekl.getKlassensprecher());
+							System.out.print("\tKlassensprecher: " + hilfekl.getKlassensprecher() + " Klassenvorstand:" + hilfekl.getKlassenvorstand().getKuerzel());
+							//System.out.print("\tStammklasse: " + hilfekl.getZuhause().getRaumNummer());
 						}
 					}
 
@@ -184,7 +244,8 @@ public class Klassendiagramm_HTL
 					for (Iterator<Raum> iterator = (HTL.getRaeume()).iterator(); iterator.hasNext();)
 					{
 						hilfe_raum = iterator.next();
-						System.out.print("\n" + hilfe_raum.getRaumNummer() + " " + hilfe_raum.getMaxSitzplaetze() + " " + hilfe_raum.getRaumtyp());
+						System.out.print("\n" + hilfe_raum.getRaumNummer() + " " + hilfe_raum.getMaxSitzplaetze() + " " + hilfe_raum.getRaumtyp() +
+								 	     "\n Stammklasse von: " + hilfe_raum.getStammklasse().getBezeichnung());
 					}
 					break;
 					
@@ -214,7 +275,7 @@ public class Klassendiagramm_HTL
 							break;
 						}
 					}
-					catch (Exception e)
+					catch (Exception e13)
 					{
 						System.out.println("Nicht erfolgreich!");
 					}
@@ -227,7 +288,7 @@ public class Klassendiagramm_HTL
 						System.out.println("Folgend wird abgefragt: svnr,vorname,nachname,geburtsdatum,"
 										  +"\nemail, Adresse(ort,strasse,hausnummer,plz),kuerzel");
 						if(HTL.addPersonal(new NichtLehrpersonal(callLong(scan), callString(), callString(), callDate(),callString(),
-								new Adresse(callString(),callString(),callint(scan),callint(scan)))))
+								new Adresse(callString(),callString(),callint(scan),callint(scan)),HTL)))
 						{
 							System.out.println("N-Lp. wurde angelegt");
 							break;
@@ -238,7 +299,7 @@ public class Klassendiagramm_HTL
 							break;
 						}
 					}
-					catch (Exception e)
+					catch (Exception e12)
 					{
 						System.out.println("Nicht erfolgreich!");
 					}
@@ -251,7 +312,7 @@ public class Klassendiagramm_HTL
 					{
 						System.out.println("Abteilung:");choose = callString();
 					}
-					catch (Exception e)
+					catch (Exception e2)
 					{
 						System.out.println("Auswahl inkorrekt!");
 						break;
@@ -276,7 +337,7 @@ public class Klassendiagramm_HTL
 								}
 								System.out.println("Fehler!");
 							}
-							catch(Exception e)
+							catch(Exception e3)
 							{
 								System.out.println("Auswahl inkorrekt!");
 								break;
@@ -333,7 +394,7 @@ public class Klassendiagramm_HTL
 					{
 						System.out.println("Abteilung:");choose = callString();
 					} 
-					catch (IOException e) 
+					catch (IOException e11) 
 					{
 						System.out.println("Auswahl inkorrekt!");
 						break;
@@ -346,8 +407,8 @@ public class Klassendiagramm_HTL
 						{
 							try 
 							{
-								System.out.println("Folgend wird abgefragt: Jahrgang,Bezeichnung");
-								if(hilfe.addKlasse(new Klasse(hilfe, callint(scan),callString())))
+								System.out.println("Folgend wird abgefragt: Jahrgang,Bezeichnung,Name des Vorstands");
+								if(hilfe.addKlasse(new Klasse(hilfe, callint(scan),callString(),x)))
 								{
 									System.out.println("Klasse wurde angelegt");
 									break;
@@ -358,7 +419,7 @@ public class Klassendiagramm_HTL
 									break;
 								}
 							} 
-							catch (Exception e) 
+							catch (Exception e4) 
 							{
 								System.out.println("Nicht erfolgreich!");
 								break;
@@ -381,7 +442,7 @@ public class Klassendiagramm_HTL
 							System.out.println("Nicht erfolgreich!");
 						}
 					}
-					catch (Exception e) 
+					catch (Exception e5) 
 					{
 						System.out.println("Nicht erfolgreich!");
 					}
@@ -395,27 +456,27 @@ public class Klassendiagramm_HTL
 					System.out.println("Fehlerhafte Eingabe");
 				}
 			}
-			catch (InputMismatchException e)
+			catch (InputMismatchException e6)
 			{
 				System.out.println("Eingabe Abgebrochen");
 			}
-			catch (NumberFormatException e)
+			catch (NumberFormatException e7)
 			{
 				System.out.println("Fehlerhafte Eingabe");
 			}
-			catch (Exception e)
+			catch (Exception e8)
 			{
 				System.out.println("Fehler");
-				e.printStackTrace();
+				e8.printStackTrace();
 			}
 
 			try
 			{
 				System.in.read();
 			}
-			catch (IOException e)
+			catch (IOException e9)
 			{
-				e.printStackTrace();
+				e9.printStackTrace();
 			}
 
 		/*try
@@ -431,9 +492,9 @@ public class Klassendiagramm_HTL
 			{
 				System.in.read();
 			}
-			catch (IOException e)
+			catch (IOException e10)
 			{
-				e.printStackTrace();
+				e10.printStackTrace();
 			}
 
 		    System.out.flush();

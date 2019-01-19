@@ -9,19 +9,22 @@ public class Klasse
 {
 	private int schulstufe;
 	private String bezeichnung;
-	private Abteilung Abteilung;
 	private int klassengröße = 1;
+	
+	private Abteilung Abteilung;
 	private Schueler Klassensprecher;
 	private Lehrer Klassenvorstand;
+	private Raum Zuhause;
 	
 	private List<Schueler> schueler = new ArrayList<>();
 	
 	public Klasse(){}
-	public Klasse(Abteilung abteilung,int schulstufe,String bezeichnung)
+	public Klasse(Abteilung abteilung,int schulstufe,String bezeichnung,Lehrer Klassenvorstand)
 	{
 		this.Abteilung = abteilung;
 		this.schulstufe = schulstufe;
 		this.bezeichnung = bezeichnung;
+		this.Klassenvorstand = Klassenvorstand;
 	}
 	
 	public boolean setKlassensprecher(Schueler Schueler)
@@ -55,6 +58,7 @@ public class Klasse
 			try 
 			{
 				this.schueler.add(schueler);
+				this.klassengröße++;
 				return true;
 			} 
 			catch (Exception e) 
@@ -94,8 +98,34 @@ public class Klasse
 	{
 		return Klassenvorstand;
 	}
-	public void setKlassenvorstand(Lehrer klassenvorstand) 
+	public boolean setKlassenvorstand(Lehrer klassenvorstand) 
 	{
-		Klassenvorstand = klassenvorstand;
+		try 
+		{
+			Klassenvorstand = klassenvorstand;
+			return true;
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			return false;
+		}
+	}
+	public Raum getZuhause() 
+	{
+		return Zuhause;
+	}
+	public boolean setZuhause(Raum Zuhause) 
+	{
+		try 
+		{
+			this.Zuhause = Zuhause;
+			return true;
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			return false;
+		}
 	}
 }

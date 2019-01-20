@@ -19,12 +19,13 @@ public class Klasse
 	private List<Schueler> schueler = new ArrayList<>();
 	
 	public Klasse(){}
-	public Klasse(Abteilung abteilung,int schulstufe,String bezeichnung,Lehrer Klassenvorstand)
+	public Klasse(Abteilung abteilung,int schulstufe,String bezeichnung,Lehrer Klassenvorstand, Raum Stammklasse)
 	{
 		this.Abteilung = abteilung;
 		this.schulstufe = schulstufe;
 		this.bezeichnung = bezeichnung;
 		this.Klassenvorstand = Klassenvorstand;
+		this.Zuhause = Stammklasse;
 	}
 	
 	public boolean setKlassensprecher(Schueler Schueler)
@@ -115,11 +116,18 @@ public class Klasse
 	{
 		return Zuhause;
 	}
-	public boolean setZuhause(Raum Zuhause) 
+	public boolean setZuhause(Raum Zuhause,Klasse Klasse) 
 	{
+		if(Zuhause.getStammklasse() != null)		//Falls bereits von anderer Klasse Stammklasse
+		{
+			return false;
+		}
+		
 		try 
 		{
+			Klasse.getZuhause().setStammklasse(null);	//Damit Raum wieder frei ist
 			this.Zuhause = Zuhause;
+			Zuhause.setStammklasse(Klasse);
 			return true;
 		} 
 		catch (Exception e) 

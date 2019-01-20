@@ -9,14 +9,15 @@ import java.util.*;
 public class Lehrer extends Mitarbeiter
 {
 	private String kuerzel;
-	private Abteilung Abteilung;
 	public boolean Aufgabe;
 
+	private Abteilung Aufgabe_Abteilung;
 	private Klasse[] vorstand = new Klasse[2];
-	
+
 	private List<Abteilung> Abteilungen = new ArrayList<Abteilung>();
+
 	private List<Fach> faecher = new ArrayList<Fach>();
-	
+
 	public Lehrer(){super();}
 	public Lehrer(	Long svnr, String vorname, String nachname, Date geburtsdatum, String email, Adresse Adresse,
 					String kuerzel,Abteilung Abteilung, Fach fach)
@@ -24,7 +25,8 @@ public class Lehrer extends Mitarbeiter
 		super(svnr, vorname, nachname, geburtsdatum, email, Adresse);
 		Aufgabe = false;
 		this.kuerzel = kuerzel;
-		this.Abteilung = Abteilung;
+		addAbteilungen(Abteilung);
+		this.Aufgabe_Abteilung = null;
 		vorstand[0]=null;
 		vorstand[1]=null;
 		faecher.add(fach);
@@ -38,14 +40,18 @@ public class Lehrer extends Mitarbeiter
 	{
 
 	}
-
-	public Abteilung getAbteilung()
+	public boolean addAbteilungen(Abteilung A)
 	{
-		return Abteilung;
-	}
-	public void addAbteilungen(Abteilung A)
-	{
+		if(this.Abteilungen.contains(A))
+		{
+			return false;
+		}
 		Abteilungen.add(A);
+		return true;
+	}
+	public List<Abteilung> getAbteilungen()
+	{
+		return Abteilungen;
 	}
 	public void addFach(String name,int wochenstunden,Raumtyp raumanforderung)
 	{
@@ -53,7 +59,7 @@ public class Lehrer extends Mitarbeiter
 	}
 	public boolean addVorstand(Klasse klasse)
 	{
-		try 
+		try
 		{
 			if(this.vorstand[0] == null)
 			{
@@ -63,13 +69,13 @@ public class Lehrer extends Mitarbeiter
 			{
 				vorstand[1] = klasse;
 			}
-			else 
+			else
 			{
 				return false;
 			}
 			return true;
-		} 
-		catch (Exception e) 
+		}
+		catch (Exception e)
 		{
 			e.printStackTrace();
 			return false;
@@ -84,6 +90,7 @@ public class Lehrer extends Mitarbeiter
 	{
 		return vorstand;
 	}
+
 	public List<Fach> getFaecher()
 	{
 		return faecher;
@@ -98,10 +105,19 @@ public class Lehrer extends Mitarbeiter
 			{
 				System.out.println("Fach wird bereits unterrichtet");
 				return false;
-				
+
 			}
 		}
 		faecher.add(fach);
 		return true;
+	}
+	public Abteilung getAufgabe_Abteilung()
+	{
+		return Aufgabe_Abteilung;
+	}
+	public void setAufgabe_Abteilung(Abteilung aufgabe_Abteilung)
+	{
+		Aufgabe_Abteilung = aufgabe_Abteilung;
+
 	}
 }

@@ -392,7 +392,6 @@ public class Klassendiagramm_HTL
 					}
 
 					
-					
 					/*for (Iterator<Raum> iterator = (HTL.getRaeume()).iterator(); iterator.hasNext();)
 					{
 						hilfe_raum = iterator.next();

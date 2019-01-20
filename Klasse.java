@@ -15,18 +15,19 @@ public class Klasse
 	private Schueler Klassensprecher;
 	private Lehrer Klassenvorstand;
 	private Raum Zuhause;
-	private Fach fach;
 	
+	private List<Fach> faecher = new ArrayList<>();
 	private List<Schueler> schueler = new ArrayList<>();
 	
 	public Klasse(){}
-	public Klasse(Abteilung abteilung,int schulstufe,String bezeichnung,Lehrer Klassenvorstand, Raum Stammklasse)
+	public Klasse(Abteilung abteilung,int schulstufe,String bezeichnung,Lehrer Klassenvorstand, Raum Stammklasse,Fach f1)
 	{
 		this.Abteilung = abteilung;
 		this.schulstufe = schulstufe;
 		this.bezeichnung = bezeichnung;
 		this.Klassenvorstand = Klassenvorstand;
 		this.Zuhause = Stammklasse;
+		this.faecher.add(f1);
 	}
 	
 	public boolean setKlassensprecher(Schueler Schueler)
@@ -137,13 +138,24 @@ public class Klasse
 			return false;
 		}
 	}
-	public boolean setFach(Fach f)
+	public List<Fach> getFaecher()
 	{
-		if(fach==f)
+		return faecher;
+	}
+	
+	public boolean addFach(Fach f)
+	{
+		Fach hf=new Fach();
+		for (Iterator<Fach> iterator = (this.getFaecher()).iterator(); iterator.hasNext();)
 		{
-			System.out.println("Dieses fach wird bereits in dieser KLasse unterrichtet");
-			return false;
+			hf = iterator.next();
+			if(hf==f)
+			{
+				System.out.println("Fach wird bereits unterrichtet");
+				return false;
+			}
 		}
-			return true;
+		faecher.add(f);
+		return true;
 	}
 }

@@ -105,7 +105,6 @@ public class Lehrer extends Mitarbeiter
 			{
 				System.out.println("Fach wird bereits unterrichtet");
 				return false;
-
 			}
 		}
 		faecher.add(fach);

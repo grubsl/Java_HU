@@ -15,6 +15,7 @@ public class Klasse
 	private Schueler Klassensprecher;
 	private Lehrer Klassenvorstand;
 	private Raum Zuhause;
+	private Fach fach;
 	
 	private List<Schueler> schueler = new ArrayList<>();
 	
@@ -135,5 +136,14 @@ public class Klasse
 			e.printStackTrace();
 			return false;
 		}
+	}
+	public boolean setFach(Fach f)
+	{
+		if(fach==f)
+		{
+			System.out.println("Dieses fach wird bereits in dieser KLasse unterrichtet");
+			return false;
+		}
+			return true;
 	}
 }

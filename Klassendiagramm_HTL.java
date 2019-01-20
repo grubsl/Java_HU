@@ -375,7 +375,7 @@ public class Klassendiagramm_HTL
 												   "\n,geb.(z.B.:10.12.2000),email," +
 												   "\nAdresse(ort,strasse,hausnummer,plz),kuerzel");
 								if(hilfe.addLehrer(new Lehrer(callLong(scan), callString(), callString(), callDate(),
-										callString(), new Adresse(callString(),callString(),callint(scan),callint(scan)), callString(), hilfe)))
+										callString(), new Adresse(callString(),callString(),callint(scan),callint(scan)), callString(), hilfe, new Fach())))
 								{
 									System.out.println("Lehrer wurde angelegt");
 									break;

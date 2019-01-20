@@ -108,7 +108,18 @@ public class Schule
 	}
 	public int getAnzahlSchueler()
 	{
-		return 1;
+	    List<Schueler> alleschueler = new ArrayList<>();
+	    
+	    Abteilung hilf;
+	    
+	    for(Iterator<Abteilung> iterator = (this.abteilungen).iterator();iterator.hasNext();)
+		{
+        	hilf = iterator.next();
+        	alleschueler.addAll(hilf.getSchueler());
+		}
+	    
+	    
+		return alleschueler.size();
 	}
 	public boolean addPersonal(NichtLehrpersonal personal)
 	{

@@ -29,13 +29,13 @@ public class Belegung
 		return Fach;
 	}
 
-	/*public Klasse getKlasse()
+	public Klasse getKlasse()
 	{
-		return this.Klasse;
+		return null;
 	}
 	
 	public Lehrer getLehrer()
 	{
-		return this.Lehrer;
-	}*/
+		return null;
+	}
 }

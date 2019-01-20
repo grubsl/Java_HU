@@ -105,25 +105,25 @@ public class Klassendiagramm_HTL
 		O211.setStammklasse(AHMBA2);O212.setStammklasse(AHMBA3);O213.setStammklasse(AHMBA4);O214.setStammklasse(AHMBA5);
 		W211.setStammklasse(AHELS2);W212.setStammklasse(AHELS3);W213.setStammklasse(AHELS4);W214.setStammklasse(AHELS5);
 
-		Schueler s1 = new Schueler(AHETS2,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.P�lten","Wald",44,3100),false,test);
-		Schueler s2 = new Schueler(AHETS3,0123L,"Hermann","Kleinfuss",test,"herkfuss@gmail.com",new Adresse("Hermannsdorf","Strasse",44,3100),false,test);
-		Schueler s3 = new Schueler(AHETS4,0123L,"David","Blondhaar",test,"davblo@gmnail.com",new Adresse("Wien","Strasse",44,3100),false,test);
-		Schueler s4 = new Schueler(AHETS5,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.P�lten","Wald",44,3100),false,test);
-		Schueler s5 = new Schueler(AHELS2,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.P�lten","Wald",44,3100),false,test);
-		Schueler s6 = new Schueler(AHELS3,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.P�lten","Wald",44,3100),false,test);
-		Schueler s7 = new Schueler(AHELS4,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.P�lten","Wald",44,3100),false,test);
-		Schueler s8 = new Schueler(AHELS5,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.P�lten","Wald",44,3100),false,test);
-		Schueler s9 = new Schueler(AHMBA2,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.P�lten","Wald",44,3100),false,test);
-		Schueler s10 = new Schueler(AHMBA3,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.P�lten","Wald",44,3100),false,test);
-		Schueler s11 = new Schueler(AHMBA4,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.P�lten","Wald",44,3100),false,test);
-		Schueler s12 = new Schueler(AHMBA5,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.P�lten","Wald",44,3100),false,test);
+		Schueler s1 = new Schueler(AHETS2,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.P�lten","Wald",44,3100),test,false);
+		Schueler s2 = new Schueler(AHETS3,0123L,"Hermann","Kleinfuss",test,"herkfuss@gmail.com",new Adresse("Hermannsdorf","Strasse",44,3100),test,false);
+		Schueler s3 = new Schueler(AHETS4,0123L,"David","Blondhaar",test,"davblo@gmnail.com",new Adresse("Wien","Strasse",44,3100),test,false);
+		Schueler s4 = new Schueler(AHETS5,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.P�lten","Wald",44,3100),test,false);
+		Schueler s5 = new Schueler(AHELS2,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.P�lten","Wald",44,3100),test,false);
+		Schueler s6 = new Schueler(AHELS3,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.P�lten","Wald",44,3100),test,false);
+		Schueler s7 = new Schueler(AHELS4,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.P�lten","Wald",44,3100),test,false);
+		Schueler s8 = new Schueler(AHELS5,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.P�lten","Wald",44,3100),test,false);
+		Schueler s9 = new Schueler(AHMBA2,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.P�lten","Wald",44,3100),test,false);
+		Schueler s10 = new Schueler(AHMBA3,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.P�lten","Wald",44,3100),test,false);
+		Schueler s11 = new Schueler(AHMBA4,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.P�lten","Wald",44,3100),test,false);
+		Schueler s12 = new Schueler(AHMBA5,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.P�lten","Wald",44,3100),test,false);
 
 		AHETS2.addSchueler(s1);		AHELS2.addSchueler(s5);		AHMBA2.addSchueler(s9);
 		AHETS3.addSchueler(s2);		AHELS3.addSchueler(s6);		AHMBA3.addSchueler(s10);
 		AHETS4.addSchueler(s3);		AHELS4.addSchueler(s7);		AHMBA4.addSchueler(s11);
 		AHETS5.addSchueler(s4);		AHELS5.addSchueler(s8);		AHMBA5.addSchueler(s12);
 
-		Schueler t_kat = new Schueler(AHETS2,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.P�lten","Wald",44,3100),false,test);
+		Schueler t_kat = new Schueler(AHETS2,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.P�lten","Wald",44,3100),test,false);
 		AHETS2.addSchueler(t_kat);
 
 		//for(int i = 1; i <= 37; i++) {if(AHETS2.addSchueler(s1) == false) System.out.print("Max erreicht");} // bei 36 ist das Maximum erreicht
@@ -148,12 +148,14 @@ public class Klassendiagramm_HTL
 		//a1.changeKlassenvorstand("AJ4", "4AHETS");		// 3.Vorstand geht nicht
 
 		a3.setStammklasse(AHELS5,X111);
-
+		
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Folgender Abteil: Anzeige der Auswahlm�glichkeiten//////////////////////////////////////////////////////////////////////////
 
 		while(true)
 		{
+			System.out.print("Schueleranzahl: " + HTL.getAnzahlSchueler() + "\n");
+
 			System.out.print("\n Informationsseite:" 
 					+ "\n  Schule \t\t [1]" 
 					+ "\n  Abteilung \t\t [2]"
@@ -500,11 +502,11 @@ public class Klassendiagramm_HTL
 								if (hilfsklasse.getBezeichnung().equals(chooseklasse))
 								{
 									System.out.println("Folgend wird abgefragt: svnr,vorname,nachname,geburtsdatum,\n"
-													 + ",Adresse(ort,strasse,hausnummer,plz), email,katalognummer, \n" +
-													   "eigenberechtigt(true,false),eintrittsdatum");
+													 + ",email,Adresse(ort,strasse,hausnummer,plz), \n" +
+													   "eintrittsdatum,eigenberechtigt(true,false)");
 									if (hilfsklasse.addSchueler(new Schueler(hilfsklasse,callLong(scan),
 										callString(),callString(),callDate(),callString(),
-										new Adresse(callString(),callString(),callint(scan),callint(scan)),callboolean(),callDate())))
+										new Adresse(callString(),callString(),callint(scan),callint(scan)),callDate(),callboolean())))
 									{
 										System.out.println("Schueler wurde angelegt");
 										break;

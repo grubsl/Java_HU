@@ -17,7 +17,7 @@ public class Schueler extends Person
 	
 	public Schueler(){schueleranz++;}
 	public Schueler(Klasse Klasse,Long svnr, String vorname, String nachname, Date geburtsdatum, String email, Adresse Adresse, 
-					boolean eigenberechtigt,Date eintrittsdatum)
+					Date eintrittsdatum, boolean eigenberechtigt)
 	{
 		super(svnr, vorname, nachname, geburtsdatum, email, Adresse);
 		this.Klasse = Klasse;

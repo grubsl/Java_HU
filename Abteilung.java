@@ -68,8 +68,16 @@ public class Abteilung
 
 	public boolean addLehrer(Lehrer L)
 	{
-		lehrer.add(L);
-		return true;
+		try 
+		{
+			lehrer.add(L);
+			return true;
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			return false;
+		}
 	}
 	public Klasse addKlasse(Klasse Klasse)
 	{

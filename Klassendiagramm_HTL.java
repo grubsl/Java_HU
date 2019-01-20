@@ -99,6 +99,19 @@ public class Klassendiagramm_HTL
 		O211.setStammklasse(AHMBA2);O212.setStammklasse(AHMBA3);O213.setStammklasse(AHMBA4);O214.setStammklasse(AHMBA5);
 		W211.setStammklasse(AHELS2);W212.setStammklasse(AHELS3);W213.setStammklasse(AHELS4);W214.setStammklasse(AHELS5);
 		
+		Schueler s1 = new Schueler(AHETS2,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.Pölten","Wald",44,3100),1,false,test);
+		Schueler s2 = new Schueler(AHETS3,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.Pölten","Wald",44,3100),1,false,test);
+		Schueler s3 = new Schueler(AHETS4,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.Pölten","Wald",44,3100),1,false,test);
+		Schueler s4 = new Schueler(AHETS5,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.Pölten","Wald",44,3100),1,false,test);
+		Schueler s5 = new Schueler(AHELS2,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.Pölten","Wald",44,3100),1,false,test);
+		Schueler s6 = new Schueler(AHELS3,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.Pölten","Wald",44,3100),1,false,test);
+		Schueler s7 = new Schueler(AHELS4,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.Pölten","Wald",44,3100),1,false,test);
+		Schueler s8 = new Schueler(AHELS5,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.Pölten","Wald",44,3100),1,false,test);
+		Schueler s9 = new Schueler(AHMBA2,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.Pölten","Wald",44,3100),1,false,test);
+		Schueler s10 = new Schueler(AHMBA3,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.Pölten","Wald",44,3100),1,false,test);
+		Schueler s11 = new Schueler(AHMBA4,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.Pölten","Wald",44,3100),1,false,test);
+		Schueler s12 = new Schueler(AHMBA5,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.Pölten","Wald",44,3100),1,false,test);
+
 		a1.changeKlassenvorstand("L1", "2AHETS");		a3.changeKlassenvorstand("L5", "2AHELS");
 		a1.changeKlassenvorstand("L1", "4AHETS");		a3.changeKlassenvorstand("L5", "3AHELS");
 		a1.changeKlassenvorstand("L2", "5AHETS");		a3.changeKlassenvorstand("L6", "4AHELS");

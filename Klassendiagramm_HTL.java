@@ -59,8 +59,8 @@ public class Klassendiagramm_HTL
 		e.addAbteilungen(a1);e.addAbteilungen(a2);		f.addAbteilungen(a1);f.addAbteilungen(a2);
 		
 		a1.setAbteilungsvorstand(a,a1);
-		a1.setAbteilungsvorstand(c,a2);
-		a1.setAbteilungsvorstand(f,a3);
+		a2.setAbteilungsvorstand(c,a2);
+		a3.setAbteilungsvorstand(f,a3);
 		
 		Raum N211 = HTL.addRaum(new Raum("N211", 15, Raumtyp.KLASSENZIMMER));
 		Raum N212 = HTL.addRaum(new Raum("N212", 25, Raumtyp.KLASSENZIMMER));

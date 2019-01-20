@@ -344,12 +344,12 @@ public class Klassendiagramm_HTL
 					hilfsl=null;
 					hilfsf=null;
 					
-					//List<Fach> allefaecher = new ArrayList<Fach>();
+					
 					
 					for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();)
 					{
 						hilfsa=iterator.next();
-						for (Iterator<Lehrer> iterator2 = (hilfsa.getLehrer()).iterator(); iterator.hasNext();)
+						for (Iterator<Lehrer> iterator2 = (hilfsa.getLehrer()).iterator(); iterator2.hasNext();)
 						{
 							hilfsl=iterator2.next();
 							
@@ -357,7 +357,7 @@ public class Klassendiagramm_HTL
 							System.out.print("\t");
 							System.out.println("Faecher: ");
 							
-							for (Iterator<Fach> iterator3 = (hilfsl.getFaecher()).iterator(); iterator.hasNext();)
+							for (Iterator<Fach> iterator3 = (hilfsl.getFaecher()).iterator(); iterator3.hasNext();)
 							{
 								hilfsf=iterator3.next();
 								System.out.println("\t" + hilfsf.getName());
@@ -368,10 +368,32 @@ public class Klassendiagramm_HTL
 					break;
 
 				case RAUM:
+					
+					Klasse hilfsk;
+					hilfsk=null;
+					hilfsa=null;
+					hilfsf=null;
+					
+					for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();)
+					{
+						hilfsa=iterator.next();
+						for (Iterator<Klasse> iterator2 = (hilfsa.getKlassen()).iterator(); iterator2.hasNext();)
+						{
+							hilfsk=iterator2.next();
+							
+							System.out.println(hilfsk.getBezeichnung());
+							
+							for (Iterator<Fach> iterator3 = (hilfsk.getFaecher()).iterator(); iterator3.hasNext();)
+							{
+								hilfsf=iterator3.next();
+								System.out.println("\t" + hilfsf.getName());
+							}
+						}
+					}
 
-					Raum hilfe_raum;
-
-					for (Iterator<Raum> iterator = (HTL.getRaeume()).iterator(); iterator.hasNext();)
+					
+					
+					/*for (Iterator<Raum> iterator = (HTL.getRaeume()).iterator(); iterator.hasNext();)
 					{
 						hilfe_raum = iterator.next();
 						System.out.print("\n" + hilfe_raum.getRaumNummer() + " " + hilfe_raum.getMaxSitzplaetze() + " " + hilfe_raum.getRaumtyp());
@@ -384,7 +406,7 @@ public class Klassendiagramm_HTL
 						{
 							System.out.print("\n Stammklasse von: Keine Zugewiesen");
 						}
-					}
+					}*/
 					break;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

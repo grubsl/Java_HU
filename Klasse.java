@@ -144,7 +144,7 @@ public class Klasse
 		return faecher;
 	}
 	
-	public boolean addFach(Fach F)
+	public boolean addFach(Fach F, Klasse Klasse)
 	{
 		Fach hf=new Fach();
 		for (Iterator<Fach> iterator = (this.getFaecher()).iterator(); iterator.hasNext();)
@@ -156,7 +156,16 @@ public class Klasse
 				return false;
 			}
 		}
-		faecher.add(F);
-		return true;
+		try 
+		{
+			faecher.add(F);
+			F.addKlasse(Klasse, F);
+			return true;
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			return false;
+		}
 	}
 }

@@ -148,7 +148,7 @@ public class Klassendiagramm_HTL
 		//a1.changeKlassenvorstand("AJ4", "4AHETS");		// 3.Vorstand geht nicht
 
 		a3.setStammklasse(AHELS5,X111);
-		
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Folgender Abteil: Anzeige der Auswahlm�glichkeiten//////////////////////////////////////////////////////////////////////////
 
@@ -156,24 +156,24 @@ public class Klassendiagramm_HTL
 		{
 			System.out.print("Schueleranzahl: " + HTL.getAnzahlSchueler() + "\n");
 
-			System.out.print("\n Informationsseite:" 
-					+ "\n  Schule \t\t [1]" 
+			System.out.print("\n Informationsseite:"
+					+ "\n  Schule \t\t [1]"
 					+ "\n  Abteilung \t\t [2]"
-					+ "\n  Adresse \t\t [3]" 
+					+ "\n  Adresse \t\t [3]"
 					+ "\n  Mitarbeiter \t\t [4]"
-					+ "\n  Lehrer \t\t [5]" 
-					+ "\n  Nichtlehrpersonal \t [6]" 
+					+ "\n  Lehrer \t\t [5]"
+					+ "\n  Nichtlehrpersonal \t [6]"
 					+ "\n  Schueler \t\t [7]"
-					+ "\n  Klasse \t\t [8]" 
-					+ "\n  Fach \t\t\t [9]" 
-					+ "\n  Raum \t\t\t [10]" 
-					+ "\n\n Erschaffe        :" 
-					+ "\n  Abteilung \t\t [11]" 
+					+ "\n  Klasse \t\t [8]"
+					+ "\n  Fach \t\t\t [9]"
+					+ "\n  Raum \t\t\t [10]"
+					+ "\n\n Erschaffe        :"
+					+ "\n  Abteilung \t\t [11]"
 					+ "\n  Nicht-Lehr-Personal \t [12]"
-					+ "\n        Lehr-Personal \t [13]" 
-					+ "\n  Schueler \t\t [14]" 
+					+ "\n        Lehr-Personal \t [13]"
+					+ "\n  Schueler \t\t [14]"
 					+ "\n  Klasse \t\t [15]"
-					+ "\n  Raum \t\t\t [16]" 
+					+ "\n  Raum \t\t\t [16]"
 					+ "\n  Abbrechen \t\t [17]");
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -336,44 +336,65 @@ public class Klassendiagramm_HTL
 					}
 
 					break;
-					
+
 				case FACH:
-					
+
 					Abteilung hilfsa;
 					Lehrer hilfsl;
 					Fach hilfsf;
 					hilfsa=null;
 					hilfsl=null;
 					hilfsf=null;
-					
-					//List<Fach> allefaecher = new ArrayList<Fach>();
-					
+
+
+
 					for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();)
 					{
 						hilfsa=iterator.next();
-						for (Iterator<Lehrer> iterator2 = (hilfsa.getLehrer()).iterator(); iterator.hasNext();)
+						for (Iterator<Lehrer> iterator2 = (hilfsa.getLehrer()).iterator(); iterator2.hasNext();)
 						{
 							hilfsl=iterator2.next();
-							
+
 							System.out.println(hilfsl.getKuerzel());
 							System.out.print("\t");
 							System.out.println("Faecher: ");
-							
-							for (Iterator<Fach> iterator3 = (hilfsl.getFaecher()).iterator(); iterator.hasNext();)
+
+							for (Iterator<Fach> iterator3 = (hilfsl.getFaecher()).iterator(); iterator3.hasNext();)
 							{
 								hilfsf=iterator3.next();
 								System.out.println("\t" + hilfsf.getName());
 							}
 						}
 					}
-					
+
 					break;
 
 				case RAUM:
 
-					Raum hilfe_raum;
+					Klasse hilfsk;
+					hilfsk=null;
+					hilfsa=null;
+					hilfsf=null;
 
-					for (Iterator<Raum> iterator = (HTL.getRaeume()).iterator(); iterator.hasNext();)
+					for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();)
+					{
+						hilfsa=iterator.next();
+						for (Iterator<Klasse> iterator2 = (hilfsa.getKlassen()).iterator(); iterator2.hasNext();)
+						{
+							hilfsk=iterator2.next();
+
+							System.out.println(hilfsk.getBezeichnung());
+
+							for (Iterator<Fach> iterator3 = (hilfsk.getFaecher()).iterator(); iterator3.hasNext();)
+							{
+								hilfsf=iterator3.next();
+								System.out.println("\t" + hilfsf.getName());
+							}
+						}
+					}
+
+
+					/*for (Iterator<Raum> iterator = (HTL.getRaeume()).iterator(); iterator.hasNext();)
 					{
 						hilfe_raum = iterator.next();
 						System.out.print("\n" + hilfe_raum.getRaumNummer() + " " + hilfe_raum.getMaxSitzplaetze() + " " + hilfe_raum.getRaumtyp());
@@ -386,7 +407,7 @@ public class Klassendiagramm_HTL
 						{
 							System.out.print("\n Stammklasse von: Keine Zugewiesen");
 						}
-					}
+					}*/
 					break;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

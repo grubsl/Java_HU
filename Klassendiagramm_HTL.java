@@ -13,8 +13,8 @@ public class Klassendiagramm_HTL
 	enum Auswahl
 	{
 		SCHULE,ABTEILUNG,ADRESSE,
-		PERSONAL,MITARBEITER,LEHRER,NICHTLEHRPERSONAL,SCHUELER,
-		KLASSE,FACH,RAUM,BELEGUNG,
+		MITARBEITER,LEHRER,NICHTLEHRPERSONAL,SCHUELER,
+		KLASSE,FACH,RAUM,
 
 		EABT,ENLP,ELP,ES,EK,ER,ABBRECHEN
 	}
@@ -154,13 +154,25 @@ public class Klassendiagramm_HTL
 
 		while(true)
 		{
-			System.out.print("\n Informationsseite:" + "\n  Schule \t\t [1]" + "\n  Abteilung \t\t [2]"
-					+ "\n  Adresse \t\t [3]" + "\n  Personal \t\t [4]" + "\n  Mitarbeiter \t\t [5]"
-					+ "\n  Lehrer \t\t [6]" + "\n  Nichtlehrpersonal \t [7]" + "\n  Schueler \t\t [8]"
-					+ "\n  Klasse \t\t [9]" + "\n  Fach \t\t\t [10]" + "\n  Raum \t\t\t [11]" + "\n  Belegung \t\t [12]"
-					+ "\n\n Erschaffe        :" + "\n  Abteilung \t\t [13]" + "\n  Nicht-Lehr-Personal \t [14]"
-					+ "\n        Lehr-Personal \t [15]" + "\n  Schueler \t\t [16]" + "\n  Klasse \t\t [17]"
-					+ "\n  Raum \t\t\t [18]" + "\n  Abbrechen \t\t [19]");
+			System.out.print("\n Informationsseite:" 
+					+ "\n  Schule \t\t [1]" 
+					+ "\n  Abteilung \t\t [2]"
+					+ "\n  Adresse \t\t [3]" 
+					+ "\n  Mitarbeiter \t\t [4]"
+					+ "\n  Lehrer \t\t [5]" 
+					+ "\n  Nichtlehrpersonal \t [6]" 
+					+ "\n  Schueler \t\t [7]"
+					+ "\n  Klasse \t\t [8]" 
+					+ "\n  Fach \t\t\t [9]" 
+					+ "\n  Raum \t\t\t [10]" 
+					+ "\n\n Erschaffe        :" 
+					+ "\n  Abteilung \t\t [11]" 
+					+ "\n  Nicht-Lehr-Personal \t [12]"
+					+ "\n        Lehr-Personal \t [13]" 
+					+ "\n  Schueler \t\t [14]" 
+					+ "\n  Klasse \t\t [15]"
+					+ "\n  Raum \t\t\t [16]" 
+					+ "\n  Abbrechen \t\t [17]");
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Folgender Abteil: Anzeigen aller zu Klassen zugeh�rigen Elemente nach Auswahl///////////////////////////////////////////////
@@ -218,10 +230,6 @@ public class Klassendiagramm_HTL
 				case MITARBEITER:
 
 					System.out.print("\n Anzahl der Mitarbeiter:" + Mitarbeiter.getAnzahl());
-					break;
-
-				case PERSONAL:
-					System.out.print("\n Bitte Chase Lehrer und Nichtlehrpersonal bet�tigen!");
 					break;
 
 				case LEHRER:
@@ -317,7 +325,7 @@ public class Klassendiagramm_HTL
 							for (Iterator<Fach> iterator3 = (hilfekl.getFaecher()).iterator(); iterator3.hasNext();)
 							{
 								hilfef=iterator3.next();
-								System.out.print("\tFach" + i + ": " + hilfef.getName());
+								System.out.print(" Fach" + i + ": " + hilfef.getName());
 								//System.out.print(i);
 								i++;
 							}
@@ -349,10 +357,6 @@ public class Klassendiagramm_HTL
 							System.out.print("\n Stammklasse von: Keine Zugewiesen");
 						}
 					}
-					break;
-
-				case BELEGUNG:
-
 					break;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -75,7 +75,7 @@ public class Klasse
 	}
 	public void exportStundenplan()
 	{
-		System.out.println("\n !!! 0 !!! \n"); 
+		 
 	}
 	
 	public float getDurschnittsalter()

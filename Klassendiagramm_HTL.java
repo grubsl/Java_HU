@@ -39,7 +39,7 @@ public class Klassendiagramm_HTL
 		Fach am=new Fach("AM",4,Raumtyp.KLASSENZIMMER);
 		Fach dic=new Fach("DIC",5,Raumtyp.KLASSENZIMMER);
 
-		Date test = new Date();
+		Date test = new Date();	//gibt aktuelles Datum an, alternativ zur Benutzereingabe callDate() einsetzen
 		//Um jeden Lehrer richtiges geb zuzuweisen callDate() statt test einsetzen
 		Lehrer a = new Lehrer(1121L,"Albert","Strauï¿½",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"L1",a1,new Fach(),HTL);
 		Lehrer b = new Lehrer(1121L,"Manuel","Wiesi",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"L2",a1,new Fach(),HTL);
@@ -148,6 +148,9 @@ public class Klassendiagramm_HTL
 		//a1.changeKlassenvorstand("AJ4", "4AHETS");		// 3.Vorstand geht nicht
 
 		a3.setStammklasse(AHELS5,X111);
+		a.exportStundenplan();			//Laut Angabe auszuführen/funktioniert aber nicht
+		AHETS2.exportStundenplan();
+		N211.exportBelegung();
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Folgender Abteil: Anzeige der Auswahlmï¿½glichkeiten//////////////////////////////////////////////////////////////////////////

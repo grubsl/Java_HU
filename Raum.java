@@ -70,4 +70,8 @@ public class Raum
 	{
 		return Stammklasse;
 	}
+	public void exportBelegung()
+	{
+		
+	}
 }

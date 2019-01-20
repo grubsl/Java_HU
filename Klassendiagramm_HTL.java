@@ -33,6 +33,12 @@ public class Klassendiagramm_HTL
 		Abteilung a2 = HTL.addAbteilung("Maschinenbau  ", "MB",HTL);
 		Abteilung a3 = HTL.addAbteilung("Elektronik    ", "EL",HTL);
 		
+		Fach ggp=new Fach("GGP",1,Raumtyp.KLASSENZIMMER);
+		Fach deutsch=new Fach("Deutsch",2,Raumtyp.KLASSENZIMMER);
+		Fach englisch=new Fach("englisch",3,Raumtyp.KLASSENZIMMER);
+		Fach am=new Fach("AM",4,Raumtyp.KLASSENZIMMER);
+		Fach dic=new Fach("DIC",5,Raumtyp.KLASSENZIMMER);
+		
 		Date test = new Date();
 		//Um jeden Lehrer richtiges geb zuzuweisen callDate() statt test einsetzen
 		Lehrer a = new Lehrer(1121L,"Albert","Strauﬂ",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"L1",a1,new Fach(),HTL);
@@ -81,15 +87,15 @@ public class Klassendiagramm_HTL
 		
 		Raum X111 = HTL.addRaum(new Raum("X111", 50, Raumtyp.KLASSENZIMMER));
 		
-		Klasse AHETS2 = a1.addKlasse(new Klasse(a1, 2,"2AHETS",a,N211,new Fach()));		Klasse AHMBA2 = a2.addKlasse(new Klasse(a2, 2,"2AHMBA",c,O211,new Fach()));
-		Klasse AHETS3 = a1.addKlasse(new Klasse(a1, 3,"3AHETS",d,N212,new Fach()));		Klasse AHMBA3 = a2.addKlasse(new Klasse(a2, 3,"3AHMBA",c,O212,new Fach()));
-		Klasse AHETS4 = a1.addKlasse(new Klasse(a1, 4,"4AHETS",a,N213,new Fach()));		Klasse AHMBA4 = a2.addKlasse(new Klasse(a2, 4,"4AHMBA",d,O213,new Fach()));
-		Klasse AHETS5 = a1.addKlasse(new Klasse(a1, 5,"5AHETS",b,N214,new Fach()));		Klasse AHMBA5 = a2.addKlasse(new Klasse(a2, 5,"5AHMBA",f,O214,new Fach()));
+		Klasse AHETS2 = a1.addKlasse(new Klasse(a1, 2,"2AHETS",a,N211,deutsch));		Klasse AHMBA2 = a2.addKlasse(new Klasse(a2, 2,"2AHMBA",c,O211,am));
+		Klasse AHETS3 = a1.addKlasse(new Klasse(a1, 3,"3AHETS",d,N212,englisch));		Klasse AHMBA3 = a2.addKlasse(new Klasse(a2, 3,"3AHMBA",c,O212,ggp));
+		Klasse AHETS4 = a1.addKlasse(new Klasse(a1, 4,"4AHETS",a,N213,ggp));		Klasse AHMBA4 = a2.addKlasse(new Klasse(a2, 4,"4AHMBA",d,O213,englisch));
+		Klasse AHETS5 = a1.addKlasse(new Klasse(a1, 5,"5AHETS",b,N214,dic));		Klasse AHMBA5 = a2.addKlasse(new Klasse(a2, 5,"5AHMBA",f,O214,deutsch));
 		
-		Klasse AHELS2 = a3.addKlasse(new Klasse(a3, 2,"2AHELS",e,W211,new Fach()));	
-		Klasse AHELS3 = a3.addKlasse(new Klasse(a3, 3,"3AHELS",e,W212,new Fach()));	
-		Klasse AHELS4 = a3.addKlasse(new Klasse(a3, 4,"4AHELS",f,W213,new Fach()));	
-		Klasse AHELS5 = a3.addKlasse(new Klasse(a3, 5,"5AHELS",b,W214,new Fach()));	
+		Klasse AHELS2 = a3.addKlasse(new Klasse(a3, 2,"2AHELS",e,W211,am));	
+		Klasse AHELS3 = a3.addKlasse(new Klasse(a3, 3,"3AHELS",e,W212,ggp));	
+		Klasse AHELS4 = a3.addKlasse(new Klasse(a3, 4,"4AHELS",f,W213,deutsch));	
+		Klasse AHELS5 = a3.addKlasse(new Klasse(a3, 5,"5AHELS",b,W214,englisch));
 		
 		N211.setStammklasse(AHETS2);N212.setStammklasse(AHETS3);N213.setStammklasse(AHETS4);N214.setStammklasse(AHETS5);
 		O211.setStammklasse(AHMBA2);O212.setStammklasse(AHMBA3);O213.setStammklasse(AHMBA4);O214.setStammklasse(AHMBA5);
@@ -255,8 +261,9 @@ public class Klassendiagramm_HTL
 
 					Abteilung hilfe;
 					Klasse hilfekl;
-					hilfe = null;hilfekl = null;
-
+					Fach hilfef;
+					hilfe = null;hilfekl = null;hilfef=null;
+					int i=1;
 					for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();)
 					{
 						hilfe = iterator.next();
@@ -267,6 +274,15 @@ public class Klassendiagramm_HTL
 							System.out.print("\n" + hilfekl.getAbteilung().getKuerzel() + ":\t" + hilfekl.getBezeichnung());
 							System.out.print("\tKlassensprecher: " + hilfekl.getKlassensprecher() + " Klassenvorstand:" + hilfekl.getKlassenvorstand().getKuerzel());
 							System.out.print("\tStammklasse: " + hilfekl.getZuhause().getRaumNummer());
+							
+							for (Iterator<Fach> iterator3 = (hilfekl.getFaecher()).iterator(); iterator3.hasNext();)
+							{
+								hilfef=iterator3.next();
+								System.out.print("\tFach" + i + ": " + hilfef.getName());
+								//System.out.print(i);
+								i++;
+							}
+							i=1;
 						}
 					}
 
@@ -377,7 +393,7 @@ public class Klassendiagramm_HTL
 												   "\n,geb.(z.B.:10.12.2000),email," +
 												   "\nAdresse(ort,strasse,hausnummer,plz),kuerzel");
 								if(hilfe.addLehrer(new Lehrer(callLong(scan), callString(), callString(), callDate(),
-										callString(), new Adresse(callString(),callString(),callint(scan),callint(scan)), callString(), hilfe, new Fach(),HTL)))
+										callString(), new Adresse(callString(),callString(),callint(scan),callint(scan)), callString(), hilfe, dic,HTL)))
 								{
 									System.out.println("Lehrer wurde angelegt");
 									break;
@@ -455,7 +471,7 @@ public class Klassendiagramm_HTL
 							try 
 							{
 								System.out.println("Folgend wird abgefragt: Jahrgang,Bezeichnung,Name des Vorstands");
-								if(hilfe.addKlasse(new Klasse(hilfe, callint(scan),callString(),x,O211,new Fach())) != null)
+								if(hilfe.addKlasse(new Klasse(hilfe, callint(scan),callString(),x,O211,ggp)) != null)
 								{
 									System.out.println("Klasse wurde angelegt");
 									break;

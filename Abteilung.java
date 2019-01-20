@@ -92,7 +92,7 @@ public class Abteilung
 				Eule.setAufgabe_Abteilung(Abteilung);
 				Av = Eule;
 				Eule.Aufgabe = true;	
-				System.out.println("Vorstand gesetzt!");
+				//System.out.println("Vorstand gesetzt!");
 				return true;
 			} 
 			catch (Exception e) 

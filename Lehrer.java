@@ -39,9 +39,14 @@ public class Lehrer extends Mitarbeiter
 	{
 
 	}
-	public void addAbteilungen(Abteilung A)
+	public boolean addAbteilungen(Abteilung A)
 	{
+		if(this.Abteilungen.contains(A))
+		{
+			return false;
+		}
 		Abteilungen.add(A);
+		return true;
 	}
 	public List<Abteilung> getAbteilungen() 
 	{

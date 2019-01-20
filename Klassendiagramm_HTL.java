@@ -207,12 +207,15 @@ public class Klassendiagramm_HTL
 								System.out.print("0");
 							}
 							
+							System.out.print("\n\t Abteilungen:");
 							Abteilung hilf_intern;
 							hilf_intern = null;
-							/*for (Iterator<Abteilung> iterator_intern = (hilfs_leh.getAbteilung()).iterator(); iterator_intern.hasNext();) 
+							for (Iterator<Abteilung> iterator_intern = (hilfs_leh.getAbteilungen()).iterator(); iterator_intern.hasNext();) 
 							{
-								hilfs_leh = iterator3.next();
-						*/}
+								hilf_intern = iterator_intern.next();
+								System.out.print(hilf_intern.getKuerzel() + "  ");
+							}
+						}
 					}
 					break;
 					

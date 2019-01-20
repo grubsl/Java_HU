@@ -106,8 +106,8 @@ public class Klassendiagramm_HTL
 		W211.setStammklasse(AHELS2);W212.setStammklasse(AHELS3);W213.setStammklasse(AHELS4);W214.setStammklasse(AHELS5);
 		
 		Schueler s1 = new Schueler(AHETS2,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.Pölten","Wald",44,3100),1,false,test);
-		Schueler s2 = new Schueler(AHETS3,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.Pölten","Wald",44,3100),1,false,test);
-		Schueler s3 = new Schueler(AHETS4,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.Pölten","Wald",44,3100),1,false,test);
+		Schueler s2 = new Schueler(AHETS3,0123L,"Hermann","Kleinfuss",test,"herkfuss@gmail.com",new Adresse("Hermannsdorf","Strasse",44,3100),1,false,test);
+		Schueler s3 = new Schueler(AHETS4,0123L,"David","Blondhaar",test,"davblo@gmnail.com",new Adresse("Wien","Strasse",44,3100),1,false,test);
 		Schueler s4 = new Schueler(AHETS5,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.Pölten","Wald",44,3100),1,false,test);
 		Schueler s5 = new Schueler(AHELS2,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.Pölten","Wald",44,3100),1,false,test);
 		Schueler s6 = new Schueler(AHELS3,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.Pölten","Wald",44,3100),1,false,test);

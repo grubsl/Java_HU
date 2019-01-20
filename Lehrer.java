@@ -19,7 +19,7 @@ public class Lehrer extends Mitarbeiter
 	
 	public Lehrer(){super();}
 	public Lehrer(	Long svnr, String vorname, String nachname, Date geburtsdatum, String email, Adresse Adresse,
-					String kuerzel,Abteilung Abteilung)
+					String kuerzel,Abteilung Abteilung, Fach fach)
 	{
 		super(svnr, vorname, nachname, geburtsdatum, email, Adresse);
 		Aufgabe = false;
@@ -27,6 +27,7 @@ public class Lehrer extends Mitarbeiter
 		this.Abteilung = Abteilung;
 		vorstand[0]=null;
 		vorstand[1]=null;
+		faecher.add(fach);
 	}
 
 	public String getKuerzel()
@@ -82,5 +83,25 @@ public class Lehrer extends Mitarbeiter
 	public Klasse[] getVorstand()
 	{
 		return vorstand;
+	}
+	public List<Fach> getFaecher()
+	{
+		return faecher;
+	}
+	public boolean addFach(Fach fach)
+	{
+		Fach hf=new Fach();
+		for (Iterator<Fach> iterator = (this.getFaecher()).iterator(); iterator.hasNext();)
+		{
+			hf = iterator.next();
+			if(hf==fach)
+			{
+				System.out.println("Fach wird bereits unterrichtet");
+				return false;
+				
+			}
+		}
+		faecher.add(fach);
+		return true;
 	}
 }

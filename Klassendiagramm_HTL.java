@@ -148,6 +148,12 @@ public class Klassendiagramm_HTL
 		//a1.changeKlassenvorstand("AJ4", "4AHETS");		// 3.Vorstand geht nicht
 
 		a3.setStammklasse(AHELS5,X111);
+		
+		HTL.addPersonal(new NichtLehrpersonal(1L,"Putzkraft1","a",test,"1@gmail.com",new Adresse("St.Polten","Wald",44,3100),HTL));
+		HTL.addPersonal(new NichtLehrpersonal(2L,"Putzkraft2","b",test,"2@gmail.com",new Adresse("St.Polten","Wald",44,3100),HTL));
+		HTL.addPersonal(new NichtLehrpersonal(3L,"Putzkraft3","c",test,"3@gmail.com",new Adresse("St.Polten","Wald",44,3100),HTL));
+		HTL.addPersonal(new NichtLehrpersonal(4L,"Putzkraft4","d",test,"4@gmail.com",new Adresse("St.Polten","Wald",44,3100),HTL));
+		HTL.addPersonal(new NichtLehrpersonal(5L,"Putzkraft5","e",test,"5@gmail.com",new Adresse("St.Polten","Wald",44,3100),HTL));
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Folgender Abteil: Anzeige der Auswahlm�glichkeiten//////////////////////////////////////////////////////////////////////////

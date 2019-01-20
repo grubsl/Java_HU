@@ -10,6 +10,7 @@ public class Lehrer extends Mitarbeiter
 {
 	private String kuerzel;
 	public boolean Aufgabe;
+	private Schule Schule;
 
 	private Abteilung Aufgabe_Abteilung;
 	private Klasse[] vorstand = new Klasse[2];
@@ -20,9 +21,10 @@ public class Lehrer extends Mitarbeiter
 
 	public Lehrer(){super();}
 	public Lehrer(	Long svnr, String vorname, String nachname, Date geburtsdatum, String email, Adresse Adresse,
-					String kuerzel,Abteilung Abteilung, Fach fach)
+					String kuerzel,Abteilung Abteilung, Fach fach, Schule Schule)
 	{
 		super(svnr, vorname, nachname, geburtsdatum, email, Adresse);
+		this.Schule = Schule;
 		Aufgabe = false;
 		this.kuerzel = kuerzel;
 		addAbteilungen(Abteilung);
@@ -118,5 +120,13 @@ public class Lehrer extends Mitarbeiter
 	{
 		Aufgabe_Abteilung = aufgabe_Abteilung;
 
+	}
+	public Schule getSchule() 
+	{
+		return Schule;
+	}
+	public void setSchule(Schule schule) 
+	{
+		Schule = schule;
 	}
 }

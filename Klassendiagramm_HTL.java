@@ -35,16 +35,16 @@ public class Klassendiagramm_HTL
 		
 		Date test = new Date();
 		//Um jeden Lehrer richtiges geb zuzuweisen callDate() statt test einsetzen
-		Lehrer a = new Lehrer(1121L,"Albert","Strauﬂ",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ1",a1,new Fach());
-		Lehrer b = new Lehrer(1121L,"Manuel","Wiesi",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ2",a1,new Fach());
+		Lehrer a = new Lehrer(1121L,"Albert","Strauﬂ",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"L1",a1,new Fach(),HTL);
+		Lehrer b = new Lehrer(1121L,"Manuel","Wiesi",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"L2",a1,new Fach(),HTL);
 		b.addAbteilungen(a3);
-		Lehrer c = new Lehrer(1121L,"Alex","Pfeifer",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ3",a2,new Fach());
-		Lehrer d = new Lehrer(1121L,"Fabian","Sickinger",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ4",a2,new Fach());
+		Lehrer c = new Lehrer(1121L,"Alex","Pfeifer",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"L3",a2,new Fach(),HTL);
+		Lehrer d = new Lehrer(1121L,"Fabian","Sickinger",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"L4",a2,new Fach(),HTL);
 		d.addAbteilungen(a1);
-		Lehrer e = new Lehrer(1121L,"Anna","Jings",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ5",a3,new Fach());
-		Lehrer f = new Lehrer(1121L,"Nonan","Ole",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ6",a3,new Fach());
+		Lehrer e = new Lehrer(1121L,"Anna","Jings",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"L5",a3,new Fach(),HTL);
+		Lehrer f = new Lehrer(1121L,"Nonan","Ole",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"L6",a3,new Fach(),HTL);
 		f.addAbteilungen(a2);
-		Lehrer x = new Lehrer(1121L,"Albert","Johann",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ7",a3,new Fach());
+		Lehrer x = new Lehrer(1121L,"Albert","Johann",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"L7",a3,new Fach(),HTL);
 
 		a1.addLehrer(a);	a2.addLehrer(a);	a3.addLehrer(a);
 		a1.addLehrer(b);	a2.addLehrer(b);	a3.addLehrer(b);
@@ -61,6 +61,8 @@ public class Klassendiagramm_HTL
 		a1.setAbteilungsvorstand(a,a1);
 		a2.setAbteilungsvorstand(c,a2);
 		a3.setAbteilungsvorstand(f,a3);
+		
+		a1.setAbteilungsvorstand(b,a1);
 		
 		Raum N211 = HTL.addRaum(new Raum("N211", 15, Raumtyp.KLASSENZIMMER));
 		Raum N212 = HTL.addRaum(new Raum("N212", 25, Raumtyp.KLASSENZIMMER));
@@ -93,12 +95,12 @@ public class Klassendiagramm_HTL
 		O211.setStammklasse(AHMBA2);O212.setStammklasse(AHMBA3);O213.setStammklasse(AHMBA4);O214.setStammklasse(AHMBA5);
 		W211.setStammklasse(AHELS2);W212.setStammklasse(AHELS3);W213.setStammklasse(AHELS4);W214.setStammklasse(AHELS5);
 		
-		a1.changeKlassenvorstand("AJ1", "2AHETS");		a3.changeKlassenvorstand("AJ5", "2AHELS");
-		a1.changeKlassenvorstand("AJ1", "4AHETS");		a3.changeKlassenvorstand("AJ5", "3AHELS");
-		a1.changeKlassenvorstand("AJ2", "5AHETS");		a3.changeKlassenvorstand("AJ6", "4AHELS");
-		a3.changeKlassenvorstand("AJ2", "5AHELS");		a2.changeKlassenvorstand("AJ6", "5AHMBA");
-		a2.changeKlassenvorstand("AJ3", "2AHMBA");		a2.changeKlassenvorstand("AJ4", "4AHMBA");
-		a2.changeKlassenvorstand("AJ3", "3AHMBA");		a1.changeKlassenvorstand("AJ4", "3AHETS");
+		a1.changeKlassenvorstand("L1", "2AHETS");		a3.changeKlassenvorstand("L5", "2AHELS");
+		a1.changeKlassenvorstand("L1", "4AHETS");		a3.changeKlassenvorstand("L5", "3AHELS");
+		a1.changeKlassenvorstand("L2", "5AHETS");		a3.changeKlassenvorstand("L6", "4AHELS");
+		a3.changeKlassenvorstand("L2", "5AHELS");		a2.changeKlassenvorstand("L6", "5AHMBA");
+		a2.changeKlassenvorstand("L3", "2AHMBA");		a2.changeKlassenvorstand("L4", "4AHMBA");
+		a2.changeKlassenvorstand("L3", "3AHMBA");		a1.changeKlassenvorstand("L4", "3AHETS");
 		
 		//a1.changeKlassenvorstand("AJ4", "4AHETS");		// 3.Vorstand geht nicht
 		
@@ -375,7 +377,7 @@ public class Klassendiagramm_HTL
 												   "\n,geb.(z.B.:10.12.2000),email," +
 												   "\nAdresse(ort,strasse,hausnummer,plz),kuerzel");
 								if(hilfe.addLehrer(new Lehrer(callLong(scan), callString(), callString(), callDate(),
-										callString(), new Adresse(callString(),callString(),callint(scan),callint(scan)), callString(), hilfe, new Fach())))
+										callString(), new Adresse(callString(),callString(),callint(scan),callint(scan)), callString(), hilfe, new Fach(),HTL)))
 								{
 									System.out.println("Lehrer wurde angelegt");
 									break;

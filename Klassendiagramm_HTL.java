@@ -139,7 +139,7 @@ public class Klassendiagramm_HTL
 					
 				case ABTEILUNG:
 
-					Abteilung hilf = new Abteilung();
+					Abteilung hilf = null;
 
 					for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();)
 					{
@@ -153,7 +153,15 @@ public class Klassendiagramm_HTL
 						{
 							System.out.print("\n Abteilungssprecher: Keiner Zugewiesen");
 						}
-						System.out.print("\n Abteilungsvorstand: " + hilf.getAv().getKuerzel());
+						
+						try 
+						{
+							System.out.print("\n Abteilungsvorstand: " + hilf.getAv().getKuerzel());
+						} 
+						catch (Exception e1) 
+						{
+							System.out.print("\n Abteilungsvorstand: Keiner Zugewiesen");
+						}
 					}
 					break;
 					

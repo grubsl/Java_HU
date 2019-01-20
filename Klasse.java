@@ -9,7 +9,7 @@ public class Klasse
 {
 	private int schulstufe;
 	private String bezeichnung;
-	private int klassengröße = 1;
+	private int klassengröße = 0;
 	
 	private Abteilung Abteilung;
 	private Schueler Klassensprecher;
@@ -20,14 +20,14 @@ public class Klasse
 	private List<Schueler> schueler = new ArrayList<>();
 	
 	public Klasse(){}
-	public Klasse(Abteilung abteilung,int schulstufe,String bezeichnung,Lehrer Klassenvorstand, Raum Stammklasse,Fach f1)
+	public Klasse(Abteilung abteilung,int schulstufe,String bezeichnung,Lehrer Klassenvorstand, Raum Stammklasse,Fach F)
 	{
 		this.Abteilung = abteilung;
 		this.schulstufe = schulstufe;
 		this.bezeichnung = bezeichnung;
 		this.Klassenvorstand = Klassenvorstand;
 		this.Zuhause = Stammklasse;
-		this.faecher.add(f1);
+		this.faecher.add(F);
 	}
 	
 	public boolean setKlassensprecher(Schueler Schueler)
@@ -54,14 +54,15 @@ public class Klasse
 			return this.Klassensprecher.getVorname() + " " + this.Klassensprecher.getNachname();
 		}
 	}
-	public boolean addSchueler(Schueler schueler)
+	public boolean addSchueler(Schueler Schueler)
 	{
-		if(klassengröße < 36)
+		if(klassengröße <= 36)
 		{
 			try 
 			{
-				this.schueler.add(schueler);
+				this.schueler.add(Schueler);
 				this.klassengröße++;
+				Schueler.setKatalognummer(klassengröße);
 				return true;
 			} 
 			catch (Exception e) 
@@ -101,11 +102,11 @@ public class Klasse
 	{
 		return Klassenvorstand;
 	}
-	public boolean setKlassenvorstand(Lehrer klassenvorstand) 
+	public boolean setKlassenvorstand(Lehrer Klassenvorstand) 
 	{
 		try 
 		{
-			Klassenvorstand = klassenvorstand;
+			this.Klassenvorstand = Klassenvorstand;
 			return true;
 		} 
 		catch (Exception e) 
@@ -143,19 +144,19 @@ public class Klasse
 		return faecher;
 	}
 	
-	public boolean addFach(Fach f)
+	public boolean addFach(Fach F)
 	{
 		Fach hf=new Fach();
 		for (Iterator<Fach> iterator = (this.getFaecher()).iterator(); iterator.hasNext();)
 		{
 			hf = iterator.next();
-			if(hf==f)
+			if(hf==F)
 			{
 				System.out.println("Fach wird bereits unterrichtet");
 				return false;
 			}
 		}
-		faecher.add(f);
+		faecher.add(F);
 		return true;
 	}
 }

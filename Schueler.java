@@ -11,19 +11,18 @@ public class Schueler extends Person
 	private int katalognummer;
 	private boolean eigenberechtigt;
 	private Date eintrittsdatum;
-	private Klasse klasse;
+	private Klasse Klasse;
 	private static long schueleranz = 0;
 	private static long schueler_id;
 	
 	public Schueler(){schueleranz++;}
-	public Schueler(Klasse klasse,Long svnr, String vorname, String nachname, Date geburtsdatum, String email, Adresse Adresse, 
-					int katalognummer,boolean eigenberechtigt,Date eintrittsdatum)
+	public Schueler(Klasse Klasse,Long svnr, String vorname, String nachname, Date geburtsdatum, String email, Adresse Adresse, 
+					boolean eigenberechtigt,Date eintrittsdatum)
 	{
 		super(svnr, vorname, nachname, geburtsdatum, email, Adresse);
-		this.klasse = klasse;
+		this.Klasse = Klasse;
 		schueleranz++;
 		schueler_id = schueleranz;
-		this.katalognummer = katalognummer;
 		this.eigenberechtigt = eigenberechtigt;
 		this.eintrittsdatum = eintrittsdatum;
 	}
@@ -50,6 +49,10 @@ public class Schueler extends Person
 	}
 	public Klasse getKlasse() 
 	{
-		return klasse;
+		return Klasse;
+	}
+	public void setKatalognummer(int katalognummer) 
+	{
+		this.katalognummer = katalognummer;
 	}
 }

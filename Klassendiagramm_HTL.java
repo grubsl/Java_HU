@@ -326,9 +326,37 @@ public class Klassendiagramm_HTL
 					}
 
 					break;
-
+					
 				case FACH:
-
+					
+					Abteilung hilfsa;
+					Lehrer hilfsl;
+					Fach hilfsf;
+					hilfsa=null;
+					hilfsl=null;
+					hilfsf=null;
+					
+					//List<Fach> allefaecher = new ArrayList<Fach>();
+					
+					for (Iterator<Abteilung> iterator = (HTL.getAbteilungen()).iterator(); iterator.hasNext();)
+					{
+						hilfsa=iterator.next();
+						for (Iterator<Lehrer> iterator2 = (hilfsa.getLehrer()).iterator(); iterator.hasNext();)
+						{
+							hilfsl=iterator2.next();
+							
+							System.out.println(hilfsl.getKuerzel());
+							System.out.print("\t");
+							System.out.println("Faecher: ");
+							
+							for (Iterator<Fach> iterator3 = (hilfsl.getFaecher()).iterator(); iterator.hasNext();)
+							{
+								hilfsf=iterator3.next();
+								System.out.println("\t" + hilfsf.getName());
+							}
+						}
+					}
+					
 					break;
 
 				case RAUM:

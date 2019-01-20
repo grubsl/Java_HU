@@ -117,6 +117,7 @@ public class Klassendiagramm_HTL
 		Schueler s10 = new Schueler(AHMBA3,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.P�lten","Wald",44,3100),false,test);
 		Schueler s11 = new Schueler(AHMBA4,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.P�lten","Wald",44,3100),false,test);
 		Schueler s12 = new Schueler(AHMBA5,0123L,"Ibraham","Stevic",test,"ibra@stec.sb",new Adresse("St.P�lten","Wald",44,3100),false,test);
+		Schueler s13 = new Schueler(AHETS2,0123L,"Josef","Baumgartner",test,"jobaum@gmail.com",new Adresse("Woeselburg","Strasse",44,3100),false,test);
 
 		AHETS2.addSchueler(s1);		AHELS2.addSchueler(s5);		AHMBA2.addSchueler(s9);
 		AHETS3.addSchueler(s2);		AHELS3.addSchueler(s6);		AHMBA3.addSchueler(s10);
@@ -521,7 +522,7 @@ public class Klassendiagramm_HTL
 								if (hilfsklasse.getBezeichnung().equals(chooseklasse))
 								{
 									System.out.println("Folgend wird abgefragt: svnr,vorname,nachname,geburtsdatum,\n"
-													 + ",Adresse(ort,strasse,hausnummer,plz), email,katalognummer, \n" +
+													 + ",Adresse(ort,strasse,hausnummer,plz),email,katalognummer, \n" +
 													   "eigenberechtigt(true,false),eintrittsdatum");
 									if (hilfsklasse.addSchueler(new Schueler(hilfsklasse,callLong(scan),
 										callString(),callString(),callDate(),callString(),

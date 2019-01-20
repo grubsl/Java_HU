@@ -79,15 +79,15 @@ public class Klassendiagramm_HTL
 		
 		Raum X111 = HTL.addRaum(new Raum("X111", 50, Raumtyp.KLASSENZIMMER));
 		
-		Klasse AHETS2 = a1.addKlasse(new Klasse(a1, 2,"2AHETS",a,N211));		Klasse AHMBA2 = a2.addKlasse(new Klasse(a2, 2,"2AHMBA",c,O211));
-		Klasse AHETS3 = a1.addKlasse(new Klasse(a1, 3,"3AHETS",d,N212));		Klasse AHMBA3 = a2.addKlasse(new Klasse(a2, 3,"3AHMBA",c,O212));
-		Klasse AHETS4 = a1.addKlasse(new Klasse(a1, 4,"4AHETS",a,N213));		Klasse AHMBA4 = a2.addKlasse(new Klasse(a2, 4,"4AHMBA",d,O213));
-		Klasse AHETS5 = a1.addKlasse(new Klasse(a1, 5,"5AHETS",b,N214));		Klasse AHMBA5 = a2.addKlasse(new Klasse(a2, 5,"5AHMBA",f,O214));
+		Klasse AHETS2 = a1.addKlasse(new Klasse(a1, 2,"2AHETS",a,N211,new Fach()));		Klasse AHMBA2 = a2.addKlasse(new Klasse(a2, 2,"2AHMBA",c,O211,new Fach()));
+		Klasse AHETS3 = a1.addKlasse(new Klasse(a1, 3,"3AHETS",d,N212,new Fach()));		Klasse AHMBA3 = a2.addKlasse(new Klasse(a2, 3,"3AHMBA",c,O212,new Fach()));
+		Klasse AHETS4 = a1.addKlasse(new Klasse(a1, 4,"4AHETS",a,N213,new Fach()));		Klasse AHMBA4 = a2.addKlasse(new Klasse(a2, 4,"4AHMBA",d,O213,new Fach()));
+		Klasse AHETS5 = a1.addKlasse(new Klasse(a1, 5,"5AHETS",b,N214,new Fach()));		Klasse AHMBA5 = a2.addKlasse(new Klasse(a2, 5,"5AHMBA",f,O214,new Fach()));
 		
-		Klasse AHELS2 = a3.addKlasse(new Klasse(a3, 2,"2AHELS",e,W211));	
-		Klasse AHELS3 = a3.addKlasse(new Klasse(a3, 3,"3AHELS",e,W212));	
-		Klasse AHELS4 = a3.addKlasse(new Klasse(a3, 4,"4AHELS",f,W213));	
-		Klasse AHELS5 = a3.addKlasse(new Klasse(a3, 5,"5AHELS",b,W214));	
+		Klasse AHELS2 = a3.addKlasse(new Klasse(a3, 2,"2AHELS",e,W211,new Fach()));	
+		Klasse AHELS3 = a3.addKlasse(new Klasse(a3, 3,"3AHELS",e,W212,new Fach()));	
+		Klasse AHELS4 = a3.addKlasse(new Klasse(a3, 4,"4AHELS",f,W213,new Fach()));	
+		Klasse AHELS5 = a3.addKlasse(new Klasse(a3, 5,"5AHELS",b,W214,new Fach()));	
 		
 		N211.setStammklasse(AHETS2);N212.setStammklasse(AHETS3);N213.setStammklasse(AHETS4);N214.setStammklasse(AHETS5);
 		O211.setStammklasse(AHMBA2);O212.setStammklasse(AHMBA3);O213.setStammklasse(AHMBA4);O214.setStammklasse(AHMBA5);
@@ -453,7 +453,7 @@ public class Klassendiagramm_HTL
 							try 
 							{
 								System.out.println("Folgend wird abgefragt: Jahrgang,Bezeichnung,Name des Vorstands");
-								if(hilfe.addKlasse(new Klasse(hilfe, callint(scan),callString(),x,O211)) != null)
+								if(hilfe.addKlasse(new Klasse(hilfe, callint(scan),callString(),x,O211,new Fach())) != null)
 								{
 									System.out.println("Klasse wurde angelegt");
 									break;

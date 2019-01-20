@@ -35,16 +35,16 @@ public class Klassendiagramm_HTL
 		
 		Date test = new Date();
 		//Um jeden Lehrer richtiges geb zuzuweisen callDate() statt test einsetzen
-		Lehrer a = new Lehrer(1121L,"Albert","Strauﬂ",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ1",a1);
-		Lehrer b = new Lehrer(1121L,"Manuel","Wiesi",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ2",a1);
+		Lehrer a = new Lehrer(1121L,"Albert","Strauﬂ",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ1",a1,new Fach());
+		Lehrer b = new Lehrer(1121L,"Manuel","Wiesi",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ2",a1,new Fach());
 		b.addAbteilungen(a3);
-		Lehrer c = new Lehrer(1121L,"Alex","Pfeifer",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ3",a2);
-		Lehrer d = new Lehrer(1121L,"Fabian","Sickinger",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ4",a2);
+		Lehrer c = new Lehrer(1121L,"Alex","Pfeifer",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ3",a2,new Fach());
+		Lehrer d = new Lehrer(1121L,"Fabian","Sickinger",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ4",a2,new Fach());
 		d.addAbteilungen(a1);
-		Lehrer e = new Lehrer(1121L,"Anna","Jings",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ5",a3);
-		Lehrer f = new Lehrer(1121L,"Nonan","Ole",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ6",a3);
+		Lehrer e = new Lehrer(1121L,"Anna","Jings",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ5",a3,new Fach());
+		Lehrer f = new Lehrer(1121L,"Nonan","Ole",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ6",a3,new Fach());
 		f.addAbteilungen(a2);
-		Lehrer x = new Lehrer(1121L,"Albert","Johann",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ7",a3);
+		Lehrer x = new Lehrer(1121L,"Albert","Johann",test,"gffs@d.at",new Adresse("sdf","dfs",4,34),"AJ7",a3,new Fach());
 
 		a1.addLehrer(a);	a2.addLehrer(a);	a3.addLehrer(a);
 		a1.addLehrer(b);	a2.addLehrer(b);	a3.addLehrer(b);

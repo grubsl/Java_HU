@@ -42,10 +42,23 @@ public class Schule
 	{
 		if(Lehrer.Aufgabe == false)
 		{
-			if(Lehrer != null)
+			if(this.Direktor != null)
 			{
-				Lehrer = Direktor;
+				Lehrer kruzifix = this.Direktor;
+				kruzifix.Aufgabe = false;
+				kruzifix.setAufgabe_Abteilung(null);
+			}
+			try
+			{
+				Direktor = Lehrer;
+				Direktor.Aufgabe = true;	
+				//System.out.println("Vorstand gesetzt!");
 				return true;
+			} 
+			catch (Exception e) 
+			{
+				e.printStackTrace();
+				return false;
 			}
 		}
 		return false;

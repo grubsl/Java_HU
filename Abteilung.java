@@ -71,20 +71,34 @@ public class Abteilung
 		lehrer.add(L);
 		return true;
 	}
-	public boolean addKlasse(Klasse klasse)
+	public Klasse addKlasse(Klasse Klasse)
 	{
-		klassen.add(klasse);
-		return true;
+		klassen.add(Klasse);
+		return Klasse;
 	}
 
-	public boolean setAbteilungsvorstand(Lehrer Eule)
+	public boolean setAbteilungsvorstand(Lehrer Eule, Abteilung Abteilung)
 	{
 		if(Eule.Aufgabe == false)
 		{
-			if(Eule != null)
+			if(this.Av != null)
 			{
+				Lehrer kruzifix = this.Av;
+				kruzifix.Aufgabe = false;
+				kruzifix.setAufgabe_Abteilung(null);
+			}
+			try
+			{
+				Eule.setAufgabe_Abteilung(Abteilung);
 				Av = Eule;
+				Eule.Aufgabe = true;	
+				System.out.println("Vorstand gesetzt!");
 				return true;
+			} 
+			catch (Exception e) 
+			{
+				e.printStackTrace();
+				return false;
 			}
 		}
 		return false;
@@ -157,7 +171,7 @@ public class Abteilung
 	{
 		try 
 		{
-			Klasse.setZuhause(Raum);
+			Klasse.setZuhause(Raum,Klasse);
 			return true;
 		} 
 		catch (Exception e) 

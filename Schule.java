@@ -109,17 +109,17 @@ public class Schule
 	{
 		return raeume;
 	}
-	public boolean addRaum(Raum Raum) 
+	public Raum addRaum(Raum Raum) 
 	{
 		try 
 		{
 			this.raeume.add(Raum);
-			return true;
+			return Raum;
 		} 
 		catch (Exception e) 
 		{
 			e.printStackTrace();
-			return false;
+			return null;
 		}
 	}
 	public String getSchulsprecher() 

@@ -58,15 +58,40 @@ public class Klassendiagramm_HTL
 		b.addAbteilungen(a2);b.addAbteilungen(a3);		d.addAbteilungen(a1);d.addAbteilungen(a3);
 		e.addAbteilungen(a1);e.addAbteilungen(a2);		f.addAbteilungen(a1);f.addAbteilungen(a2);
 		
-		a1.addKlasse(new Klasse(a1, 2,"2AHETS",a));		a2.addKlasse(new Klasse(a2, 2,"2AHMBA",c));
-		a1.addKlasse(new Klasse(a1, 3,"3AHETS",d));		a2.addKlasse(new Klasse(a2, 3,"3AHMBA",c));
-		a1.addKlasse(new Klasse(a1, 4,"4AHETS",a));		a2.addKlasse(new Klasse(a2, 4,"4AHMBA",d));
-		a1.addKlasse(new Klasse(a1, 5,"5AHETS",b));		a2.addKlasse(new Klasse(a2, 5,"5AHMBA",f));
+		a1.setAbteilungsvorstand(a,a1);
+		a1.setAbteilungsvorstand(c,a2);
+		a1.setAbteilungsvorstand(f,a3);
 		
-		a3.addKlasse(new Klasse(a3, 2,"2AHELS",e));	
-		a3.addKlasse(new Klasse(a3, 3,"3AHELS",e));	
-		a3.addKlasse(new Klasse(a3, 4,"4AHELS",f));	
-		a3.addKlasse(new Klasse(a3, 5,"5AHELS",b));	
+		Raum N211 = HTL.addRaum(new Raum("N211", 15, Raumtyp.KLASSENZIMMER));
+		Raum N212 = HTL.addRaum(new Raum("N212", 25, Raumtyp.KLASSENZIMMER));
+		Raum N213 = HTL.addRaum(new Raum("N213", 25, Raumtyp.KLASSENZIMMER));
+		Raum N214 = HTL.addRaum(new Raum("N214", 35, Raumtyp.KLASSENZIMMER));
+		
+		Raum O211 = HTL.addRaum(new Raum("O211", 15, Raumtyp.KLASSENZIMMER));
+		Raum O212 = HTL.addRaum(new Raum("O212", 25, Raumtyp.KLASSENZIMMER));
+		Raum O213 = HTL.addRaum(new Raum("O213", 25, Raumtyp.KLASSENZIMMER));
+		Raum O214 = HTL.addRaum(new Raum("O214", 35, Raumtyp.KLASSENZIMMER));
+		
+		Raum W211 = HTL.addRaum(new Raum("W211", 15, Raumtyp.KLASSENZIMMER));
+		Raum W212 = HTL.addRaum(new Raum("W212", 25, Raumtyp.KLASSENZIMMER));
+		Raum W213 = HTL.addRaum(new Raum("W213", 25, Raumtyp.KLASSENZIMMER));
+		Raum W214 = HTL.addRaum(new Raum("W214", 35, Raumtyp.KLASSENZIMMER));
+		
+		Raum X111 = HTL.addRaum(new Raum("X111", 50, Raumtyp.KLASSENZIMMER));
+		
+		Klasse AHETS2 = a1.addKlasse(new Klasse(a1, 2,"2AHETS",a,N211));		Klasse AHMBA2 = a2.addKlasse(new Klasse(a2, 2,"2AHMBA",c,O211));
+		Klasse AHETS3 = a1.addKlasse(new Klasse(a1, 3,"3AHETS",d,N212));		Klasse AHMBA3 = a2.addKlasse(new Klasse(a2, 3,"3AHMBA",c,O212));
+		Klasse AHETS4 = a1.addKlasse(new Klasse(a1, 4,"4AHETS",a,N213));		Klasse AHMBA4 = a2.addKlasse(new Klasse(a2, 4,"4AHMBA",d,O213));
+		Klasse AHETS5 = a1.addKlasse(new Klasse(a1, 5,"5AHETS",b,N214));		Klasse AHMBA5 = a2.addKlasse(new Klasse(a2, 5,"5AHMBA",f,O214));
+		
+		Klasse AHELS2 = a3.addKlasse(new Klasse(a3, 2,"2AHELS",e,W211));	
+		Klasse AHELS3 = a3.addKlasse(new Klasse(a3, 3,"3AHELS",e,W212));	
+		Klasse AHELS4 = a3.addKlasse(new Klasse(a3, 4,"4AHELS",f,W213));	
+		Klasse AHELS5 = a3.addKlasse(new Klasse(a3, 5,"5AHELS",b,W214));	
+		
+		N211.setStammklasse(AHETS2);N212.setStammklasse(AHETS3);N213.setStammklasse(AHETS4);N214.setStammklasse(AHETS5);
+		O211.setStammklasse(AHMBA2);O212.setStammklasse(AHMBA3);O213.setStammklasse(AHMBA4);O214.setStammklasse(AHMBA5);
+		W211.setStammklasse(AHELS2);W212.setStammklasse(AHELS3);W213.setStammklasse(AHELS4);W214.setStammklasse(AHELS5);
 		
 		a1.changeKlassenvorstand("AJ1", "2AHETS");		a3.changeKlassenvorstand("AJ5", "2AHELS");
 		a1.changeKlassenvorstand("AJ1", "4AHETS");		a3.changeKlassenvorstand("AJ5", "3AHELS");
@@ -76,21 +101,8 @@ public class Klassendiagramm_HTL
 		a2.changeKlassenvorstand("AJ3", "3AHMBA");		a1.changeKlassenvorstand("AJ4", "3AHETS");
 		
 		//a1.changeKlassenvorstand("AJ4", "4AHETS");		// 3.Vorstand geht nicht
-
-		HTL.addRaum(new Raum("W211", 25, Raumtyp.KLASSENZIMMER));
-		HTL.addRaum(new Raum("W213", 35, Raumtyp.KLASSENZIMMER));
-		HTL.addRaum(new Raum("W214", 35, Raumtyp.KLASSENZIMMER));
-		HTL.addRaum(new Raum("W215", 35, Raumtyp.KLASSENZIMMER));
-		HTL.addRaum(new Raum("W217", 35, Raumtyp.KLASSENZIMMER));
 		
-		HTL.setStammklasse(a3, "4AHELS", "W211");
-		HTL.setStammklasse(a1, "2AHETS", "W215");
-		HTL.setStammklasse(a3, "4AHELS", "W211");
-		HTL.setStammklasse(a1, "2AHETS", "W215");
-		HTL.setStammklasse(a3, "4AHELS", "W211");
-	
-		
-		
+		a3.setStammklasse(AHELS5,X111);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Folgender Abteil: Anzeige der Auswahlmöglichkeiten//////////////////////////////////////////////////////////////////////////
@@ -133,7 +145,15 @@ public class Klassendiagramm_HTL
 					{
 						hilf = iterator.next();
 						System.out.print("\n Abteilung:" + hilf.getName() + "\tKuerzel: " + hilf.getKuerzel());
-						System.out.print("\n Abteilungssprecher: " + hilf.getAbteilungssprecher());
+						try 
+						{
+							System.out.print("\n Abteilungssprecher: " + hilf.getAbteilungssprecher());
+						} 
+						catch (Exception e1) 
+						{
+							System.out.print("\n Abteilungssprecher: Keiner Zugewiesen");
+						}
+						System.out.print("\n Abteilungsvorstand: " + hilf.getAv().getKuerzel());
 					}
 					break;
 					
@@ -186,7 +206,13 @@ public class Klassendiagramm_HTL
 							{
 								System.out.print("0");
 							}
-						}
+							
+							Abteilung hilf_intern;
+							hilf_intern = null;
+							/*for (Iterator<Abteilung> iterator_intern = (hilfs_leh.getAbteilung()).iterator(); iterator_intern.hasNext();) 
+							{
+								hilfs_leh = iterator3.next();
+						*/}
 					}
 					break;
 					
@@ -227,7 +253,7 @@ public class Klassendiagramm_HTL
 							hilfekl = iterator2.next();
 							System.out.print("\n" + hilfekl.getAbteilung().getKuerzel() + ":\t" + hilfekl.getBezeichnung());
 							System.out.print("\tKlassensprecher: " + hilfekl.getKlassensprecher() + " Klassenvorstand:" + hilfekl.getKlassenvorstand().getKuerzel());
-							//System.out.print("\tStammklasse: " + hilfekl.getZuhause().getRaumNummer());
+							System.out.print("\tStammklasse: " + hilfekl.getZuhause().getRaumNummer());
 						}
 					}
 
@@ -244,8 +270,16 @@ public class Klassendiagramm_HTL
 					for (Iterator<Raum> iterator = (HTL.getRaeume()).iterator(); iterator.hasNext();)
 					{
 						hilfe_raum = iterator.next();
-						System.out.print("\n" + hilfe_raum.getRaumNummer() + " " + hilfe_raum.getMaxSitzplaetze() + " " + hilfe_raum.getRaumtyp() +
-								 	     "\n Stammklasse von: " + hilfe_raum.getStammklasse().getBezeichnung());
+						System.out.print("\n" + hilfe_raum.getRaumNummer() + " " + hilfe_raum.getMaxSitzplaetze() + " " + hilfe_raum.getRaumtyp());
+						
+						try
+						{
+							System.out.print("\n Stammklasse von: " + hilfe_raum.getStammklasse().getBezeichnung());
+						}
+						catch(NullPointerException e0)
+						{
+							System.out.print("\n Stammklasse von: Keine Zugewiesen");
+						}
 					}
 					break;
 					
@@ -408,7 +442,7 @@ public class Klassendiagramm_HTL
 							try 
 							{
 								System.out.println("Folgend wird abgefragt: Jahrgang,Bezeichnung,Name des Vorstands");
-								if(hilfe.addKlasse(new Klasse(hilfe, callint(scan),callString(),x)))
+								if(hilfe.addKlasse(new Klasse(hilfe, callint(scan),callString(),x,O211)) != null)
 								{
 									System.out.println("Klasse wurde angelegt");
 									break;
@@ -433,7 +467,7 @@ public class Klassendiagramm_HTL
 					try
 					{
 						System.out.println("Folgend wird abgefragt: Nummer,Sitzplätze,Raumtyp(1..4)");
-						if(HTL.addRaum(new Raum(callString(), callint(scan), Raumtyp.values()[callint(scan)])))
+						if(HTL.addRaum(new Raum(callString(), callint(scan), Raumtyp.values()[callint(scan)])) != null)
 						{
 							System.out.println("Raum wurde angelegt");
 						}

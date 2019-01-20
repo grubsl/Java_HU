@@ -63,6 +63,10 @@ public class Schule
 		}
 		return false;
 	}
+	public Lehrer getDirektor() 
+	{
+		return Direktor;
+	}
 
 	public Long getSchulkennzahl()
 	{

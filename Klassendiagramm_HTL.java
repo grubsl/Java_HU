@@ -62,7 +62,11 @@ public class Klassendiagramm_HTL
 		a2.setAbteilungsvorstand(c,a2);
 		a3.setAbteilungsvorstand(f,a3);
 		
-		a1.setAbteilungsvorstand(b,a1);
+		a1.setAbteilungsvorstand(b,a1);	// ET erhält neuen AV
+		HTL.setDirektor(a);
+		if(HTL.setDirektor(b) == false) //System.out.print("Keine 2 Vorstände möglich!");
+		HTL.setDirektor(e);
+		a1.setAbteilungsvorstand(a,a1);	// Aufgabe des Direktors wird übertragen, a kann neue Aufgabe übernehmen
 		
 		Raum N211 = HTL.addRaum(new Raum("N211", 15, Raumtyp.KLASSENZIMMER));
 		Raum N212 = HTL.addRaum(new Raum("N212", 25, Raumtyp.KLASSENZIMMER));
@@ -136,6 +140,7 @@ public class Klassendiagramm_HTL
 					
 					System.out.print("\n" + HTL.getName() + "\t" + HTL.getSchulkennzahl() + "\n" + HTL.getSchultyp());
 					System.out.print("\nSchulsprecher: " + HTL.getSchulsprecher());
+					System.out.print("\nDirektor     : " + HTL.getDirektor().getKuerzel());
 					HTL.printOrt();
 					break;
 					
